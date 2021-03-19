@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { TopSectionComponent } from './pages/home/top-section/top-section.component';
+import { BottomSectionComponent } from './pages/home/bottom-section/bottom-section.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    TopSectionComponent,
+    BottomSectionComponent
   ],
   imports: [
     BrowserModule,

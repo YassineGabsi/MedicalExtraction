@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+  --blue-color: #0895A4;
+  --black-color: #3F4343;
+  --second-blue-color: #48B4C6;
+
+  --text-size: 16px;
+  --title-size: 23px;
+  --extra-title-size: 27px;
+  --buttons-size: 18px;
+}
+
+* {
+  outline: none;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.row-custom {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  padding: 5px 40px;
+  border-radius: 20px;
+  box-shadow: 0 6px 8px 0 rgba(0,0,0, 0.2);
+  font-size: var(--buttons-size);
+}
+.button-primary  {
+  font-weight: 500;
+  background-color: var(--blue-color);
+  color: #ffffff;
+}
+
+
+.blue-line {
+  color: var(--blue-color);
+  background-color: var(--blue-color);
+  width: 50%;
+  height: 3px;
+  border-radius: 20px;
+  margin: 10px 0;
+}
