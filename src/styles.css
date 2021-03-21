@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+/* *************************************
+   ************* VARIABLES *************
+   ************************************* */
+
 :root {
   --blue-color: #0895A4;
   --black-color: #3F4343;
@@ -11,6 +15,10 @@
   --buttons-size: 18px;
 }
 
+/* *************************************
+   ************** GENERAL **************
+   ************************************* */
+
 * {
   outline: none;
 }
@@ -18,10 +26,33 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+button {
+  border: none;
+}
+
 .row-custom {
   display: flex;
   flex-wrap: wrap;
 }
+
+.blue-line {
+  color: var(--blue-color);
+  background-color: var(--blue-color);
+  width: 50%;
+  height: 3px;
+  border-radius: 20px;
+  margin: 10px 0;
+}
+
+.title-mini {
+  color: var(--blue-color);
+  font-weight: 700;
+  font-size: var(--title-size);
+}
+
+/* *************************************
+   ************** BUTTONS **************
+   ************************************* */
 
 .button {
   display: inline-block;
@@ -36,12 +67,34 @@ body {
   color: #ffffff;
 }
 
+/* *************************************
+   ************** INPUTS ***************
+   ************************************* */
 
-.blue-line {
-  color: var(--blue-color);
+.custom-input {
+  padding: 10px 30px;
+  border-radius: 15px;
+  border: 1px solid var(--blue-color);
+  box-shadow: 0 6px 8px 0 rgba(0,0,0, 0.2);
+  transition: 0.3s all ease-in-out;
+}
+
+.custom-input:focus {
   background-color: var(--blue-color);
-  width: 50%;
-  height: 3px;
-  border-radius: 20px;
-  margin: 10px 0;
+  box-shadow: 0 6px 8px 0 rgba(0,0,0, 0.4);
+  color: #ffffff;
+  transition: 0.3s all ease-in-out;
+}
+
+.custom-input::placeholder {
+  transition: 0.3s all ease-in-out;
+}
+.custom-input:focus::placeholder {
+  color: #ffffff;
+  transition: 0.3s all ease-in-out;
+}
+
+.label {
+  font-weight: bold;
+  font-size: var(--buttons-size);
 }
