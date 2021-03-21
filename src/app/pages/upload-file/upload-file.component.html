@@ -15,15 +15,17 @@
         <img class="img-fluid mt-4" style="max-height: 90%" src="../../../assets/images/upload.png" alt="">
       </div>
       <div class="col-md-6 d-flex align-items-center" style="flex-wrap: wrap;">
-        <div class="upload-wrapper">
+        <div class="upload-wrapper" (click)="uploadFile()">
           <i class="fas fa-cloud-upload-alt fa-3x"></i>
           <div class="mx-2" style="font-weight: bold">Click to upload your file</div>
         </div>
         <br>
         <div class="text-center" style="width: 100%">
-          <button class="button button-primary">
+          <button (click)="uploadFile()" class="button button-primary">
             Upload File
           </button>
+          <input id="upload-file" type="file" value="importer" style="display:none;"
+                 (change)="onChangeFile($event)">
         </div>
       </div>
     </div>
