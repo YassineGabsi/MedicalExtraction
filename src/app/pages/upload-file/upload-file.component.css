@@ -2,5 +2,9 @@
   background-color: rgba(8,149,164,0.22);
   border: 2px dashed var(--blue-color);
   min-height: 200px;
+  width: 100%;
   border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
