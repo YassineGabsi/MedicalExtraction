@@ -66,11 +66,21 @@ button {
   border-radius: 20px;
   box-shadow: 0 6px 8px 0 rgba(0,0,0, 0.2);
   font-size: var(--buttons-size);
+  transition: 0.3s all ease-in-out;
 }
 .button-primary  {
   font-weight: 500;
   background-color: var(--blue-color);
+  border: 1px solid var(--blue-color);
   color: #ffffff;
+  transition: 0.3s all ease-in-out;
+}
+
+.button-primary:hover {
+  transition: 0.3s all ease-in-out;
+  background: transparent;
+  border: 1px solid var(--blue-color);
+  color: var(--blue-color);
 }
 
 /* *************************************

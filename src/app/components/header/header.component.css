@@ -9,6 +9,7 @@
 
 .sign-up-button {
   margin-top: 5px;
+  background-color: transparent;
   color: var(--blue-color);
   font-size: var(--buttons-size);
   margin-left: auto;
