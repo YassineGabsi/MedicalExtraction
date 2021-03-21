@@ -50,6 +50,12 @@ button {
   font-size: var(--title-size);
 }
 
+.page-wrapper {
+  min-height: 91vh;
+  background: url("./assets/images/back-right.png") no-repeat;
+  background-position: initial;
+}
+
 /* *************************************
    ************** BUTTONS **************
    ************************************* */
