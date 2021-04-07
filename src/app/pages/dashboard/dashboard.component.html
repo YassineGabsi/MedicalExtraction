@@ -1,12 +1,21 @@
 <ng-sidebar-container style="height: 100vh;">
 
   <!-- A sidebar -->
-  <ng-sidebar [(opened)]="opened" [mode]="mode">
-    <p>Sidebar contents</p>
+  <ng-sidebar class="text-center" [(opened)]="opened" [mode]="mode">
+    <button class="button button-primary download-button">Download Output</button>
+    <div class="white-line mx-auto mt-4"></div>
+    <div class="records-wrapper">
+      <div class="record-item"
+           *ngFor="let record of records;let i = index"
+           (click)="selectRecord(i)"
+           [ngClass]="{'record-item-active' : recordSelected === i}">
+        Record {{record}}
+      </div>
+    </div>
   </ng-sidebar>
 
   <!-- Page content -->
-  <div ng-sidebar-content>
+  <div class="sidebar-content" ng-sidebar-content>
     <button (click)="_toggleSidebar()">Toggle sidebar</button>
 
   </div>

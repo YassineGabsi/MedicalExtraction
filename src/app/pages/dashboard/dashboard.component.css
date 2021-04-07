@@ -1,9 +1,16 @@
 
 ::ng-deep aside {
   background-color: #3F4343;
-  padding: 2em 1em;
+  padding: 2em 0;
 }
 
+:host >>> .ng-sidebar {
+  width: 250px;
+}
+.sidebar-content {
+  background-color: var(--second-white-color);
+  height: 100vh;
+}
 .demo-header {
   align-items: center;
   background: #0273d4;
@@ -56,4 +63,33 @@
   color: #fff;
 }
 
+.records-wrapper {
 
+}
+.record-item {
+  border-bottom: 1px solid #ffffff;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: var(--text-size);
+  font-weight: bold;
+  padding: 10px 10px;
+  text-align: center;
+  transition: 0.3s all ease-in-out;
+  cursor: pointer;
+}
+
+.record-item:hover {
+  background-color: var(--second-blue-color);
+  color: #ffffff;
+  transition: 0.3s all ease-in-out;
+}
+
+.record-item-active {
+  color: var(--blue-color) !important;
+  background-color: var(--second-white-color);
+  transition: 0.3s all ease-in-out;
+}
+
+.record-item-active:hover {
+  background-color: var(--second-white-color) !important;
+}

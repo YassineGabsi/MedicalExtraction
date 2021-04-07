@@ -8,6 +8,7 @@
   --blue-color: #0895A4;
   --black-color: #3F4343;
   --second-blue-color: #48B4C6;
+  --second-white-color: #F8F8F8;
 
   --text-size: 16px;
   --title-size: 23px;
@@ -40,6 +41,15 @@ button {
   background-color: var(--blue-color);
   width: 50%;
   height: 3px;
+  border-radius: 20px;
+  margin: 10px 0;
+}
+
+.white-line {
+  color: #ffffff;
+  background-color: #ffffff;
+  width: 80%;
+  height: 2px;
   border-radius: 20px;
   margin: 10px 0;
 }
@@ -81,6 +91,19 @@ button {
   background: transparent;
   border: 1px solid var(--blue-color);
   color: var(--blue-color);
+}
+
+.download-button {
+  font-size: var(--text-size);
+  font-weight: bold;
+  background-color: transparent !important;
+  border: 2px solid var(--blue-color);
+  padding: 5px 25px !important;
+}
+.download-button:hover {
+  background-color: var(--blue-color) !important;
+  color: #ffffff;
+  border: 2px solid var(--blue-color);
 }
 
 /* *************************************
