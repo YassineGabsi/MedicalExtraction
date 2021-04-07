@@ -66,6 +66,40 @@ button {
   background-position: initial;
 }
 
+.only-desktop {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .only-desktop {
+    display: none;
+  }
+}
+
+/* *************************************
+   ************* SCROLLBAR *************
+   ************************************* */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 /* *************************************
    ************** BUTTONS **************
    ************************************* */
@@ -136,4 +170,45 @@ button {
 .label {
   font-weight: bold;
   font-size: var(--buttons-size);
+}
+
+/* *************************************
+   ********** GENERAL HEADER ***********
+   ************************************* */
+
+.img-avatar {
+  max-height: 40px;
+  float: right;
+}
+
+/* *************************************
+   ************* DROPDOWN **************
+   ************************************* */
+
+.profile-dropdown {
+  padding: 10px;
+  color: var(--blue-color);
+  font-size: var(--text-size);
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.profile-dropdown:hover {
+  color: #000000;
+  transition: 0.3s all ease-in-out;
+}
+
+.dropdown-menu {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.dropdown-item {
+  transition: 0.3s all ease-in-out;
+}
+
+.dropdown-item:hover {
+  transition: 0.3s all ease-in-out;
+  background-color: var(--blue-color);
+  color: #ffffff;
 }

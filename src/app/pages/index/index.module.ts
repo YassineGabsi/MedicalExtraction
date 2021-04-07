@@ -26,6 +26,9 @@ import {IndexRoutingModule} from './index-routing.module';
     RegisterComponent,
     IndexComponent
   ],
+  exports: [
+    HeaderComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
