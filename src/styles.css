@@ -127,6 +127,20 @@ button {
   color: var(--blue-color);
 }
 
+
+.sign-up-button {
+  margin-top: 5px;
+  background-color: transparent;
+  color: var(--blue-color);
+  font-size: var(--buttons-size);
+  margin-left: auto;
+  margin-right: 0;
+}
+.login-button {
+  margin-left: 30px;
+  margin-right: 0;
+}
+
 .download-button {
   font-size: var(--text-size);
   font-weight: bold;
@@ -138,6 +152,19 @@ button {
   background-color: var(--blue-color) !important;
   color: #ffffff;
   border: 2px solid var(--blue-color);
+}
+
+.transparent-button {
+  background-color: transparent;
+  border: 2px solid var(--blue-color);
+  color: var(--blue-color);
+  font-weight: bold;
+}
+
+.transparent-button:hover {
+  background-color: var(--blue-color);
+  border: 2px solid var(--blue-color);
+  color: #ffffff;
 }
 
 /* *************************************
@@ -170,6 +197,17 @@ button {
 .label {
   font-weight: bold;
   font-size: var(--buttons-size);
+}
+
+/* *************************************
+   ************** CARDS ****************
+   ************************************* */
+
+.card-dashboard {
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+  border-radius: 19px;
+  background-color: #ffffff;
+  padding: 20px 30px;
 }
 
 /* *************************************

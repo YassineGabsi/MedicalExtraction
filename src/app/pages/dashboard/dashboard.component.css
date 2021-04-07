@@ -7,9 +7,15 @@
 :host >>> .ng-sidebar {
   width: 250px;
 }
+
+:host >>> .ng-sidebar__content {
+  background-color: var(--second-white-color);
+}
+
 .sidebar-content {
   background-color: var(--second-white-color);
   height: 100vh;
+  padding: 0 10px;
 }
 .demo-header {
   align-items: center;
@@ -92,4 +98,35 @@
 
 .record-item-active:hover {
   background-color: var(--second-white-color) !important;
+}
+
+.record-title {
+  font-size: var(--title-size);
+  font-weight: bold;
+  color: var(--blue-color);
+}
+
+.infos-wrapper {
+  padding: 10px 15px;
+  border-radius: 19px;
+  border: 2px solid var(--blue-color);
+}
+
+.tag-extracted-term {
+  background-color: var(--blue-color);
+  color: #ffffff;
+  border-radius: 19px;
+  padding: 8px 13px;
+  margin: 5px 5px;
+}
+
+.cards-wrapper {
+  padding-bottom: 30px;
+}
+
+.label-title {
+  color: var(--blue-color);
+  font-weight: bold;
+  font-size: var(--buttons-size);
+  margin-left: 10px;
 }
