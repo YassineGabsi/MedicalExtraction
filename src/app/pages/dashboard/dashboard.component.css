@@ -1,9 +1,22 @@
 
 ::ng-deep aside {
   background-color: #3F4343;
-  padding: 2em 1em;
+  padding: 2em 0;
 }
 
+:host >>> .ng-sidebar {
+  width: 250px;
+}
+
+:host >>> .ng-sidebar__content {
+  background-color: var(--second-white-color);
+}
+
+.sidebar-content {
+  background-color: var(--second-white-color);
+  height: 100vh;
+  padding: 0 10px;
+}
 .demo-header {
   align-items: center;
   background: #0273d4;
@@ -56,4 +69,64 @@
   color: #fff;
 }
 
+.records-wrapper {
 
+}
+.record-item {
+  border-bottom: 1px solid #ffffff;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: var(--text-size);
+  font-weight: bold;
+  padding: 10px 10px;
+  text-align: center;
+  transition: 0.3s all ease-in-out;
+  cursor: pointer;
+}
+
+.record-item:hover {
+  background-color: var(--second-blue-color);
+  color: #ffffff;
+  transition: 0.3s all ease-in-out;
+}
+
+.record-item-active {
+  color: var(--blue-color) !important;
+  background-color: var(--second-white-color);
+  transition: 0.3s all ease-in-out;
+}
+
+.record-item-active:hover {
+  background-color: var(--second-white-color) !important;
+}
+
+.record-title {
+  font-size: var(--title-size);
+  font-weight: bold;
+  color: var(--blue-color);
+}
+
+.infos-wrapper {
+  padding: 10px 15px;
+  border-radius: 19px;
+  border: 2px solid var(--blue-color);
+}
+
+.tag-extracted-term {
+  background-color: var(--blue-color);
+  color: #ffffff;
+  border-radius: 19px;
+  padding: 8px 13px;
+  margin: 5px 5px;
+}
+
+.cards-wrapper {
+  padding-bottom: 30px;
+}
+
+.label-title {
+  color: var(--blue-color);
+  font-weight: bold;
+  font-size: var(--buttons-size);
+  margin-left: 10px;
+}

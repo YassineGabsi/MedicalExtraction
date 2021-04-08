@@ -1,15 +1,137 @@
 <ng-sidebar-container style="height: 100vh;">
 
   <!-- A sidebar -->
-  <ng-sidebar [(opened)]="opened" [mode]="mode">
-    <p>Sidebar contents</p>
+  <ng-sidebar class="text-center" [(opened)]="opened" [mode]="mode">
+    <button class="button button-primary download-button">Download Output</button>
+    <div class="white-line mx-auto mt-4"></div>
+    <div class="records-wrapper">
+      <div class="record-item"
+           *ngFor="let record of records;let i = index"
+           (click)="selectRecord(i)"
+           [ngClass]="{'record-item-active' : recordSelected === i}">
+        Record {{record}}
+      </div>
+    </div>
   </ng-sidebar>
 
   <!-- Page content -->
-  <div ng-sidebar-content>
+  <div class="sidebar-content" ng-sidebar-content>
+    <app-navbar-dashboard></app-navbar-dashboard>
     <button (click)="_toggleSidebar()">Toggle sidebar</button>
+    <div class="cards-wrapper">
+      <h4 class="record-title text-center">
+        Record 1 Validations
+      </h4>
+      <div class="card-dashboard mt-4 mx-5">
+        <div class="row">
+          <div class="col-md-6">
+            <label class="label ml-3 mt-3">Title</label>
+            <div class="infos-wrapper">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+            </div>
 
+            <label class="label ml-3 mt-3">Inclusion Criteria</label>
+            <div class="infos-wrapper">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+              et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+              aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+              et dolore magna aliquyam erat, sed diam
+            </div>
+
+            <label class="label ml-3 mt-3">Extracted medical Terms</label>
+            <div class="row" style="padding-right: 15px; padding-left: 15px;">
+              <div class="tag-extracted-term" *ngFor="let tag of medicalTags">
+                #{{tag}}
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="label ml-3 mt-3">Research Summary</label>
+            <div class="infos-wrapper">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+              et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+              aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+              et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+              aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+              et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+              aliquyam erat, sed dia
+            </div>
+          </div>
+        </div>
+      </div>
+      <h4 class="mx-5 record-title mt-4">
+        Record 1 Validations
+      </h4>
+      <div class="row mx-5">
+        <div class="col-md-4 mt-2">
+          <div class="card-dashboard">
+            <h6 class="label-title">Top 1</h6>
+            <label class="label ml-3 mt-1">Suggested ICD Chapter</label>
+            <div class="infos-wrapper">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+            </div>
+
+            <label class="label ml-3 mt-3">Suggested ICD Name</label>
+            <div class="infos-wrapper">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+            </div>
+            <div class="text-center mt-3">
+              <button class="button button-primary login-button mx-auto">Accept</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mt-2">
+          <div class="card-dashboard">
+            <h6 class="label-title">Top 2</h6>
+            <label class="label ml-3 mt-1">Suggested ICD Chapter</label>
+            <div class="infos-wrapper">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+            </div>
+
+            <label class="label ml-3 mt-3">Suggested ICD Name</label>
+            <div class="infos-wrapper">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+            </div>
+            <div class="text-center mt-3">
+              <button class="button button-primary login-button mx-auto">Accept</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mt-2">
+          <div class="card-dashboard">
+            <h6 class="label-title">Top 3</h6>
+            <label class="label ml-3 mt-1">Suggested ICD Chapter</label>
+            <div class="infos-wrapper">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+            </div>
+
+            <label class="label ml-3 mt-3">Suggested ICD Name</label>
+            <div class="infos-wrapper">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+            </div>
+            <div class="text-center mt-3">
+              <button class="button button-primary login-button mx-auto">Accept</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <button class="button transparent-button">Accept All</button>
+      </div>
+    </div>
   </div>
 
 </ng-sidebar-container>
-hh

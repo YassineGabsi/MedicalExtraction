@@ -8,6 +8,7 @@
   --blue-color: #0895A4;
   --black-color: #3F4343;
   --second-blue-color: #48B4C6;
+  --second-white-color: #F8F8F8;
 
   --text-size: 16px;
   --title-size: 23px;
@@ -44,6 +45,15 @@ button {
   margin: 10px 0;
 }
 
+.white-line {
+  color: #ffffff;
+  background-color: #ffffff;
+  width: 80%;
+  height: 2px;
+  border-radius: 20px;
+  margin: 10px 0;
+}
+
 .title-mini {
   color: var(--blue-color);
   font-weight: 700;
@@ -54,6 +64,40 @@ button {
   min-height: 91vh;
   background: url("./assets/images/back-right.png") no-repeat;
   background-position: initial;
+}
+
+.only-desktop {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .only-desktop {
+    display: none;
+  }
+}
+
+/* *************************************
+   ************* SCROLLBAR *************
+   ************************************* */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /* *************************************
@@ -81,6 +125,46 @@ button {
   background: transparent;
   border: 1px solid var(--blue-color);
   color: var(--blue-color);
+}
+
+
+.sign-up-button {
+  margin-top: 5px;
+  background-color: transparent;
+  color: var(--blue-color);
+  font-size: var(--buttons-size);
+  margin-left: auto;
+  margin-right: 0;
+}
+.login-button {
+  margin-left: 30px;
+  margin-right: 0;
+}
+
+.download-button {
+  font-size: var(--text-size);
+  font-weight: bold;
+  background-color: transparent !important;
+  border: 2px solid var(--blue-color);
+  padding: 5px 25px !important;
+}
+.download-button:hover {
+  background-color: var(--blue-color) !important;
+  color: #ffffff;
+  border: 2px solid var(--blue-color);
+}
+
+.transparent-button {
+  background-color: transparent;
+  border: 2px solid var(--blue-color);
+  color: var(--blue-color);
+  font-weight: bold;
+}
+
+.transparent-button:hover {
+  background-color: var(--blue-color);
+  border: 2px solid var(--blue-color);
+  color: #ffffff;
 }
 
 /* *************************************
@@ -113,4 +197,56 @@ button {
 .label {
   font-weight: bold;
   font-size: var(--buttons-size);
+}
+
+/* *************************************
+   ************** CARDS ****************
+   ************************************* */
+
+.card-dashboard {
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+  border-radius: 19px;
+  background-color: #ffffff;
+  padding: 20px 30px;
+}
+
+/* *************************************
+   ********** GENERAL HEADER ***********
+   ************************************* */
+
+.img-avatar {
+  max-height: 40px;
+  float: right;
+}
+
+/* *************************************
+   ************* DROPDOWN **************
+   ************************************* */
+
+.profile-dropdown {
+  padding: 10px;
+  color: var(--blue-color);
+  font-size: var(--text-size);
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.profile-dropdown:hover {
+  color: #000000;
+  transition: 0.3s all ease-in-out;
+}
+
+.dropdown-menu {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.dropdown-item {
+  transition: 0.3s all ease-in-out;
+}
+
+.dropdown-item:hover {
+  transition: 0.3s all ease-in-out;
+  background-color: var(--blue-color);
+  color: #ffffff;
 }
