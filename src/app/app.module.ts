@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarModule } from 'ng-sidebar';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -12,6 +15,7 @@ import { SidebarModule } from 'ng-sidebar';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     SidebarModule.forRoot(),
   ],
   providers: [],

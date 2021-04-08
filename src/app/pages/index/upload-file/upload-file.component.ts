@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { Utils } from 'src/app/services/utils';
+import { UploadFileService } from 'src/app/services/upload-file.service';
 @Component({
   selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',
@@ -10,31 +12,37 @@ export class UploadFileComponent implements OnInit {
   loadedImg = true;
   fileToSend: any;
 
-  constructor() { }
+  constructor(
+    private uploadFileService: UploadFileService
+  ) { }
 
   ngOnInit() {
   }
 
-  onChangeFile(fileInput) {
-    const reader2 = new FileReader();
-    let src;
-    reader2.onload = (e) => {
-      this.loadedImg = true;
-      src = reader2.result;
-      setTimeout(() => {
-        const image = document.getElementById('image_500');
-        const image1 = document.getElementById('image_500_1');
-        if (image) { image.setAttribute('src', src); }
-        if (image1) { image1.setAttribute('src', src); }
-      });
-      this.fileToSend = src;
-      console.log(this.fileToSend);
-    };
-    reader2.readAsDataURL(fileInput.target.files[0]);
+  onChangeFile(event) {
+    if (event.target.files.length > 0) {
+      this.fileToSend = event.target.files[0];
+    }
   }
 
   uploadFile() {
     document.getElementById('upload-file').click();
   }
 
+  upload(){
+    if(this.fileToSend){
+      const observable = this.uploadFileService.sendFile(this.fileToSend)
+      observable.subscribe(
+        (res) =>{
+          console.log(res)
+        },
+        (err) => {
+          const errorMessage = err.error.message
+
+          console.log(errorMessage)
+          console.log(err)
+        }
+      )
+    }
+  }
 }
