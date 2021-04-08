@@ -8,13 +8,17 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from icd10.storages import MediaStorage
-
+from icd10.core.validation import validate
 
 class FileUploadView(APIView):
     @csrf_exempt
     def post(self, requests, **kwargs):
         file_obj = requests.FILES.get('file', '')
-
+        validation = validate(file_obj)
+        if not validation["valid"]:
+            return JsonResponse({
+                'message': validation["error"]
+            }, status=400)
 
         file_directory_within_bucket = 'uploads/'
 
