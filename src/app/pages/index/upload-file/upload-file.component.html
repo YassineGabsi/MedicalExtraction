@@ -21,7 +21,7 @@
         </div>
         <br>
         <div class="text-center" style="width: 100%">
-          <button (click)="upload()" class="button button-primary">
+          <button (click)="upload()" class="button button-primary" [disabled]="!fileToSend">
             Upload File
           </button>
           <input id="upload-file" type="file" value="importer" style="display:none;"

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Utils } from 'src/app/services/utils';
+import { UploadFileService } from 'src/app/services/upload-file.service';
 @Component({
   selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',
@@ -10,7 +12,9 @@ export class UploadFileComponent implements OnInit {
   loadedImg = true;
   fileToSend: any;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private uploadFileService: UploadFileService
+  ) { }
 
   ngOnInit() {
   }
@@ -19,7 +23,6 @@ export class UploadFileComponent implements OnInit {
     if (event.target.files.length > 0) {
       this.fileToSend = event.target.files[0];
     }
-
   }
 
   uploadFile() {
@@ -28,13 +31,18 @@ export class UploadFileComponent implements OnInit {
 
   upload(){
     if(this.fileToSend){
-        const formData = new FormData();
-        formData.append('file', this.fileToSend);
-    
-        this.httpClient.post<any>("http://127.0.0.1:8000/api/upload/", formData).subscribe(
-          (res) => console.log(res),
-          (err) => console.log(err)
-        );
+      const observable = this.uploadFileService.sendFile(this.fileToSend)
+      observable.subscribe(
+        (res) =>{
+          console.log(res)
+        },
+        (err) => {
+          const errorMessage = err.error.message
+
+          console.log(errorMessage)
+          console.log(err)
+        }
+      )
     }
   }
 }
