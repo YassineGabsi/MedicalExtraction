@@ -10,11 +10,13 @@ export class UploadFileService extends GenericService {
 
   constructor(private http: HttpClient) {
     super();
-    this.url = this.url + 'upload-file';
+    this.url = this.url + 'upload/';
   }
 
-  public sendFile(file: string): Observable<any> {
-    return this.http.post(this.url, file, {headers: this.getHeaders()}) as Observable<any>;
+  public sendFile(file): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post(this.url, formData, {headers: this.getHeaders()}) as Observable<any>;
   }
 
 }
