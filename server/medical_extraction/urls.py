@@ -19,6 +19,14 @@ from django.views.generic import TemplateView
 from rest_framework.schemas import get_schema_view
 
 from icd10.views import FileUploadView
+from icd10.views import (
+    ResearchProjectCreateListView,
+    ResearchProjectView,
+    ResearchItemCreateListView,
+    ResearchItemView,
+    ICD10ItemCreateListView,
+    ICD10ItemView
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,9 +35,15 @@ urlpatterns = [
         extra_context={'schema_url':'openapi-schema'}
     ), name='swagger-ui'),
     path('openapi', get_schema_view(
-        title="Taxim taxis API",
+        title="Medical Extraction API",
         description="REST API",
         public=True
     ), name='openapi-schema'),
     path('api/upload/', FileUploadView.as_view()),
+    path('api/project/<int:pk>', ResearchProjectView.as_view(), name='project'),
+    path('api/project',ResearchProjectCreateListView.as_view(), name='project-create-list'),
+    path('api/item/<int:pk>', ResearchItemView.as_view(), name='item'),
+    path('api/item',ResearchItemCreateListView.as_view(), name='item-create-list'),
+
+
 ]

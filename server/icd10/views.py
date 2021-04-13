@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework import generics
 
 import os
 
@@ -9,6 +10,19 @@ from django.views.decorators.csrf import csrf_exempt
 
 from icd10.storages import MediaStorage
 from icd10.core.validation import validate
+from .models import (
+    ResearchProject,
+    ResearchItem,
+    ICD10Item,
+    ThematicCodeItem
+)
+from .serializers import (
+    ResearchProjectSerializer,
+    ResearchItemSerializer,
+    ICD10ItemSerializer,
+    ThematicCodeItemSerializer
+)
+
 
 class FileUploadView(APIView):
     @csrf_exempt
@@ -45,3 +59,33 @@ class FileUploadView(APIView):
                     bucket_name=media_storage.bucket_name
                 ),
             }, status=400)
+
+
+class ResearchProjectCreateListView(generics.ListCreateAPIView):
+    serializer_class = ResearchProjectSerializer
+    queryset = ResearchProject.objects.all()
+
+
+class ResearchProjectView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ResearchProjectSerializer
+    queryset = ResearchProject.objects.all()
+
+
+class ResearchItemCreateListView(generics.ListCreateAPIView):
+    serializer_class = ResearchItemSerializer
+    queryset = ResearchItem.objects.all()
+
+
+class ResearchItemView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ResearchItemSerializer
+    queryset = ResearchItem.objects.all()
+
+
+class ICD10ItemCreateListView(generics.ListCreateAPIView):
+    serializer_class = ICD10ItemSerializer
+    queryset = ICD10Item.objects.all()
+
+
+class ICD10ItemView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ICD10ItemSerializer
+    queryset = ICD10Item.objects.all()
