@@ -89,3 +89,24 @@ class ICD10ItemCreateListView(generics.ListCreateAPIView):
 class ICD10ItemView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ICD10ItemSerializer
     queryset = ICD10Item.objects.all()
+
+
+class PredictionProgressView(APIView):
+    research_item_queryset = ResearchItem.objects
+    icd10_item_queryset = ICD10Item.objects
+
+    def get(self, request, *args, **kwargs):
+        print(request, kwargs, args)
+        project_id = None
+        try:
+            project_id = kwargs['pk']
+        except KeyError:
+            return JsonResponse({"error": "Not found"}, status=400)
+
+        total_count = self.research_item_queryset.filter(project_id=project_id).count()
+        icd10_items_count = self.research_item_queryset.exclude(icd10item__pk=None).count()
+        return JsonResponse({
+            "total_count": total_count,
+            "predicted_count": icd10_items_count,
+            "percentage": "{0:.0%}".format(icd10_items_count/total_count)
+        })
