@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 from django.shortcuts import render
 from rest_framework import generics
 
@@ -91,22 +93,44 @@ class ICD10ItemView(generics.RetrieveUpdateDestroyAPIView):
     queryset = ICD10Item.objects.all()
 
 
-class PredictionProgressView(APIView):
+class PercentView(ABC, APIView):
     research_item_queryset = ResearchItem.objects
-    icd10_item_queryset = ICD10Item.objects
+    TARGET: str
+
+    @abstractmethod
+    def get_in_progress_count(self, pk: int) -> int:
+        raise NotImplemented("Please implement the get_in_progress_count method")
 
     def get(self, request, *args, **kwargs):
-        print(request, kwargs, args)
-        project_id = None
         try:
             project_id = kwargs['pk']
         except KeyError:
             return JsonResponse({"error": "Not found"}, status=400)
 
         total_count = self.research_item_queryset.filter(project_id=project_id).count()
-        icd10_items_count = self.research_item_queryset.exclude(icd10item__pk=None).count()
+        in_progress_count = self.get_in_progress_count(project_id)
+
         return JsonResponse({
             "total_count": total_count,
-            "predicted_count": icd10_items_count,
-            "percentage": "{0:.0%}".format(icd10_items_count/total_count)
+            f"{self.TARGET}_count": in_progress_count,
+            "percentage": "{0:.0%}".format(in_progress_count/total_count)
         })
+
+
+class PredictedPercentView(PercentView):
+    TARGET = "predicted"
+    def get_in_progress_count(self, pk):
+        return self.research_item_queryset.filter(project_id=pk).exclude(icd10item__pk=None).count()
+
+
+class ValidatedPercentView(PercentView):
+    TARGET = "validated"
+    def get_in_progress_count(self, pk):
+        return self.research_item_queryset.filter(project_id=pk).filter(icd10item__validated=True).count()
+
+
+class PredictionAcceptedPercentView(PercentView):
+    TARGET = "prediction_accepted"
+    def get_in_progress_count(self, pk):
+        return self.research_item_queryset.filter(project_id=pk)\
+            .filter(icd10item__prediction_accepted=True).count()

@@ -18,14 +18,17 @@ from django.urls import path
 from django.views.generic import TemplateView
 from rest_framework.schemas import get_schema_view
 
-from icd10.views import FileUploadView, PredictionProgressView
 from icd10.views import (
     ResearchProjectCreateListView,
     ResearchProjectView,
     ResearchItemCreateListView,
     ResearchItemView,
     ICD10ItemCreateListView,
-    ICD10ItemView
+    ICD10ItemView,
+    PredictedPercentView,
+    ValidatedPercentView,
+    PredictionAcceptedPercentView,
+    FileUploadView,
 )
 
 urlpatterns = [
@@ -46,6 +49,7 @@ urlpatterns = [
     path('api/research-item',ResearchItemCreateListView.as_view(), name='research-item-create-list'),
     path('api/icd10-item/<int:pk>', ICD10ItemView.as_view(), name='icd10-item'),
     path('api/icd10-item',ICD10ItemCreateListView.as_view(), name='icd10-item-create-list'),
-    path('api/prediction-progress/<int:pk>', PredictionProgressView.as_view(), name='prediction-progress'),
-
+    path('api/predicted/<int:pk>', PredictedPercentView.as_view(), name='predicted'),
+    path('api/validated/<int:pk>', ValidatedPercentView.as_view(), name='validated'),
+    path('api/prediction-accepted/<int:pk>', PredictionAcceptedPercentView.as_view(), name='prediction-accepted'),
 ]
