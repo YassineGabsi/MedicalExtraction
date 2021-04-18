@@ -1,9 +1,15 @@
 import os
 
+import boto3
+import pandas as pd
 from django.core.files.uploadedfile import TemporaryUploadedFile
 
+from icd10.core.common import BUCKET
 from icd10.core.exceptions import AlreadyExistsError
+from icd10.core.loaders import generic_read
 from icd10.storages import MediaStorage
+
+s3_client = boto3.client('s3')
 
 
 def upload(file_obj: TemporaryUploadedFile):
@@ -28,3 +34,7 @@ def upload(file_obj: TemporaryUploadedFile):
             )
         )
     return file_url
+
+
+def read(file_url: str) -> pd.DataFrame:
+    return generic_read(file_url)
