@@ -7,15 +7,15 @@ class ResearchProject(models.Model):
         ('C', 'Completed'),
         ('E', 'Error'),
     )
-    start_date = models.DateTimeField(default=None)
-    end_date = models.DateTimeField(default=None)
-    status = models.CharField(max_length=30, choices=STATUSES)
-    project_file_url = models.CharField(max_length=256, default=None, null=True)
+    start_date = models.DateTimeField(auto_now_add=True, blank=True)
+    end_date = models.DateTimeField(auto_now_add=True, blank=True)
+    status = models.CharField(max_length=30, choices=STATUSES, default='S')
+    project_file_url = models.TextField(default=None, null=True)
 
 class ResearchItem(models.Model):
     project_id = models.ForeignKey(ResearchProject, on_delete=models.CASCADE)
     title = models.TextField()
-    synopsis = models.TextField()
+    research_summary = models.TextField()
     inclusion_criteria = models.TextField()
 
 
