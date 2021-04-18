@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from icd10.core.validation import validate
 from .core.exceptions import AlreadyExistsError, ValidationError
 from .core.io import upload
+from .core.project import start_project
 from .models import (
     ResearchProject,
     ResearchItem,
@@ -40,9 +41,14 @@ class FileUploadView(APIView):
                 'message': str(e),
             }, status=400)
 
+        print("**************", file_url, "**********************")
+        research_project = start_project(file_url)
+
         return JsonResponse({
-            'message': 'OK',
-            'fileUrl': file_url,
+            'message': 'Started',
+            'fileUrl': research_project.project_file_url,
+            'project_id': research_project.id,
+            'start_date': research_project.start_date
         })
 
 
