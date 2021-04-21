@@ -1,15 +1,19 @@
 import torch
+from datetime import date
 
 device = torch.device("cuda:0")
 MODEL =  "allenai/biomed_roberta_base"
-VECTORS_PATH = "{}_vectors.vectors".format(MODEL)  
+VECTORS_PATH = "{}_vectors_{}.vectors".format(MODEL,date.today())  
 TOP_K = 3 
 THRESHHOLD = 0 # Minimum number of occurences to keep the class (0 for keeping all classes)
 
+SAMPLE_SIZE = 50
+
+FULL_DATA_PATH = "./final_data.csv"
 INPUT_PATH = ""
 MODEL_PATH = "./model_svc.sav"
 PCA_PATH = "./pca.sav"
-
+NEW_MODEL_PATH = ""
 PCA_COMPONENTS = 256
 
 labels_to_keep = ['Persons encountering health services for examination and investigation',

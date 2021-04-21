@@ -8,8 +8,9 @@ import pandas as pd
 import pickle
 import numpy as np
 import torch
+from datetime import date
 
-def remove_labels(df,threshhold):
+def remove_labels(df,threshhold=0):
     """
         Remove labels that have count under a certain threshhold
     """
@@ -22,7 +23,7 @@ def remove_labels(df,threshhold):
     df = df[df["ICD Block Names"].isin(labels_to_keep)]
     return df , labels_to_keep 
 
-def preprocess_input(INPUT_PATH,threshhold):
+def preprocess_input(INPUT_PATH,threshhold=0):
     df = pd.read_csv(INPUT_PATH)
     df,labels_to_keep = remove_labels(df,threshhold)
     content = df[["Title","Research Summary","Inclusion Criteria"]].values.T.astype(str)
@@ -34,7 +35,7 @@ def preprocess_input(INPUT_PATH,threshhold):
 
     return title_content, abstract_content,inclusion_content , labels_to_keep , df
 
-def vectorize(device,documents,model_name="distilbert-base-multilingual-cased", verbose=None):
+def vectorize(device,documents,model_name="distilbert-base-multilingual-cased", verbose=None,gpu=False):
     """ Tokenize with BERT-like model. Use mean of embeddings for now. 
         * general: microsoft/Multilingual-MiniLM-L12-H384
     """
@@ -45,18 +46,30 @@ def vectorize(device,documents,model_name="distilbert-base-multilingual-cased", 
     # tokenize the document, return it as PyTorch tensors (vectors),
     # and pass it onto the model
     vectorized = []
-    #model = model.to(device)
-    #documents.to(device)
-    for doc in tqdm(documents):
-        d = 768 # dimensions of the embedding
-        l = len(doc)
-        chunks = list(range(0, l, 512*7))+[l]
-        vector = torch.cat([model(**tokenizer(doc[chunks[i-1] : chunks[i]],
-                                   return_tensors='pt',
-                                   max_length=512,
-                                   truncation=True))[0].detach().squeeze()            # to enable GPU add .to(device) 
-                            for i in range(1, len(chunks))], dim=0).cpu().numpy()
-        vectorized.append(vector)
+
+    if gpu :
+        model = model.to(device)
+        for doc in tqdm(documents):
+            d = 768 # dimensions of the embedding
+            l = len(doc)
+            chunks = list(range(0, l, 512*7))+[l]
+            vector = torch.cat([model(**tokenizer(doc[chunks[i-1] : chunks[i]],
+                                    return_tensors='pt',
+                                    max_length=512,
+                                    truncation=True).to(device))[0].detach().squeeze()         
+                                for i in range(1, len(chunks))], dim=0).cpu().numpy()
+            vectorized.append(vector)
+    else :
+        for doc in tqdm(documents):
+            d = 768 # dimensions of the embedding
+            l = len(doc)
+            chunks = list(range(0, l, 512*7))+[l]
+            vector = torch.cat([model(**tokenizer(doc[chunks[i-1] : chunks[i]],
+                                    return_tensors='pt',
+                                    max_length=512,
+                                    truncation=True))[0].detach().squeeze()             
+                                for i in range(1, len(chunks))], dim=0).cpu().numpy()
+            vectorized.append(vector)
     return vectorized
 
 
@@ -99,6 +112,7 @@ def load_preprocess_vectors_train(INPUT_PATH="",title_content="",abstract_conten
     pca    = PCA(n_components=PCA_COMPONENTS)
     final_rep = np.concatenate([titles_fix,abstract_fix,inclusions_fix], axis=-1) 
     low_dims  = pca.fit_transform(final_rep)
+    pickle.dump(PCA, open(PCA_PATH+" {}".format(date.today()), 'wb'))
     return low_dims , df , labels_to_keep
 
 def load_preprocess_vectors_test(title_content="",abstract_content="",inclusion_content="",MODEL="",device="",save=False):

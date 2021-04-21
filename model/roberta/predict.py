@@ -5,7 +5,7 @@ import numpy as np
 import torch
 import pandas as pd
 
-def predict(INPUT_PATH,THRESHHOLD):
+def predict(INPUT_PATH,THRESHHOLD=0):
     """
         1.Input a csv file and preprocess it
         2.Computes embeddings and reduce dimentionality
@@ -14,7 +14,6 @@ def predict(INPUT_PATH,THRESHHOLD):
     title_content , abstract_content, inclusion_content , _ , df = preprocess_input(INPUT_PATH,THRESHHOLD)
 
     useful_labels = [labels_to_keep.index(label) for label in df["ICD Block Names"]]
-    #print(useful_labels)
 
     low_dims = load_preprocess_vectors_test(title_content,abstract_content,inclusion_content,MODEL,device) 
 
