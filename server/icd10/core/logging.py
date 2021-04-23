@@ -12,7 +12,7 @@ log_level_map = {
 }
 
 log_level_str = os.getenv("LOG_LEVEL", "DEBUG")
-enable_file_handler = os.getenv("EN_FILE_LOG", "True")
+enable_file_handler = os.getenv("EN_FILE_LOG", "False")
 
 log_level = log_level_map.get(log_level_str, logging.INFO)
 
@@ -27,10 +27,10 @@ stream_handler.setFormatter(formatter)
 stream_handler.setLevel(log_level)
 logger.addHandler(stream_handler)
 
-if (enable_file_handler == "True"):
+if enable_file_handler == "True":
     file_handler = logging.FileHandler(
         datetime.datetime.now().strftime(
-            'logs/{}%d_%m_%Y %H_%M.log'.format("CareerMD")
+            'logs/{}%d_%m_%Y %H_%M.log'.format("MedicalExctraction")
         ),
         mode='w'
     )
