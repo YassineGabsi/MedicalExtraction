@@ -10,13 +10,13 @@ THRESHHOLD = 0 # Minimum number of occurences to keep the class (0 for keeping a
 SAMPLE_SIZE = 50
 
 FULL_DATA_PATH = "./final_data.csv"
-INPUT_PATH = ""
+INPUT_PATH = "./partial_data.csv"
 MODEL_PATH = "./model_svc.sav"
 PCA_PATH = "./pca.sav"
 NEW_MODEL_PATH = ""
 PCA_COMPONENTS = 256
 
-labels_to_keep = ['Persons encountering health services for examination and investigation',
+LABELS_TO_KEEP = ['Persons encountering health services for examination and investigation',
  'Ischaemic heart diseases',
  'Burns and corrosions of external body surface, specified by site',
  'Disorders of sclera, cornea, iris and ciliary body',

@@ -23,7 +23,7 @@ def remove_labels(df,threshhold=0):
     df = df[df["ICD Block Names"].isin(labels_to_keep)]
     return df , labels_to_keep 
 
-def preprocess_input(INPUT_PATH,threshhold=0):
+def preprocess_input_train(INPUT_PATH,threshhold=0):
     df = pd.read_csv(INPUT_PATH)
     df,labels_to_keep = remove_labels(df,threshhold)
     content = df[["Title","Research Summary","Inclusion Criteria"]].values.T.astype(str)
@@ -34,6 +34,18 @@ def preprocess_input(INPUT_PATH,threshhold=0):
     inclusion_content = [str(x) for x in inclusion_content]
 
     return title_content, abstract_content,inclusion_content , labels_to_keep , df
+
+
+def preprocess_input_test(INPUT_PATH,threshhold=0):
+    df = pd.read_csv(INPUT_PATH)
+    content = df[["Title","Research Summary","Inclusion Criteria"]].values.T.astype(str)
+    title_content, abstract_content, inclusion_content = content[0], content[1], content[2]  
+    
+    title_content = [str(x) for x in title_content]
+    abstract_content = [str(x) for x in abstract_content]
+    inclusion_content = [str(x) for x in inclusion_content]
+
+    return title_content, abstract_content,inclusion_content
 
 def vectorize(device,documents,model_name="distilbert-base-multilingual-cased", verbose=None,gpu=False):
     """ Tokenize with BERT-like model. Use mean of embeddings for now. 

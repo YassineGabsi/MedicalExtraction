@@ -1,4 +1,4 @@
-from config import MODEL , MODEL_PATH , TOP_K, PCA_PATH , THRESHHOLD , device , labels_to_keep , INPUT_PATH
+from config import MODEL , MODEL_PATH , TOP_K, PCA_PATH , THRESHHOLD , device , LABELS_TO_KEEP , INPUT_PATH
 from utils import preprocess_input, load_preprocess_vectors_test
 import pickle
 import numpy as np
@@ -11,7 +11,7 @@ def predict(INPUT_PATH,THRESHHOLD=0):
         2.Computes embeddings and reduce dimentionality
         3.Loads model and returns prediction 
     """
-    title_content , abstract_content, inclusion_content , _ , df = preprocess_input(INPUT_PATH,THRESHHOLD)
+    title_content , abstract_content, inclusion_content = preprocess_input_test(INPUT_PATH,THRESHHOLD)
 
 
     low_dims = load_preprocess_vectors_test(title_content,abstract_content,inclusion_content,MODEL,device) 
@@ -29,9 +29,9 @@ def predict(INPUT_PATH,THRESHHOLD=0):
 
     top_1, top_2, top_3 = [], [], []
     for i in range(len(df)):
-        top_1.append( labels_to_keep[top_k_preds[i][0]] )
-        top_2.append( labels_to_keep[top_k_preds[i][1]] )
-        top_3.append( labels_to_keep[top_k_preds[i][2]] )
+        top_1.append( LABELS_TO_KEEP[top_k_preds[i][0]] )
+        top_2.append( LABELS_TO_KEEP[top_k_preds[i][1]] )
+        top_3.append( LABELS_TO_KEEP[top_k_preds[i][2]] )
     results = pd.DataFrame({"1st prediction":top_1,"2nd prediction":top_2,"3rd prediction":top_3})
     results.to_csv('results.csv',index=False)
     return results
