@@ -41,7 +41,6 @@ class FileUploadView(APIView):
                 'message': str(e),
             }, status=400)
 
-        print("**************", file_url, "**********************")
         research_project = start_project(file_url)
 
         return JsonResponse({

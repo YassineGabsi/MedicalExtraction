@@ -1,8 +1,22 @@
+import os
 import re
 from math import ceil
 from typing import List
 
 import pandas as pd
+
+
+def str2bool(value: str) -> bool:
+    """ Parses string value and converts it to boolean """
+    if isinstance(value, bool):
+        return value
+    elif value.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif value.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise ValueError('Boolean value expected')
+
 
 def s3_url_to_bucket_name_keyword(s3_url):
     """
@@ -64,22 +78,26 @@ def filepath_or_buffer_to_str(filepath_or_buffer, encoding="utf-8"):
     except:
         retry = True
 
-    if (retry):
+    if retry:
         try:
             res = open(filepath_or_buffer, "r", encoding=encoding).read()
             retry = False
         except:
             retry = True
 
-    if (retry):
+    if retry:
         res = filepath_or_buffer
     return res
 
 
 def split_df(df: pd.DataFrame, n_rows: int = 25) -> List[pd.DataFrame]:
     n_splits = ceil(len(df.index) / n_rows)
-    split_starts = map(lambda idx: idx*n_rows, range(n_splits))
+    split_starts = map(lambda idx: idx * n_rows, range(n_splits))
     return [
-        df.iloc[i:min(i+n_rows, len(df.index)), :].copy().reset_index()
+        df.iloc[i:min(i + n_rows, len(df.index)), :].copy().reset_index()
         for i in split_starts
     ]
+
+
+def append_id(filename, id):
+    return "{0}_{2}{1}".format(*os.path.splitext(filename) + (id,))

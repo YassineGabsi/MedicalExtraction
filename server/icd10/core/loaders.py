@@ -13,8 +13,14 @@ from icd10.core.utils import (
     get_url_type, get_extension,
     filepath_or_buffer_to_str,
 )
+from medical_extraction.settings import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 
-s3_client = boto3.client('s3')
+# TODO: running this from ipython won't retrieve the correct creds (needs to be called with django)
+s3_client = boto3.client(
+    's3',
+    aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=AWS_SECRET_ACCESS_KEY
+)
 default_encodings = ['utf-8', 'cp1252']
 
 
@@ -90,24 +96,26 @@ url_type_fetch_func_map = {
 }
 
 
-def read_csv(filepath_or_buffer: Union[str, io.BytesIO]) -> pd.DataFrame:
+def read_csv(filepath_or_buffer: Union[str, io.BytesIO], encoding: str = "utf-8") -> pd.DataFrame:
     """
     Read function. Delegates reading from filepath_or_buffer to pandas.read_csv function.
     Reads DataFrame from csv.
     :param filepath_or_buffer: Union[str, BytesIO]
+    :param encoding: str
     :return: DataFrame
     """
-    return pd.read_csv(filepath_or_buffer)
+    return pd.read_csv(filepath_or_buffer, encoding=encoding)
 
 
-def read_excel(filepath_or_buffer: Union[str, io.BytesIO]) -> pd.DataFrame:
+def read_excel(filepath_or_buffer: Union[str, io.BytesIO], encoding: str = "utf-8") -> pd.DataFrame:
     """
     Read function. Delegates reading from filepath_or_buffer to pandas.read_xml function.
     Reads DataFrame from excel.
     :param filepath_or_buffer: Union[str, BytesIO]
+    :param encoding: str
     :return: DataFrame
     """
-    return pd.read_excel(filepath_or_buffer)
+    return pd.read_excel(filepath_or_buffer, encoding=encoding)
 
 
 def read_json(

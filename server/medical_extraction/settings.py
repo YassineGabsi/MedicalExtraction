@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+from icd10.core.utils import str2bool
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -148,3 +150,7 @@ S3DIRECT_DESTINATIONS = {
 
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = False
+
+
+# Application specific configurations
+ALLOW_DUPLICATE_FILES = str2bool(os.getenv("ALLOW_DUPLICATE_FILES", "true"))
