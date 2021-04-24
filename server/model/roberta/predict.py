@@ -25,20 +25,30 @@ def predict(input_df: pd.DataFrame, threshold: int = 0) -> pd.DataFrame:
     )
 
     predictions = SVC_MODEL.predict_proba(low_dims)
-    top_k_predictions = []
-    for i, prediction in enumerate(predictions):
+    results = []
+    for prediction in predictions:
         reordered = np.zeros(224)
         reordered[SVC_MODEL.classes_] = prediction
-        i_top_k_predictions = np.argsort(reordered)[::-1][:TOP_K]
-        # TODO: use here np.sort and create dict using predictions and scores
-        top_k_predictions.append(i_top_k_predictions)
+        i_predictions_ids = np.argsort(reordered)[::-1][:TOP_K]
+        i_scores = np.sort(reordered)[::-1][:TOP_K]
+        i_predictions_labels = list(map(lambda id: LABELS[id], i_predictions_ids))
+        i_prediction = [
+            {
+                f"block_name_{i}": prediction_label,
+                f"score_{i}": score,
+            }
+            for i, prediction_label, score in zip(
+                range(len(reordered)),
+                i_predictions_labels,
+                i_scores
+            )
+        ] + [{
+            "top_k": TOP_K
+        }]
 
-    top_1, top_2, top_3 = [], [], []
-    for i in range(len(input_df.index)):
-        top_1.append(LABELS[top_k_predictions[i][0]])
-        top_2.append(LABELS[top_k_predictions[i][1]])
-        top_3.append(LABELS[top_k_predictions[i][2]])
-    results = pd.DataFrame({"1st prediction": top_1, "2nd prediction": top_2, "3rd prediction": top_3})
+        results.append({key: value for element in i_prediction for key, value in element.items()})
+
+    results = pd.DataFrame(results)
     return results
 
 
