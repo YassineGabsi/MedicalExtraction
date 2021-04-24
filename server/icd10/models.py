@@ -22,7 +22,7 @@ class ResearchItem(models.Model):
 class ICD10Item(models.Model):
     item = models.OneToOneField(ResearchItem, on_delete=models.CASCADE)
     icd10_prediction = models.JSONField()
-    icd10_validation = models.JSONField()
+    icd10_validation = models.JSONField(default=None, blank=True, null=True)
     medical_terms = models.JSONField(default=None, blank=True, null=True)
     first_prediction_accepted = models.BooleanField(blank=True, null=True)
     validated = models.BooleanField(default=False)
