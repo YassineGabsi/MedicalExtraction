@@ -1,4 +1,4 @@
-from utils import preprocess_input , tfidf_encode_content_test
+from utils import preprocess_input_test , tfidf_encode_content_test
 from config import TOP_K,INPUT_PATH, THRESHHOLD, labels_to_keep , PCA_PATH , PCA_PATH_ABSTRACT , PCA_PATH_INCLUSION , PCA_PATH_TITLE , TFIDF_PATH_ABSTRACT , TFIDF_PATH_INCLUSION , TFIDF_PATH_TITLE , MODEL_PATH
 import numpy as np
 import pickle
@@ -7,9 +7,7 @@ import pandas as pd
 def predict(INPUT_PATH,THRESHHOLD=0):
 
 
-    title_content , abstract_content, inclusion_content , _ , df = preprocess_input(INPUT_PATH,THRESHHOLD)
-    useful_labels = [labels_to_keep.index(label) for label in df["ICD Block Names"]]
-
+    title_content , abstract_content, inclusion_content , df = preprocess_input_test(INPUT_PATH,THRESHHOLD)
 
     title_tfidf = tfidf_encode_content_test(TFIDF_PATH_TITLE,
         PCA_PATH_TITLE,
@@ -39,12 +37,8 @@ def predict(INPUT_PATH,THRESHHOLD=0):
         this_top_k = np.argsort(reordered)[::-1][:TOP_K] 
         top_k_preds.append(this_top_k)
 
-    np_labels = np.array(useful_labels)
-    idxs = {c: np.argwhere(np_labels == c).ravel() for c in np.unique(np_labels)}
-
-
     top_1, top_2, top_3 = [], [], []
-    for i in range(len(useful_labels)):
+    for i in range(len(df)):
         top_1.append( labels_to_keep[top_k_preds[i][0]] )
         top_2.append( labels_to_keep[top_k_preds[i][1]] )
         top_3.append( labels_to_keep[top_k_preds[i][2]] )

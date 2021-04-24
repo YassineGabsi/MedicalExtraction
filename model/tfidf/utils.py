@@ -33,7 +33,7 @@ def tfidf_encode_content_test(TF_IDF_PATH,PCA_PATH,content):
 
     return content_low_dims
 
-def preprocess_input(INPUT_PATH,threshhold=0):
+def preprocess_input_train(INPUT_PATH,threshhold=0):
     df = pd.read_csv(INPUT_PATH)
     df,labels_to_keep = remove_labels(df,threshhold)
     content = df[["Title","Research Summary","Inclusion Criteria"]].values.T.astype(str)
@@ -44,3 +44,15 @@ def preprocess_input(INPUT_PATH,threshhold=0):
     inclusion_content = [str(x) for x in inclusion_content]
 
     return title_content, abstract_content,inclusion_content , labels_to_keep , df
+
+
+def preprocess_input_test(INPUT_PATH,threshhold=0):
+    df = pd.read_csv(INPUT_PATH)
+    content = df[["Title","Research Summary","Inclusion Criteria"]].values.T.astype(str)
+    title_content, abstract_content, inclusion_content = content[0], content[1], content[2]  
+    
+    title_content = [str(x) for x in title_content]
+    abstract_content = [str(x) for x in abstract_content]
+    inclusion_content = [str(x) for x in inclusion_content]
+
+    return title_content , abstract_content , inclusion_content , df
