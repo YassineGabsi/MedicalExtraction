@@ -1,5 +1,5 @@
-from config import MODEL , MODEL_PATH , TOP_K, PCA_PATH , THRESHHOLD , device , labels_to_keep , INPUT_PATH , SAMPLE_SIZE ,FULL_DATA_PATH
-from utils import preprocess_input, load_preprocess_vectors_test
+from .config import MODEL , MODEL_PATH , TOP_K, PCA_PATH , THRESHHOLD , DEVICE , labels_to_keep , INPUT_PATH , SAMPLE_SIZE ,FULL_DATA_PATH
+from .utils import preprocess_input_test, load_preprocess_vectors_test
 import pickle
 import numpy as np
 import torch
@@ -30,7 +30,7 @@ def eval(MODEL_PATH,THRESHHOLD=0):
     abstract_content = [str(x) for x in abstract_content]
     inclusion_content = [str(x) for x in inclusion_content]
 
-    low_dims = load_preprocess_vectors_test(title_content,abstract_content,inclusion_content,MODEL,device) 
+    low_dims = load_preprocess_vectors_test(title_content,abstract_content,inclusion_content,MODEL,DEVICE)
 
     model = pickle.load(open(MODEL_PATH, 'rb'))
 
