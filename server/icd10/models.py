@@ -20,14 +20,11 @@ class ResearchItem(models.Model):
 
 
 class ICD10Item(models.Model):
-    # TODO: change prediction items to json field
     item_id = models.OneToOneField(ResearchItem, on_delete=models.CASCADE)
-    icd10_chapter_predicted = models.CharField(max_length=30)
-    icd10_block_predicted = models.CharField(max_length=30)
-    icd10_chapter = models.CharField(max_length=30)
-    icd10_block = models.CharField(max_length=30)
+    icd10_prediction = models.JSONField()
+    icd10_validation = models.JSONField()
     medical_terms = models.JSONField(default=None, blank=True, null=True)
-    prediction_accepted = models.BooleanField(blank=True, null=True)
+    first_prediction_accepted = models.BooleanField(blank=True, null=True)
     validated = models.BooleanField(default=False)
 
 

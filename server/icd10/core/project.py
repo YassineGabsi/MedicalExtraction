@@ -24,7 +24,7 @@ def run_project(research_project: ResearchProject):
         df = generic_read(research_project.project_file_url)
         _, df = populate_research_items(research_project, df)
         splits = split_df(df)
-        # thread_pool.submit()
+        thread_pool.map(populate_icd10_items, splits)
     except Exception as e:
         logger.exception(e)
 
@@ -55,4 +55,4 @@ def populate_icd10_items(df: pd.DataFrame):
         )
         for index, row in df.iterrows()
     ])
-    return  icd10_items
+    return icd10_items
