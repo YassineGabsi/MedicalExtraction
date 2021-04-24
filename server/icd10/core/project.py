@@ -33,7 +33,7 @@ def populate_research_items(research_project: ResearchProject, df: pd.DataFrame)
         -> Tuple[List[ResearchItem], pd.DataFrame]:
     research_items = ResearchItem.objects.bulk_create([
         ResearchItem(
-            project_id=research_project,
+            project=research_project,
             title=row["Title"],
             research_summary=row["Research Summary"],
             inclusion_criteria=row["Inclusion Criteria"]
@@ -47,12 +47,27 @@ def populate_research_items(research_project: ResearchProject, df: pd.DataFrame)
 def populate_icd10_items(df: pd.DataFrame):
     prediction = predict(df)
     df = df.join(prediction)
-    icd10_items = ICD10Item.objects.bulk_create([
+    icd10_items = [
         ICD10Item(
             item_id=row["id"],
-            icd10_block_predicted=row["1st prediction"],
-            icd10_chapter_predicted="test"
+            icd10_prediction=[
+                {
+                    "predicted_block_name": block_name,
+                    "predicted_chapter_name": "value",
+                    "predicted_chapter_code": "value",
+                    "score": 0,
+                    "block_description": "description",
+                    "chapter_description": "same",
+                    "link": "link"
+                }
+                for block_name in [
+                    row["1st prediction"],
+                    row["2nd prediction"],
+                    row["3rd prediction"]
+                ]
+            ]
         )
         for index, row in df.iterrows()
-    ])
+    ]
+    icd10_items = ICD10Item.objects.bulk_create(icd10_items)
     return icd10_items

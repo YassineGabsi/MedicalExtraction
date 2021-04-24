@@ -13,14 +13,14 @@ class ResearchProject(models.Model):
     project_file_url = models.TextField(default=None, null=True)
 
 class ResearchItem(models.Model):
-    project_id = models.ForeignKey(ResearchProject, on_delete=models.CASCADE)
+    project = models.ForeignKey(ResearchProject, on_delete=models.CASCADE)
     title = models.TextField()
     research_summary = models.TextField()
     inclusion_criteria = models.TextField()
 
 
 class ICD10Item(models.Model):
-    item_id = models.OneToOneField(ResearchItem, on_delete=models.CASCADE)
+    item = models.OneToOneField(ResearchItem, on_delete=models.CASCADE)
     icd10_prediction = models.JSONField()
     icd10_validation = models.JSONField()
     medical_terms = models.JSONField(default=None, blank=True, null=True)
@@ -36,5 +36,5 @@ class ThematicCodeItem(models.Model):
         ('De', 'Dementia'),
         ('A', 'Antimicrobrial Resistance'),
     )
-    item_id = models.OneToOneField(ResearchItem, on_delete=models.CASCADE)
+    item = models.OneToOneField(ResearchItem, on_delete=models.CASCADE)
     thematic_code = models.CharField(max_length=30, choices=THEMATIC_CODES)

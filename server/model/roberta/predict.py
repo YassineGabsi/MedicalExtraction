@@ -30,6 +30,7 @@ def predict(input_df: pd.DataFrame, threshold: int = 0) -> pd.DataFrame:
         reordered = np.zeros(224)
         reordered[SVC_MODEL.classes_] = prediction
         i_top_k_predictions = np.argsort(reordered)[::-1][:TOP_K]
+        # TODO: use here np.sort and create dict using predictions and scores
         top_k_predictions.append(i_top_k_predictions)
 
     top_1, top_2, top_3 = [], [], []

@@ -45,7 +45,7 @@ class FileUploadView(APIView):
 
         return JsonResponse({
             'message': 'Started',
-            'fileUrl': research_project.project_file_url,
+            'file_url': research_project.project_file_url,
             'project_id': research_project.id,
             'start_date': research_project.start_date
         })
@@ -95,7 +95,7 @@ class PercentView(ABC, APIView):
         except KeyError:
             return JsonResponse({"error": "Not found"}, status=400)
 
-        total_count = self.research_item_queryset.filter(project_id=project_id).count()
+        total_count = self.research_item_queryset.filter(project=project_id).count()
         in_progress_count = self.get_in_progress_count(project_id)
 
         return JsonResponse({
@@ -109,19 +109,19 @@ class PredictedPercentView(PercentView):
     TARGET = "predicted"
 
     def get_in_progress_count(self, pk):
-        return self.research_item_queryset.filter(project_id=pk).exclude(icd10item__pk=None).count()
+        return self.research_item_queryset.filter(project=pk).exclude(icd10item__pk=None).count()
 
 
 class ValidatedPercentView(PercentView):
     TARGET = "validated"
 
     def get_in_progress_count(self, pk):
-        return self.research_item_queryset.filter(project_id=pk).filter(icd10item__validated=True).count()
+        return self.research_item_queryset.filter(project=pk).filter(icd10item__validated=True).count()
 
 
 class PredictionAcceptedPercentView(PercentView):
     TARGET = "prediction_accepted"
 
     def get_in_progress_count(self, pk):
-        return self.research_item_queryset.filter(project_id=pk) \
+        return self.research_item_queryset.filter(project=pk) \
             .filter(icd10item__prediction_accepted=True).count()
