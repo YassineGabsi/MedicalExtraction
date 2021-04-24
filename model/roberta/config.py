@@ -10,7 +10,7 @@ THRESHHOLD = 0 # Minimum number of occurences to keep the class (0 for keeping a
 SAMPLE_SIZE = 50
 
 FULL_DATA_PATH = "./final_data.csv"
-INPUT_PATH = "./partial_data.csv"
+INPUT_PATH = "./input.csv"
 MODEL_PATH = "./model_svc.sav"
 PCA_PATH = "./pca.sav"
 NEW_MODEL_PATH = ""

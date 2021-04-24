@@ -1,5 +1,5 @@
 from config import MODEL , MODEL_PATH , TOP_K, PCA_PATH , THRESHHOLD , device , LABELS_TO_KEEP , INPUT_PATH
-from utils import preprocess_input, load_preprocess_vectors_test
+from utils import preprocess_input_test, load_preprocess_vectors_test
 import pickle
 import numpy as np
 import torch
@@ -11,7 +11,7 @@ def predict(INPUT_PATH,THRESHHOLD=0):
         2.Computes embeddings and reduce dimentionality
         3.Loads model and returns prediction 
     """
-    title_content , abstract_content, inclusion_content = preprocess_input_test(INPUT_PATH,THRESHHOLD)
+    title_content , abstract_content, inclusion_content, df = preprocess_input_test(INPUT_PATH,THRESHHOLD)
 
 
     low_dims = load_preprocess_vectors_test(title_content,abstract_content,inclusion_content,MODEL,device) 
@@ -36,4 +36,4 @@ def predict(INPUT_PATH,THRESHHOLD=0):
     results.to_csv('results.csv',index=False)
     return results
 if __name__ == "__main__":
-    predict(INPUT_PATH=INPUT_PATH,THRESHHOLD=THRESHHOLD)
+    print(predict(INPUT_PATH=INPUT_PATH,THRESHHOLD=THRESHHOLD))

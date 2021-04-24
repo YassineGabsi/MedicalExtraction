@@ -45,7 +45,7 @@ def preprocess_input_test(INPUT_PATH,threshhold=0):
     abstract_content = [str(x) for x in abstract_content]
     inclusion_content = [str(x) for x in inclusion_content]
 
-    return title_content, abstract_content,inclusion_content
+    return title_content, abstract_content,inclusion_content, df
 
 def vectorize(device,documents,model_name="distilbert-base-multilingual-cased", verbose=None,gpu=False):
     """ Tokenize with BERT-like model. Use mean of embeddings for now. 
