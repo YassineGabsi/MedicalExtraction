@@ -20,6 +20,7 @@ class ResearchItem(models.Model):
 
 
 class ICD10Item(models.Model):
+    # TODO: change prediction items to json field
     item_id = models.OneToOneField(ResearchItem, on_delete=models.CASCADE)
     icd10_chapter_predicted = models.CharField(max_length=30)
     icd10_block_predicted = models.CharField(max_length=30)

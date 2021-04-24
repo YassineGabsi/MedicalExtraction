@@ -1,5 +1,8 @@
 import re
+from math import ceil
+from typing import List
 
+import pandas as pd
 
 def s3_url_to_bucket_name_keyword(s3_url):
     """
@@ -71,3 +74,12 @@ def filepath_or_buffer_to_str(filepath_or_buffer, encoding="utf-8"):
     if (retry):
         res = filepath_or_buffer
     return res
+
+
+def split_df(df: pd.DataFrame, n_rows: int = 25) -> List[pd.DataFrame]:
+    n_splits = ceil(len(df.index) / n_rows)
+    split_starts = map(lambda idx: idx*n_rows, range(n_splits))
+    return [
+        df.iloc[i:min(i+n_rows, len(df.index)), :].copy().reset_index()
+        for i in split_starts
+    ]
