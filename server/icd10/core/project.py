@@ -1,4 +1,5 @@
 import time
+from datetime import datetime
 from functools import wraps
 from typing import Tuple, List, Any, Iterable, Callable
 
@@ -60,6 +61,7 @@ def run_project(research_project: ResearchProject):
     logger.info(f"Project {research_project.id} (file: {research_project.project_file_url}) "
                 f"completed successfully")
     research_project.status = 'C'
+    research_project.end_date = datetime.now()
     research_project.save()
 
 

@@ -19,7 +19,7 @@ from .serializers import (
     ResearchProjectSerializer,
     ResearchItemSerializer,
     ICD10ItemSerializer,
-    ThematicCodeItemSerializer
+    ThematicCodeItemSerializer, ResearchProjectNestedSerializer
 )
 
 
@@ -58,6 +58,11 @@ class ResearchProjectCreateListView(generics.ListCreateAPIView):
 
 class ResearchProjectView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ResearchProjectSerializer
+    queryset = ResearchProject.objects.all()
+
+
+class ResearchProjectInfoView(generics.RetrieveAPIView):
+    serializer_class = ResearchProjectNestedSerializer
     queryset = ResearchProject.objects.all()
 
 
@@ -109,14 +114,14 @@ class PredictedPercentView(PercentView):
     TARGET = "predicted"
 
     def get_in_progress_count(self, pk):
-        return self.research_item_queryset.filter(project=pk).exclude(icd10item__pk=None).count()
+        return self.research_item_queryset.filter(project=pk).exclude(icd10_item__pk=None).count()
 
 
 class ValidatedPercentView(PercentView):
     TARGET = "validated"
 
     def get_in_progress_count(self, pk):
-        return self.research_item_queryset.filter(project=pk).filter(icd10item__validated=True).count()
+        return self.research_item_queryset.filter(project=pk).filter(icd10_item__validated=True).count()
 
 
 class PredictionAcceptedPercentView(PercentView):
@@ -124,4 +129,4 @@ class PredictionAcceptedPercentView(PercentView):
 
     def get_in_progress_count(self, pk):
         return self.research_item_queryset.filter(project=pk) \
-            .filter(icd10item__prediction_accepted=True).count()
+            .filter(icd10_item__prediction_accepted=True).count()
