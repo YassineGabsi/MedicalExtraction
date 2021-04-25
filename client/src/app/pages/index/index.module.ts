@@ -11,6 +11,7 @@ import {HeaderComponent} from '../../components/header/header.component';
 import {FooterComponent} from '../../components/footer/footer.component';
 import {RouterModule} from '@angular/router';
 import {IndexRoutingModule} from './index-routing.module';
+import { DndDirective } from '../../directives/dnd.directive';
 
 
 
@@ -24,7 +25,8 @@ import {IndexRoutingModule} from './index-routing.module';
     BottomSectionComponent,
     UploadFileComponent,
     RegisterComponent,
-    IndexComponent
+    IndexComponent,
+    DndDirective
   ],
   exports: [
     HeaderComponent
@@ -32,7 +34,7 @@ import {IndexRoutingModule} from './index-routing.module';
   imports: [
     CommonModule,
     RouterModule,
-    IndexRoutingModule
+    IndexRoutingModule,
   ]
 })
 export class IndexModule { }

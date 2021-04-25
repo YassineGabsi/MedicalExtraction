@@ -15,9 +15,18 @@
         <img class="img-fluid mt-4" style="max-height: 90%" src="../../../assets/images/upload.png" alt="">
       </div>
       <div class="col-md-6 d-flex align-items-center" style="flex-wrap: wrap;">
-        <div class="upload-wrapper" (click)="uploadFile()">
-          <i class="fas fa-cloud-upload-alt fa-3x"></i>
-          <div class="mx-2" style="font-weight: bold">Click to upload your file</div>
+        <div class="upload-wrapper" appDnd (fileDropped)="onDropFile($event)" *ngIf="!fileToSend" (click)="uploadFile()">
+          <div>
+            <i class="fas fa-cloud-upload-alt fa-3x mb-2" style="display: flex; text-align: center; align-items: center; justify-content: center;"></i>
+            <div class="mx-2 text-center" style="font-weight: bold">Click to upload your file</div>
+            <div class="mx-2 text-center" style="font-weight: bold">Or Just drag and drop your file here</div>
+          </div>
+        </div>
+        <div class="upload-wrapper-uploaded" appDnd (fileDropped)="onDropFile($event)" *ngIf="fileToSend" (click)="uploadFile()">
+          <div>
+            <i class="far fa-file-excel fa-3x mb-2" style="display: flex; text-align: center; align-items: center; justify-content: center;"></i>
+            <div class="mx-2 text-center" style="font-weight: bold">{{fileToSend.name}}</div>
+          </div>
         </div>
         <br>
         <div class="text-center" style="width: 100%">
