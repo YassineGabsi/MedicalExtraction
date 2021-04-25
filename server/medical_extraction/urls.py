@@ -28,7 +28,7 @@ from icd10.views import (
     PredictedPercentView,
     ValidatedPercentView,
     PredictionAcceptedPercentView,
-    FileUploadView,
+    FileUploadView, ResearchProjectInfoView,
 )
 
 urlpatterns = [
@@ -43,8 +43,9 @@ urlpatterns = [
         public=True
     ), name='openapi-schema'),
     path('api/upload/', FileUploadView.as_view()),
+    path('api/project-info/<int:pk>', ResearchProjectInfoView.as_view(), name='project-info'),
     path('api/project/<int:pk>', ResearchProjectView.as_view(), name='project'),
-    path('api/project',ResearchProjectCreateListView.as_view(), name='project-create-list'),
+    path('api/project', ResearchProjectCreateListView.as_view(), name='project-create-list'),
     path('api/research-item/<int:pk>', ResearchItemView.as_view(), name='research-item'),
     path('api/research-item',ResearchItemCreateListView.as_view(), name='research-item-create-list'),
     path('api/icd10-item/<int:pk>', ICD10ItemView.as_view(), name='icd10-item'),

@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+from icd10.core.utils import str2bool
+from sqlalchemy import create_engine
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -94,6 +97,11 @@ DATABASES = {
     }
 }
 
+ENGINE = create_engine(
+    f"postgresql://{os.getenv('PGUSER')}:{os.getenv('PGPASSWORD')}"
+    f"@{os.getenv('PGHOST', 'localhost')}:{os.getenv('PGPORT', '5432')}/{os.getenv('PGDATABASE')}"
+)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -148,3 +156,7 @@ S3DIRECT_DESTINATIONS = {
 
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = False
+
+
+# Application specific configurations
+ALLOW_DUPLICATE_FILES = str2bool(os.getenv("ALLOW_DUPLICATE_FILES", "true"))

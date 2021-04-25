@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from icd10.core.validation import validate
 from .core.exceptions import AlreadyExistsError, ValidationError
 from .core.io import upload
+from .core.project import start_project
 from .models import (
     ResearchProject,
     ResearchItem,
@@ -18,7 +19,7 @@ from .serializers import (
     ResearchProjectSerializer,
     ResearchItemSerializer,
     ICD10ItemSerializer,
-    ThematicCodeItemSerializer
+    ThematicCodeItemSerializer, ResearchProjectNestedSerializer
 )
 
 
@@ -40,9 +41,13 @@ class FileUploadView(APIView):
                 'message': str(e),
             }, status=400)
 
+        research_project = start_project(file_url)
+
         return JsonResponse({
-            'message': 'OK',
-            'fileUrl': file_url,
+            'message': 'Started',
+            'file_url': research_project.project_file_url,
+            'project_id': research_project.id,
+            'start_date': research_project.start_date
         })
 
 
@@ -53,6 +58,11 @@ class ResearchProjectCreateListView(generics.ListCreateAPIView):
 
 class ResearchProjectView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ResearchProjectSerializer
+    queryset = ResearchProject.objects.all()
+
+
+class ResearchProjectInfoView(generics.RetrieveAPIView):
+    serializer_class = ResearchProjectNestedSerializer
     queryset = ResearchProject.objects.all()
 
 
@@ -90,7 +100,7 @@ class PercentView(ABC, APIView):
         except KeyError:
             return JsonResponse({"error": "Not found"}, status=400)
 
-        total_count = self.research_item_queryset.filter(project_id=project_id).count()
+        total_count = self.research_item_queryset.filter(project=project_id).count()
         in_progress_count = self.get_in_progress_count(project_id)
 
         return JsonResponse({
@@ -104,19 +114,19 @@ class PredictedPercentView(PercentView):
     TARGET = "predicted"
 
     def get_in_progress_count(self, pk):
-        return self.research_item_queryset.filter(project_id=pk).exclude(icd10item__pk=None).count()
+        return self.research_item_queryset.filter(project=pk).exclude(icd10_item__pk=None).count()
 
 
 class ValidatedPercentView(PercentView):
     TARGET = "validated"
 
     def get_in_progress_count(self, pk):
-        return self.research_item_queryset.filter(project_id=pk).filter(icd10item__validated=True).count()
+        return self.research_item_queryset.filter(project=pk).filter(icd10_item__validated=True).count()
 
 
 class PredictionAcceptedPercentView(PercentView):
     TARGET = "prediction_accepted"
 
     def get_in_progress_count(self, pk):
-        return self.research_item_queryset.filter(project_id=pk) \
-            .filter(icd10item__prediction_accepted=True).count()
+        return self.research_item_queryset.filter(project=pk) \
+            .filter(icd10_item__prediction_accepted=True).count()
