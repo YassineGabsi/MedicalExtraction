@@ -16,7 +16,7 @@ from model.roberta.predict import predict
 def start_project(file_url: str) -> ResearchProject:
     research_project = ResearchProject(project_file_url=file_url)
     research_project.save()
-    logger.info(f"Starting research projet for file {file_url}")
+    logger.info(f"Starting research project {research_project.id} (file: {file_url})")
     thread_pool.submit(run_project, research_project)
     return research_project
 
@@ -57,6 +57,10 @@ def run_project(research_project: ResearchProject):
     splits = split_df(df)
     batches = [(research_project, split) for split in splits]
     thread_pool.map(map2starmap_adapter(populate_icd10_items), batches)
+    logger.info(f"Project {research_project.id} (file: {research_project.project_file_url}) "
+                f"completed successfully")
+    research_project.status = 'C'
+    research_project.save()
 
 
 @OnFailure()
