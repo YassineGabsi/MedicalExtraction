@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 
-def predict(input_df: pd.DataFrame, threshold: int = 0) -> pd.DataFrame:
+def predict(input_df: pd.DataFrame, top_k: int = TOP_K) -> pd.DataFrame:
     """
         1.Input a csv file and preprocess it
         2.Computes embeddings and reduce dimentionality
@@ -29,8 +29,8 @@ def predict(input_df: pd.DataFrame, threshold: int = 0) -> pd.DataFrame:
     for prediction in predictions:
         reordered = np.zeros(224)
         reordered[SVC_MODEL.classes_] = prediction
-        i_predictions_ids = np.argsort(reordered)[::-1][:TOP_K]
-        i_scores = np.sort(reordered)[::-1][:TOP_K]
+        i_predictions_ids = np.argsort(reordered)[::-1][:top_k]
+        i_scores = np.sort(reordered)[::-1][:top_k]
         i_predictions_labels = list(map(lambda id: LABELS[id], i_predictions_ids))
         i_prediction = [
             {
@@ -43,7 +43,7 @@ def predict(input_df: pd.DataFrame, threshold: int = 0) -> pd.DataFrame:
                 i_scores
             )
         ] + [{
-            "top_k": TOP_K
+            "top_k": top_k
         }]
 
         results.append({key: value for element in i_prediction for key, value in element.items()})
@@ -58,9 +58,11 @@ if __name__ == "__main__":
                         help='csv file to use as input')
     parser.add_argument('--output', default=OUTPUT_PATH,
                         help='csv file to use as output')
+    parser.add_argument('--top-k', default=TOP_K, type=int,
+                        help='number of predictions to return')
 
     args = parser.parse_args()
     df = pd.read_csv(args.input)
-    res = predict(df, threshold=THRESHHOLD)
+    res = predict(df, top_k=args.top_k)
     res.to_csv(OUTPUT_PATH, index=False)
     print(res)

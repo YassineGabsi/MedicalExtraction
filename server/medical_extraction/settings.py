@@ -15,6 +15,7 @@ import os
 from dotenv import load_dotenv
 
 from icd10.core.utils import str2bool
+from sqlalchemy import create_engine
 
 load_dotenv()
 
@@ -95,6 +96,11 @@ DATABASES = {
         'PORT': os.getenv('PGPORT', '5432'),
     }
 }
+
+ENGINE = create_engine(
+    f"postgresql://{os.getenv('PGUSER')}:{os.getenv('PGPASSWORD')}"
+    f"@{os.getenv('PGHOST', 'localhost')}:{os.getenv('PGPORT', '5432')}/{os.getenv('PGDATABASE')}"
+)
 
 
 # Password validation

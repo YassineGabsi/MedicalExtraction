@@ -1,7 +1,8 @@
 import os
 import re
+from functools import wraps
 from math import ceil
-from typing import List
+from typing import List, Tuple, Any
 
 import pandas as pd
 
@@ -101,3 +102,16 @@ def split_df(df: pd.DataFrame, n_rows: int = 25) -> List[pd.DataFrame]:
 
 def append_id(filename, id):
     return "{0}_{2}{1}".format(*os.path.splitext(filename) + (id,))
+
+
+def map2starmap_adapter(func):
+    """
+    Function decorator to adapt func so that calling map on it behaves like starmap
+    (not supported in threadpool executors)
+    :param func: function
+    :return: decorated function
+    """
+    @wraps(func)
+    def func_wrapper(args: Tuple[Any], **kwargs):
+        return func(*args, **kwargs)
+    return func_wrapper
