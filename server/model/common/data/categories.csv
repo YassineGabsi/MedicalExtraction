@@ -1,0 +1,225 @@
+chapter_code,chapter_name,block_code,block_name,link
+1,Certain infectious and parasitic diseases,A00-A09,Intestinal infectious diseases,https://icd.who.int/browse10/2019/en#/A00-A09
+1,Certain infectious and parasitic diseases,A15-A19,Tuberculosis,https://icd.who.int/browse10/2019/en#/A15-A19
+1,Certain infectious and parasitic diseases,A30-A49,Other bacterial diseases,https://icd.who.int/browse10/2019/en#/A30-A49
+1,Certain infectious and parasitic diseases,A50-A64,Infections with a predominantly sexual mode of transmission,https://icd.who.int/browse10/2019/en#/A50-A64
+1,Certain infectious and parasitic diseases,A65-A69,Other spirochaetal diseases,https://icd.who.int/browse10/2019/en#/A65-A69
+1,Certain infectious and parasitic diseases,A80-A89,Viral infections of the central nervous system,https://icd.who.int/browse10/2019/en#/A80-A89
+1,Certain infectious and parasitic diseases,A90-A99,Arthropod-borne viral fevers and viral haemorrhagic fevers,https://icd.who.int/browse10/2019/en#/A90-A99
+1,Certain infectious and parasitic diseases,B00-B09,Viral infections characterized by skin and mucous membrane lesions,https://icd.who.int/browse10/2019/en#/B00-B09
+1,Certain infectious and parasitic diseases,B15-B19,Viral hepatitis,https://icd.who.int/browse10/2019/en#/B15-B19
+1,Certain infectious and parasitic diseases,B20-B24,Human immunodeficiency virus [HIV] disease,https://icd.who.int/browse10/2019/en#/B20-B24
+1,Certain infectious and parasitic diseases,B25-B34,Other viral diseases,https://icd.who.int/browse10/2019/en#/B25-B34
+1,Certain infectious and parasitic diseases,B35-B49,Mycoses,https://icd.who.int/browse10/2019/en#/B35-B49
+1,Certain infectious and parasitic diseases,B50-B64,Protozoal diseases,https://icd.who.int/browse10/2019/en#/B50-B64
+1,Certain infectious and parasitic diseases,B65-B83,Helminthiases,https://icd.who.int/browse10/2019/en#/B65-B83
+1,Certain infectious and parasitic diseases,B90-B94,Sequelae of infectious and parasitic diseases,https://icd.who.int/browse10/2019/en#/B90-B94
+1,Certain infectious and parasitic diseases,B95-B98,"Bacterial, viral and other infectious agents",https://icd.who.int/browse10/2019/en#/B95-B98
+1,Certain infectious and parasitic diseases,B99-B99,Other infectious diseases,https://icd.who.int/browse10/2019/en#/B99-B99
+2,Neoplasms,C00-C14,"Malignant neoplasms of lip, oral cavity and pharynx",https://icd.who.int/browse10/2019/en#/C00-C14
+2,Neoplasms,C15-C26,Malignant neoplasms of digestive organs,https://icd.who.int/browse10/2019/en#/C15-C26
+2,Neoplasms,C30-C39,Malignant neoplasms of respiratory and intrathoracic organs,https://icd.who.int/browse10/2019/en#/C30-C39
+2,Neoplasms,C40-C41,Malignant neoplasms of bone and articular cartilage,https://icd.who.int/browse10/2019/en#/C40-C41
+2,Neoplasms,C43-C44,Melanoma and other malignant neoplasms of skin,https://icd.who.int/browse10/2019/en#/C43-C44
+2,Neoplasms,C45-C49,Malignant neoplasms of mesothelial and soft tissue,https://icd.who.int/browse10/2019/en#/C45-C49
+2,Neoplasms,C50-C50,Malignant neoplasm of breast,https://icd.who.int/browse10/2019/en#/C50-C50
+2,Neoplasms,C51-C58,Malignant neoplasms of female genital organs,https://icd.who.int/browse10/2019/en#/C51-C58
+2,Neoplasms,C60-C63,Malignant neoplasms of male genital organs,https://icd.who.int/browse10/2019/en#/C60-C63
+2,Neoplasms,C64-C68,Malignant neoplasms of urinary tract,https://icd.who.int/browse10/2019/en#/C64-C68
+2,Neoplasms,C69-C72,"Malignant neoplasms of eye, brain and other parts of central nervous system",https://icd.who.int/browse10/2019/en#/C69-C72
+2,Neoplasms,C73-C75,Malignant neoplasms of thyroid and other endocrine glands,https://icd.who.int/browse10/2019/en#/C73-C75
+2,Neoplasms,C76-C80,"Malignant neoplasms of ill-defined, secondary and unspecified sites",https://icd.who.int/browse10/2019/en#/C76-C80
+2,Neoplasms,C81-C96,"Malignant neoplasms, stated or presumed to be primary, of lymphoid, haematopoietic and related tissue",https://icd.who.int/browse10/2019/en#/C81-C96
+2,Neoplasms,D00-D09,In situ neoplasms,https://icd.who.int/browse10/2019/en#/D00-D09
+2,Neoplasms,D10-D36,Benign neoplasms,https://icd.who.int/browse10/2019/en#/D10-D36
+2,Neoplasms,D37-D48,Neoplasms of uncertain or unknown behaviour,https://icd.who.int/browse10/2019/en#/D37-D48
+3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,D50-D53,Nutritional anaemias,https://icd.who.int/browse10/2019/en#/D50-D53
+3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,D55-D59,Haemolytic anaemias,https://icd.who.int/browse10/2019/en#/D55-D59
+3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,D60-D64,Aplastic and other anaemias,https://icd.who.int/browse10/2019/en#/D60-D64
+3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,D65-D69,"Coagulation defects, purpura and other haemorrhagic conditions",https://icd.who.int/browse10/2019/en#/D65-D69
+3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,D70-D77,Other diseases of blood and blood-forming organs,https://icd.who.int/browse10/2019/en#/D70-D77
+3,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism,D80-D89,Certain disorders involving the immune mechanism,https://icd.who.int/browse10/2019/en#/D80-D89
+4,"Endocrine, nutritional and metabolic diseases",E00-E07,Disorders of thyroid gland,https://icd.who.int/browse10/2019/en#/E00-E07
+4,"Endocrine, nutritional and metabolic diseases",E10-E14,Diabetes mellitus,https://icd.who.int/browse10/2019/en#/E10-E14
+4,"Endocrine, nutritional and metabolic diseases",E15-E16,Other disorders of glucose regulation and pancreatic internal secretion,https://icd.who.int/browse10/2019/en#/E15-E16
+4,"Endocrine, nutritional and metabolic diseases",E20-E35,Disorders of other endocrine glands,https://icd.who.int/browse10/2019/en#/E20-E35
+4,"Endocrine, nutritional and metabolic diseases",E40-E46,Malnutrition,https://icd.who.int/browse10/2019/en#/E40-E46
+4,"Endocrine, nutritional and metabolic diseases",E50-E64,Other nutritional deficiencies,https://icd.who.int/browse10/2019/en#/E50-E64
+4,"Endocrine, nutritional and metabolic diseases",E65-E68,Obesity and other hyperalimentation,https://icd.who.int/browse10/2019/en#/E65-E68
+4,"Endocrine, nutritional and metabolic diseases",E70-E90,Metabolic disorders,https://icd.who.int/browse10/2019/en#/E70-E90
+5,Mental and behavioural disorders,F00-F09,"Organic, including symptomatic, mental disorders",https://icd.who.int/browse10/2019/en#/F00-F09
+5,Mental and behavioural disorders,F10-F19,Mental and behavioural disorders due to psychoactive substance use,https://icd.who.int/browse10/2019/en#/F10-F19
+5,Mental and behavioural disorders,F20-F29,"Schizophrenia, schizotypal and delusional disorders",https://icd.who.int/browse10/2019/en#/F20-F29
+5,Mental and behavioural disorders,F30-F39,Mood [affective] disorders,https://icd.who.int/browse10/2019/en#/F30-F39
+5,Mental and behavioural disorders,F40-F48,"Neurotic, stress-related and somatoform disorders",https://icd.who.int/browse10/2019/en#/F40-F48
+5,Mental and behavioural disorders,F50-F59,Behavioural syndromes associated with physiological disturbances and physical factors,https://icd.who.int/browse10/2019/en#/F50-F59
+5,Mental and behavioural disorders,F60-F69,Disorders of adult personality and behaviour,https://icd.who.int/browse10/2019/en#/F60-F69
+5,Mental and behavioural disorders,F70-F79,Mental retardation,https://icd.who.int/browse10/2019/en#/F70-F79
+5,Mental and behavioural disorders,F80-F89,Disorders of psychological development,https://icd.who.int/browse10/2019/en#/F80-F89
+5,Mental and behavioural disorders,F90-F98,Behavioural and emotional disorders with onset usually occurring in childhood and adolescence,https://icd.who.int/browse10/2019/en#/F90-F98
+5,Mental and behavioural disorders,F99-F99,Unspecified mental disorder,https://icd.who.int/browse10/2019/en#/F99-F99
+6,Diseases of the nervous system,G00-G09,Inflammatory diseases of the central nervous system,https://icd.who.int/browse10/2019/en#/G00-G09
+6,Diseases of the nervous system,G10-G14,Systemic atrophies primarily affecting the central nervous system,https://icd.who.int/browse10/2019/en#/G10-G14
+6,Diseases of the nervous system,G20-G26,Extrapyramidal and movement disorders,https://icd.who.int/browse10/2019/en#/G20-G26
+6,Diseases of the nervous system,G30-G32,Other degenerative diseases of the nervous system,https://icd.who.int/browse10/2019/en#/G30-G32
+6,Diseases of the nervous system,G35-G37,Demyelinating diseases of the central nervous system,https://icd.who.int/browse10/2019/en#/G35-G37
+6,Diseases of the nervous system,G40-G47,Episodic and paroxysmal disorders,https://icd.who.int/browse10/2019/en#/G40-G47
+6,Diseases of the nervous system,G50-G59,"Nerve, nerve root and plexus disorders",https://icd.who.int/browse10/2019/en#/G50-G59
+6,Diseases of the nervous system,G60-G64,Polyneuropathies and other disorders of the peripheral nervous system,https://icd.who.int/browse10/2019/en#/G60-G64
+6,Diseases of the nervous system,G70-G73,Diseases of myoneural junction and muscle,https://icd.who.int/browse10/2019/en#/G70-G73
+6,Diseases of the nervous system,G80-G83,Cerebral palsy and other paralytic syndromes,https://icd.who.int/browse10/2019/en#/G80-G83
+6,Diseases of the nervous system,G90-G99,Other disorders of the nervous system,https://icd.who.int/browse10/2019/en#/G90-G99
+7,Diseases of the eye and adnexa,H00-H06,"Disorders of eyelid, lacrimal system and orbit",https://icd.who.int/browse10/2019/en#/H00-H06
+7,Diseases of the eye and adnexa,H10-H13,Disorders of conjunctiva,https://icd.who.int/browse10/2019/en#/H10-H13
+7,Diseases of the eye and adnexa,H15-H22,"Disorders of sclera, cornea, iris and ciliary body",https://icd.who.int/browse10/2019/en#/H15-H22
+7,Diseases of the eye and adnexa,H25-H28,Disorders of lens,https://icd.who.int/browse10/2019/en#/H25-H28
+7,Diseases of the eye and adnexa,H30-H36,Disorders of choroid and retina,https://icd.who.int/browse10/2019/en#/H30-H36
+7,Diseases of the eye and adnexa,H40-H42,Glaucoma,https://icd.who.int/browse10/2019/en#/H40-H42
+7,Diseases of the eye and adnexa,H43-H45,Disorders of vitreous body and globe,https://icd.who.int/browse10/2019/en#/H43-H45
+7,Diseases of the eye and adnexa,H46-H48,Disorders of optic nerve and visual pathways,https://icd.who.int/browse10/2019/en#/H46-H48
+7,Diseases of the eye and adnexa,H49-H52,"Disorders of ocular muscles, binocular movement, accommodation and refraction",https://icd.who.int/browse10/2019/en#/H49-H52
+7,Diseases of the eye and adnexa,H53-H54,Visual disturbances and blindness,https://icd.who.int/browse10/2019/en#/H53-H54
+7,Diseases of the eye and adnexa,H55-H59,Other disorders of eye and adnexa,https://icd.who.int/browse10/2019/en#/H55-H59
+8,Diseases of the ear and mastoid process,H65-H75,Diseases of middle ear and mastoid,https://icd.who.int/browse10/2019/en#/H65-H75
+8,Diseases of the ear and mastoid process,H80-H83,Diseases of inner ear,https://icd.who.int/browse10/2019/en#/H80-H83
+8,Diseases of the ear and mastoid process,H90-H95,Other disorders of ear,https://icd.who.int/browse10/2019/en#/H90-H95
+9,Diseases of the circulatory system,I10-I15,Hypertensive diseases,https://icd.who.int/browse10/2019/en#/I10-I15
+9,Diseases of the circulatory system,I20-I25,Ischaemic heart diseases,https://icd.who.int/browse10/2019/en#/I20-I25
+9,Diseases of the circulatory system,I26-I28,Pulmonary heart disease and diseases of pulmonary circulation,https://icd.who.int/browse10/2019/en#/I26-I28
+9,Diseases of the circulatory system,I30-I52,Other forms of heart disease,https://icd.who.int/browse10/2019/en#/I30-I52
+9,Diseases of the circulatory system,I60-I69,Cerebrovascular diseases,https://icd.who.int/browse10/2019/en#/I60-I69
+9,Diseases of the circulatory system,I70-I79,"Diseases of arteries, arterioles and capillaries",https://icd.who.int/browse10/2019/en#/I70-I79
+9,Diseases of the circulatory system,I80-I89,"Diseases of veins, lymphatic vessels and lymph nodes, not elsewhere classified",https://icd.who.int/browse10/2019/en#/I80-I89
+9,Diseases of the circulatory system,I95-I99,Other and unspecified disorders of the circulatory system,https://icd.who.int/browse10/2019/en#/I95-I99
+10,Diseases of the respiratory system,J00-J06,Acute upper respiratory infections,https://icd.who.int/browse10/2019/en#/J00-J06
+10,Diseases of the respiratory system,J09-J18,Influenza and pneumonia,https://icd.who.int/browse10/2019/en#/J09-J18
+10,Diseases of the respiratory system,J20-J22,Other acute lower respiratory infections,https://icd.who.int/browse10/2019/en#/J20-J22
+10,Diseases of the respiratory system,J30-J39,Other diseases of upper respiratory tract,https://icd.who.int/browse10/2019/en#/J30-J39
+10,Diseases of the respiratory system,J40-J47,Chronic lower respiratory diseases,https://icd.who.int/browse10/2019/en#/J40-J47
+10,Diseases of the respiratory system,J60-J70,Lung diseases due to external agents,https://icd.who.int/browse10/2019/en#/J60-J70
+10,Diseases of the respiratory system,J80-J84,Other respiratory diseases principally affecting the interstitium,https://icd.who.int/browse10/2019/en#/J80-J84
+10,Diseases of the respiratory system,J85-J86,Suppurative and necrotic conditions of lower respiratory tract,https://icd.who.int/browse10/2019/en#/J85-J86
+10,Diseases of the respiratory system,J90-J94,Other diseases of pleura,https://icd.who.int/browse10/2019/en#/J90-J94
+10,Diseases of the respiratory system,J95-J99,Other diseases of the respiratory system,https://icd.who.int/browse10/2019/en#/J95-J99
+11,Diseases of the digestive system,K00-K14,"Diseases of oral cavity, salivary glands and jaws",https://icd.who.int/browse10/2019/en#/K00-K14
+11,Diseases of the digestive system,K20-K31,"Diseases of oesophagus, stomach and duodenum",https://icd.who.int/browse10/2019/en#/K20-K31
+11,Diseases of the digestive system,K35-K38,Diseases of appendix,https://icd.who.int/browse10/2019/en#/K35-K38
+11,Diseases of the digestive system,K40-K46,Hernia,https://icd.who.int/browse10/2019/en#/K40-K46
+11,Diseases of the digestive system,K50-K52,Noninfective enteritis and colitis,https://icd.who.int/browse10/2019/en#/K50-K52
+11,Diseases of the digestive system,K55-K63,Other diseases of intestines,https://icd.who.int/browse10/2019/en#/K55-K63
+11,Diseases of the digestive system,K65-K67,Diseases of peritoneum,https://icd.who.int/browse10/2019/en#/K65-K67
+11,Diseases of the digestive system,K70-K77,Diseases of liver,https://icd.who.int/browse10/2019/en#/K70-K77
+11,Diseases of the digestive system,K80-K87,"Disorders of gallbladder, biliary tract and pancreas",https://icd.who.int/browse10/2019/en#/K80-K87
+11,Diseases of the digestive system,K90-K93,Other diseases of the digestive system,https://icd.who.int/browse10/2019/en#/K90-K93
+12,Diseases of the skin and subcutaneous tissue,L00-L08,Infections of the skin and subcutaneous tissue,https://icd.who.int/browse10/2019/en#/L00-L08
+12,Diseases of the skin and subcutaneous tissue,L10-L14,Bullous disorders,https://icd.who.int/browse10/2019/en#/L10-L14
+12,Diseases of the skin and subcutaneous tissue,L20-L30,Dermatitis and eczema,https://icd.who.int/browse10/2019/en#/L20-L30
+12,Diseases of the skin and subcutaneous tissue,L40-L45,Papulosquamous disorders,https://icd.who.int/browse10/2019/en#/L40-L45
+12,Diseases of the skin and subcutaneous tissue,L50-L54,Urticaria and erythema,https://icd.who.int/browse10/2019/en#/L50-L54
+12,Diseases of the skin and subcutaneous tissue,L55-L59,Radiation-related disorders of the skin and subcutaneous tissue,https://icd.who.int/browse10/2019/en#/L55-L59
+12,Diseases of the skin and subcutaneous tissue,L60-L75,Disorders of skin appendages,https://icd.who.int/browse10/2019/en#/L60-L75
+12,Diseases of the skin and subcutaneous tissue,L80-L99,Other disorders of the skin and subcutaneous tissue,https://icd.who.int/browse10/2019/en#/L80-L99
+13,Diseases of the musculoskeletal system and connective tissue,M00-M03,Infectious arthropathies,https://icd.who.int/browse10/2019/en#/M00-M03
+13,Diseases of the musculoskeletal system and connective tissue,M05-M14,Inflammatory polyarthropathies,https://icd.who.int/browse10/2019/en#/M05-M14
+13,Diseases of the musculoskeletal system and connective tissue,M15-M19,Arthrosis,https://icd.who.int/browse10/2019/en#/M15-M19
+13,Diseases of the musculoskeletal system and connective tissue,M20-M25,Other joint disorders,https://icd.who.int/browse10/2019/en#/M20-M25
+13,Diseases of the musculoskeletal system and connective tissue,M30-M36,Systemic connective tissue disorders,https://icd.who.int/browse10/2019/en#/M30-M36
+13,Diseases of the musculoskeletal system and connective tissue,M40-M43,Deforming dorsopathies,https://icd.who.int/browse10/2019/en#/M40-M43
+13,Diseases of the musculoskeletal system and connective tissue,M45-M49,Spondylopathies,https://icd.who.int/browse10/2019/en#/M45-M49
+13,Diseases of the musculoskeletal system and connective tissue,M50-M54,Other dorsopathies,https://icd.who.int/browse10/2019/en#/M50-M54
+13,Diseases of the musculoskeletal system and connective tissue,M60-M63,Disorders of muscles,https://icd.who.int/browse10/2019/en#/M60-M63
+13,Diseases of the musculoskeletal system and connective tissue,M70-M79,Other soft tissue disorders,https://icd.who.int/browse10/2019/en#/M70-M79
+13,Diseases of the musculoskeletal system and connective tissue,M80-M85,Disorders of bone density and structure,https://icd.who.int/browse10/2019/en#/M80-M85
+13,Diseases of the musculoskeletal system and connective tissue,M86-M90,Other osteopathies,https://icd.who.int/browse10/2019/en#/M86-M90
+13,Diseases of the musculoskeletal system and connective tissue,M91-M94,Chondropathies,https://icd.who.int/browse10/2019/en#/M91-M94
+13,Diseases of the musculoskeletal system and connective tissue,M95-M99,Other disorders of the musculoskeletal system and connective tissue,https://icd.who.int/browse10/2019/en#/M95-M99
+14,Diseases of the genitourinary system,N00-N08,Glomerular diseases,https://icd.who.int/browse10/2019/en#/N00-N08
+14,Diseases of the genitourinary system,N10-N16,Renal tubulo-interstitial diseases,https://icd.who.int/browse10/2019/en#/N10-N16
+14,Diseases of the genitourinary system,N17-N19,Renal failure,https://icd.who.int/browse10/2019/en#/N17-N19
+14,Diseases of the genitourinary system,N20-N23,Urolithiasis,https://icd.who.int/browse10/2019/en#/N20-N23
+14,Diseases of the genitourinary system,N25-N29,Other disorders of kidney and ureter,https://icd.who.int/browse10/2019/en#/N25-N29
+14,Diseases of the genitourinary system,N30-N39,Other diseases of urinary system,https://icd.who.int/browse10/2019/en#/N30-N39
+14,Diseases of the genitourinary system,N40-N51,Diseases of male genital organs,https://icd.who.int/browse10/2019/en#/N40-N51
+14,Diseases of the genitourinary system,N60-N64,Disorders of breast,https://icd.who.int/browse10/2019/en#/N60-N64
+14,Diseases of the genitourinary system,N70-N77,Inflammatory diseases of female pelvic organs,https://icd.who.int/browse10/2019/en#/N70-N77
+14,Diseases of the genitourinary system,N80-N98,Noninflammatory disorders of female genital tract,https://icd.who.int/browse10/2019/en#/N80-N98
+14,Diseases of the genitourinary system,N99-N99,Other disorders of the genitourinary system,https://icd.who.int/browse10/2019/en#/N99-N99
+15,"Pregnancy, childbirth and the puerperium",O00-O08,Pregnancy with abortive outcome,https://icd.who.int/browse10/2019/en#/O00-O08
+15,"Pregnancy, childbirth and the puerperium",O10-O16,"Oedema, proteinuria and hypertensive disorders in pregnancy, childbirth and the puerperium",https://icd.who.int/browse10/2019/en#/O10-O16
+15,"Pregnancy, childbirth and the puerperium",O20-O29,Other maternal disorders predominantly related to pregnancy,https://icd.who.int/browse10/2019/en#/O20-O29
+15,"Pregnancy, childbirth and the puerperium",O30-O48,Maternal care related to the fetus and amniotic cavity and possible delivery problems,https://icd.who.int/browse10/2019/en#/O30-O48
+15,"Pregnancy, childbirth and the puerperium",O60-O75,Complications of labour and delivery,https://icd.who.int/browse10/2019/en#/O60-O75
+15,"Pregnancy, childbirth and the puerperium",O80-O84,Delivery,https://icd.who.int/browse10/2019/en#/O80-O84
+15,"Pregnancy, childbirth and the puerperium",O85-O92,Complications predominantly related to the puerperium,https://icd.who.int/browse10/2019/en#/O85-O92
+16,Certain conditions originating in the perinatal period,P00-P04,"Fetus and newborn affected by maternal factors and by complications of pregnancy, labour and delivery",https://icd.who.int/browse10/2019/en#/P00-P04
+16,Certain conditions originating in the perinatal period,P05-P08,Disorders related to length of gestation and fetal growth,https://icd.who.int/browse10/2019/en#/P05-P08
+16,Certain conditions originating in the perinatal period,P20-P29,Respiratory and cardiovascular disorders specific to the perinatal period,https://icd.who.int/browse10/2019/en#/P20-P29
+16,Certain conditions originating in the perinatal period,P35-P39,Infections specific to the perinatal period,https://icd.who.int/browse10/2019/en#/P35-P39
+16,Certain conditions originating in the perinatal period,P50-P61,Haemorrhagic and haematological disorders of fetus and newborn,https://icd.who.int/browse10/2019/en#/P50-P61
+16,Certain conditions originating in the perinatal period,P70-P74,Transitory endocrine and metabolic disorders specific to fetus and newborn,https://icd.who.int/browse10/2019/en#/P70-P74
+16,Certain conditions originating in the perinatal period,P75-P78,Digestive system disorders of fetus and newborn,https://icd.who.int/browse10/2019/en#/P75-P78
+16,Certain conditions originating in the perinatal period,P80-P83,Conditions involving the integument and temperature regulation of fetus and newborn,https://icd.who.int/browse10/2019/en#/P80-P83
+16,Certain conditions originating in the perinatal period,P90-P96,Other disorders originating in the perinatal period,https://icd.who.int/browse10/2019/en#/P90-P96
+17,"Congenital malformations, deformations and chromosomal abnormalities",Q00-Q07,Congenital malformations of the nervous system,https://icd.who.int/browse10/2019/en#/Q00-Q07
+17,"Congenital malformations, deformations and chromosomal abnormalities",Q10-Q18,"Congenital malformations of eye, ear, face and neck",https://icd.who.int/browse10/2019/en#/Q10-Q18
+17,"Congenital malformations, deformations and chromosomal abnormalities",Q20-Q28,Congenital malformations of the circulatory system,https://icd.who.int/browse10/2019/en#/Q20-Q28
+17,"Congenital malformations, deformations and chromosomal abnormalities",Q30-Q34,Congenital malformations of the respiratory system,https://icd.who.int/browse10/2019/en#/Q30-Q34
+17,"Congenital malformations, deformations and chromosomal abnormalities",Q35-Q37,Cleft lip and cleft palate,https://icd.who.int/browse10/2019/en#/Q35-Q37
+17,"Congenital malformations, deformations and chromosomal abnormalities",Q38-Q45,Other congenital malformations of the digestive system,https://icd.who.int/browse10/2019/en#/Q38-Q45
+17,"Congenital malformations, deformations and chromosomal abnormalities",Q50-Q56,Congenital malformations of genital organs,https://icd.who.int/browse10/2019/en#/Q50-Q56
+17,"Congenital malformations, deformations and chromosomal abnormalities",Q60-Q64,Congenital malformations of the urinary system,https://icd.who.int/browse10/2019/en#/Q60-Q64
+17,"Congenital malformations, deformations and chromosomal abnormalities",Q65-Q79,Congenital malformations and deformations of the musculoskeletal system,https://icd.who.int/browse10/2019/en#/Q65-Q79
+17,"Congenital malformations, deformations and chromosomal abnormalities",Q80-Q89,Other congenital malformations,https://icd.who.int/browse10/2019/en#/Q80-Q89
+17,"Congenital malformations, deformations and chromosomal abnormalities",Q90-Q99,"Chromosomal abnormalities, not elsewhere classified",https://icd.who.int/browse10/2019/en#/Q90-Q99
+18,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",R00-R09,Symptoms and signs involving the circulatory and respiratory systems,https://icd.who.int/browse10/2019/en#/R00-R09
+18,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",R10-R19,Symptoms and signs involving the digestive system and abdomen,https://icd.who.int/browse10/2019/en#/R10-R19
+18,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",R20-R23,Symptoms and signs involving the skin and subcutaneous tissue,https://icd.who.int/browse10/2019/en#/R20-R23
+18,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",R25-R29,Symptoms and signs involving the nervous and musculoskeletal systems,https://icd.who.int/browse10/2019/en#/R25-R29
+18,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",R30-R39,Symptoms and signs involving the urinary system,https://icd.who.int/browse10/2019/en#/R30-R39
+18,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",R40-R46,"Symptoms and signs involving cognition, perception, emotional state and behaviour",https://icd.who.int/browse10/2019/en#/R40-R46
+18,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",R47-R49,Symptoms and signs involving speech and voice,https://icd.who.int/browse10/2019/en#/R47-R49
+18,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",R50-R69,General symptoms and signs,https://icd.who.int/browse10/2019/en#/R50-R69
+18,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",R70-R79,"Abnormal findings on examination of blood, without diagnosis",https://icd.who.int/browse10/2019/en#/R70-R79
+18,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",R90-R94,"Abnormal findings on diagnostic imaging and in function studies, without diagnosis",https://icd.who.int/browse10/2019/en#/R90-R94
+18,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",R95-R99,Ill-defined and unknown causes of mortality,https://icd.who.int/browse10/2019/en#/R95-R99
+19,"Injury, poisoning and certain other consequences of external causes",S00-S09,Injuries to the head,https://icd.who.int/browse10/2019/en#/S00-S09
+19,"Injury, poisoning and certain other consequences of external causes",S10-S19,Injuries to the neck,https://icd.who.int/browse10/2019/en#/S10-S19
+19,"Injury, poisoning and certain other consequences of external causes",S20-S29,Injuries to the thorax,https://icd.who.int/browse10/2019/en#/S20-S29
+19,"Injury, poisoning and certain other consequences of external causes",S30-S39,"Injuries to the abdomen, lower back, lumbar spine and pelvis",https://icd.who.int/browse10/2019/en#/S30-S39
+19,"Injury, poisoning and certain other consequences of external causes",S40-S49,Injuries to the shoulder and upper arm,https://icd.who.int/browse10/2019/en#/S40-S49
+19,"Injury, poisoning and certain other consequences of external causes",S50-S59,Injuries to the elbow and forearm,https://icd.who.int/browse10/2019/en#/S50-S59
+19,"Injury, poisoning and certain other consequences of external causes",S60-S69,Injuries to the wrist and hand,https://icd.who.int/browse10/2019/en#/S60-S69
+19,"Injury, poisoning and certain other consequences of external causes",S70-S79,Injuries to the hip and thigh,https://icd.who.int/browse10/2019/en#/S70-S79
+19,"Injury, poisoning and certain other consequences of external causes",S80-S89,Injuries to the knee and lower leg,https://icd.who.int/browse10/2019/en#/S80-S89
+19,"Injury, poisoning and certain other consequences of external causes",S90-S99,Injuries to the ankle and foot,https://icd.who.int/browse10/2019/en#/S90-S99
+19,"Injury, poisoning and certain other consequences of external causes",T00-T07,Injuries involving multiple body regions,https://icd.who.int/browse10/2019/en#/T00-T07
+19,"Injury, poisoning and certain other consequences of external causes",T08-T14,"Injuries to unspecified part of trunk, limb or body region",https://icd.who.int/browse10/2019/en#/T08-T14
+19,"Injury, poisoning and certain other consequences of external causes",T15-T19,Effects of foreign body entering through natural orifice,https://icd.who.int/browse10/2019/en#/T15-T19
+19,"Injury, poisoning and certain other consequences of external causes",T20-T25,"Burns and corrosions of external body surface, specified by site",https://icd.who.int/browse10/2019/en#/T20-T25
+19,"Injury, poisoning and certain other consequences of external causes",T29-T32,Burns and corrosions of multiple and unspecified body regions,https://icd.who.int/browse10/2019/en#/T29-T32
+19,"Injury, poisoning and certain other consequences of external causes",T36-T50,"Poisoning by drugs, medicaments and biological substances",https://icd.who.int/browse10/2019/en#/T36-T50
+19,"Injury, poisoning and certain other consequences of external causes",T51-T65,Toxic effects of substances chiefly nonmedicinal as to source,https://icd.who.int/browse10/2019/en#/T51-T65
+19,"Injury, poisoning and certain other consequences of external causes",T66-T78,Other and unspecified effects of external causes,https://icd.who.int/browse10/2019/en#/T66-T78
+19,"Injury, poisoning and certain other consequences of external causes",T79-T79,Certain early complications of trauma,https://icd.who.int/browse10/2019/en#/T79-T79
+19,"Injury, poisoning and certain other consequences of external causes",T80-T88,"Complications of surgical and medical care, not elsewhere classified",https://icd.who.int/browse10/2019/en#/T80-T88
+19,"Injury, poisoning and certain other consequences of external causes",T90-T98,"Sequelae of injuries, of poisoning and of other consequences of external causes",https://icd.who.int/browse10/2019/en#/T90-T98
+20,External causes of morbidity and mortality,V10-V19,Pedal cyclist injured in transport accident,https://icd.who.int/browse10/2019/en#/V10-V19
+20,External causes of morbidity and mortality,V80-V89,Other land transport accidents,https://icd.who.int/browse10/2019/en#/V80-V89
+20,External causes of morbidity and mortality,W00-W19,Falls,https://icd.who.int/browse10/2019/en#/W00-W19
+20,External causes of morbidity and mortality,X00-X09,"Exposure to smoke, fire and flames",https://icd.who.int/browse10/2019/en#/X00-X09
+20,External causes of morbidity and mortality,X40-X49,Accidental poisoning by and exposure to noxious substances,https://icd.who.int/browse10/2019/en#/X40-X49
+20,External causes of morbidity and mortality,X60-X84,Intentional self-harm,https://icd.who.int/browse10/2019/en#/X60-X84
+20,External causes of morbidity and mortality,X85-Y09,Assault,https://icd.who.int/browse10/2019/en#/X85-Y09
+20,External causes of morbidity and mortality,Y35-Y36,Legal intervention and operations of war,https://icd.who.int/browse10/2019/en#/Y35-Y36
+20,External causes of morbidity and mortality,Y40-Y59,"Drugs, medicaments and biological substances causing adverse effects in therapeutic use",https://icd.who.int/browse10/2019/en#/Y40-Y59
+20,External causes of morbidity and mortality,Y83-Y84,"Surgical and other medical procedures as the cause of abnormal reaction of the patient, or of later complication, without mention of misadventure at the time of the procedure",https://icd.who.int/browse10/2019/en#/Y83-Y84
+20,External causes of morbidity and mortality,Y85-Y89,Sequelae of external causes of morbidity and mortality,https://icd.who.int/browse10/2019/en#/Y85-Y89
+21,Factors influencing health status and contact with health services,Z00-Z13,Persons encountering health services for examination and investigation,https://icd.who.int/browse10/2019/en#/Z00-Z13
+21,Factors influencing health status and contact with health services,Z20-Z29,Persons with potential health hazards related to communicable diseases,https://icd.who.int/browse10/2019/en#/Z20-Z29
+21,Factors influencing health status and contact with health services,Z30-Z39,Persons encountering health services in circumstances related to reproduction,https://icd.who.int/browse10/2019/en#/Z30-Z39
+21,Factors influencing health status and contact with health services,Z40-Z54,Persons encountering health services for specific procedures and health care,https://icd.who.int/browse10/2019/en#/Z40-Z54
+21,Factors influencing health status and contact with health services,Z55-Z65,Persons with potential health hazards related to socioeconomic and psychosocial circumstances,https://icd.who.int/browse10/2019/en#/Z55-Z65
+21,Factors influencing health status and contact with health services,Z70-Z76,Persons encountering health services in other circumstances,https://icd.who.int/browse10/2019/en#/Z70-Z76
+21,Factors influencing health status and contact with health services,Z80-Z99,Persons with potential health hazards related to family and personal history and certain conditions influencing health status,https://icd.who.int/browse10/2019/en#/Z80-Z99
+22,Codes for special purposes,U00-U49,Provisional assignment of new diseases of uncertain etiology,https://icd.who.int/browse10/2019/en#/U00-U49
+22,Codes for special purposes,U80-U89,Bacterial agents resistant to antibiotics,https://icd.who.int/browse10/2019/en#/U80-U89

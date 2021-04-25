@@ -14,18 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from django.views.generic import TemplateView
 from rest_framework.schemas import get_schema_view
 
-from icd10.views import FileUploadView
 from icd10.views import (
     ResearchProjectCreateListView,
     ResearchProjectView,
     ResearchItemCreateListView,
     ResearchItemView,
     ICD10ItemCreateListView,
-    ICD10ItemView
+    ICD10ItemView,
+    PredictedPercentView,
+    ValidatedPercentView,
+    PredictionAcceptedPercentView,
+    FileUploadView, ResearchProjectInfoView,
 )
 
 urlpatterns = [
@@ -40,10 +43,14 @@ urlpatterns = [
         public=True
     ), name='openapi-schema'),
     path('api/upload/', FileUploadView.as_view()),
+    path('api/project-info/<int:pk>', ResearchProjectInfoView.as_view(), name='project-info'),
     path('api/project/<int:pk>', ResearchProjectView.as_view(), name='project'),
-    path('api/project',ResearchProjectCreateListView.as_view(), name='project-create-list'),
-    path('api/item/<int:pk>', ResearchItemView.as_view(), name='item'),
-    path('api/item',ResearchItemCreateListView.as_view(), name='item-create-list'),
-
-
+    path('api/project', ResearchProjectCreateListView.as_view(), name='project-create-list'),
+    path('api/research-item/<int:pk>', ResearchItemView.as_view(), name='research-item'),
+    path('api/research-item',ResearchItemCreateListView.as_view(), name='research-item-create-list'),
+    path('api/icd10-item/<int:pk>', ICD10ItemView.as_view(), name='icd10-item'),
+    path('api/icd10-item',ICD10ItemCreateListView.as_view(), name='icd10-item-create-list'),
+    path('api/predicted/<int:pk>', PredictedPercentView.as_view(), name='predicted'),
+    path('api/validated/<int:pk>', ValidatedPercentView.as_view(), name='validated'),
+    path('api/prediction-accepted/<int:pk>', PredictionAcceptedPercentView.as_view(), name='prediction-accepted'),
 ]
