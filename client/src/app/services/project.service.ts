@@ -2,24 +2,24 @@ import { Injectable } from '@angular/core';
 import {GenericService} from './generic.service';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { Utils } from './utils';
 import {ResearchProject} from '../models/research-project';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UploadFileService extends GenericService {
+export class ProjectService extends GenericService {
+
+  urlInfo;
+  urlProject;
 
   constructor(private http: HttpClient) {
     super();
-    this.url = this.url + 'upload/';
+    this.urlInfo = this.url + 'project-info/';
+    this.urlProject = this.url + 'project/';
   }
 
-  public sendFile(file): Observable<any> {
-    const formData = new FormData();
-    formData.append('file', file);
-
-    return this.http.post<any>(this.url, formData) as Observable<ResearchProject>;
+  public getProjectById(id): Observable<ResearchProject> {
+    return this.http.get<any>(this.urlInfo + id) as Observable<ResearchProject>;
   }
 
 }
