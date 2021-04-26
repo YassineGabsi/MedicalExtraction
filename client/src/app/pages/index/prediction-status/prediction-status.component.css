@@ -1,0 +1,51 @@
+
+#svg circle, #svg2 circle {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear;
+  stroke: #ffffff;
+  stroke-width: 1em;
+}
+
+#svg #bar, #svg2 #bar2 {
+  stroke: #ef4e4e;
+}
+
+#cont, #cont2 {
+  display: block;
+  height: 200px;
+  width: 200px;
+  margin: 2em auto;
+  border-radius: 100%;
+  position: relative;
+}
+
+#cont:after, #cont2:after {
+  position: absolute;
+  display: block;
+  height: 165px;
+  width: 165px;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  content: attr(data-pct) "%";
+  margin-top: -82px;
+  margin-left: -82px;
+  border-radius: 100%;
+  line-height: 160px;
+  font-size: 2em;
+  font-weight: bold;
+  color: #ef4e4e;
+}
+
+.page-wrapper  {
+  background: rgb(64,172,189);
+  background: linear-gradient(0deg, rgba(64,172,189,1) 0%, rgba(131,201,212,1) 14%, rgba(255,255,255,1) 100%);
+}
+
+.under-percentage-text {
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #ef4e4e;
+  padding: 10px;
+  border-radius: 20px;
+}

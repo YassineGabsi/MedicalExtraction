@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d14353-9a06-40e2-b09e-b2a1cfc42447" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/icd10-item.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/icd10-item.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/pages/index/index-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/index/index-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/pages/index/index.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/index/index.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/services/statistics.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/statistics.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/client/node_modules/" />
@@ -20,97 +22,87 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/services/upload-file.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/services/project.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/services/research-item.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/services/icd10-item.service.ts">
+        <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+              <caret line="10" column="10" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="10" selection-end-column="10" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/models/predicted-stats.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="5" lean-forward="true" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/models/validated-stats.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/app/services/statistics.service.ts">
+        <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="268">
+              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/services/generic.service.ts">
+        <entry file="file://$PROJECT_DIR$/client/src/app/pages/home/home.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+            <state relative-caret-position="60">
+              <caret line="2" selection-start-line="2" selection-end-line="6" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/models/icd10-item.ts">
+        <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+            <state relative-caret-position="299">
+              <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+              <folding>
+                <element signature="n#!!block;n#setPercentage#0;n#PredictionStatusComponent#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="49" column="22" lean-forward="true" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/index-routing.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/register/register.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="1" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="47" column="61" selection-start-line="47" selection-start-column="61" selection-end-line="47" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -143,6 +135,13 @@
       <find>click</find>
       <find>page-wrapper</find>
       <find>Brlapi</find>
+      <find>bar</find>
+      <find>#ff9f1e</find>
+      <find>border</find>
+      <find>6</find>
+      <find>666</find>
+      <find>start now</find>
+      <find>id=</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -151,10 +150,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/services/utils.ts" />
-        <option value="$PROJECT_DIR$/src/app/services/generic.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/services/upload-file.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/pages/upload-file/upload-file.component.ts" />
         <option value="$PROJECT_DIR$/src/app/pages/upload-file/upload-file.component.html" />
         <option value="$PROJECT_DIR$/src/app/pages/upload-file/upload-file.component.css" />
         <option value="$PROJECT_DIR$/src/app/pages/register/register.component.css" />
@@ -192,7 +187,6 @@
         <option value="$PROJECT_DIR$/client/src/app/models/icd10_item.ts" />
         <option value="$PROJECT_DIR$/client/src/app/models/research-project.ts" />
         <option value="$PROJECT_DIR$/client/src/app/models/research-item.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/models/icd10-prediction.ts" />
         <option value="$PROJECT_DIR$/client/src/app/models/icd10-item.ts" />
         <option value="$PROJECT_DIR$/client/src/app/services/project.service.ts" />
@@ -202,6 +196,11 @@
         <option value="$PROJECT_DIR$/client/src/app/models/validated-stats.ts" />
         <option value="$PROJECT_DIR$/client/src/app/services/icd10-item.service.ts" />
         <option value="$PROJECT_DIR$/client/src/app/services/statistics.service.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/pages/index/index-routing.module.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.css" />
+        <option value="$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.html" />
       </list>
     </option>
   </component>
@@ -249,7 +248,36 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PFA-Frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PFA-Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PFA-Frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PFA-Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+              <item name="prediction-status" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PFA-Frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PFA-Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+              <item name="upload-file" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -357,12 +385,12 @@
       <workItem from="1619402961112" duration="9000" />
       <workItem from="1619403034143" duration="19000" />
       <workItem from="1619433091790" duration="110000" />
-      <workItem from="1619444730729" duration="4597000" />
+      <workItem from="1619444730729" duration="8598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62087000" />
+    <option name="totallyTimeSpent" value="66088000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -399,12 +427,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/pages/index/index.component.html" />
-    <entry file="file://$PROJECT_DIR$/src/app/pages/index/register/register.component.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/pages/index/index.module.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/pages/index/index.component.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/pages/index/upload-file/upload-file.component.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts" />
     <entry file="file://$PROJECT_DIR$/src/app/pages/dashboard/dashboard.module.ts" />
     <entry file="file://$PROJECT_DIR$/src/app/pages/home/top-section/top-section.component.html" />
     <entry file="file://$PROJECT_DIR$/src/app/pages/dashboard/dashboard-routing.module.ts" />
@@ -439,16 +461,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/directives/dnd.directive.ts" />
-    <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -533,24 +545,10 @@
     <entry file="file://$PROJECT_DIR$/client/src/environments/environment.prod.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/models/icd10-prediction.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/models/research-project.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -592,13 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/models/validated-stats.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/services/icd10-item.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -619,6 +610,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/models/research-project.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="47" column="61" selection-start-line="47" selection-start-column="61" selection-end-line="47" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/services/statistics.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/models/validated-stats.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/services/project.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -629,12 +648,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/services/statistics.service.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/register/register.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state>
+          <caret selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/index-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="10" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="49" column="22" lean-forward="true" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!block;n#setPercentage#0;n#PredictionStatusComponent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/home/home.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" selection-start-line="2" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" />
           </folding>
         </state>
       </provider>

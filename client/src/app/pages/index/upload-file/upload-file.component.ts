@@ -43,9 +43,6 @@ export class UploadFileComponent implements OnInit {
 
   upload() {
     if (this.fileToSend) {
-      this.projectService.getProjectById(43).subscribe((res) => {
-        console.log(res);
-      })
       this.uploadFileService.sendFile(this.fileToSend).subscribe((res) => {
           console.log(res);
           localStorage.setItem('project_id', res.project_id);

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {GenericService} from './generic.service';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ResearchItem} from '../models/research-item';
 import {PredictedStats} from '../models/predicted-stats';
 import {ValidatedStats} from '../models/validated-stats';
 
