@@ -11,7 +11,7 @@ export class Icd10ItemService extends GenericService {
 
   constructor(private http: HttpClient) {
     super();
-    this.url = this.url + 'research-item/';
+    this.url = this.url + 'icd10-item/';
   }
 
   public getAllICD10(): Observable<Array<Icd10Item>> {
