@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d14353-9a06-40e2-b09e-b2a1cfc42447" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/app/pages/index/index-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/index/index-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/pages/index/index.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/index/index.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/services/statistics.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/statistics.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/client/node_modules/" />
@@ -33,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+            <state relative-caret-position="152">
+              <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" />
@@ -56,13 +54,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+            <state relative-caret-position="150">
+              <caret line="26" column="41" lean-forward="true" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
               <folding>
+                <element signature="e#0#50#0" expanded="true" />
                 <element signature="n#!!block;n#setPercentage#0;n#PredictionStatusComponent#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/app/services/statistics.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -195,12 +206,12 @@
         <option value="$PROJECT_DIR$/client/src/app/models/predicted-stats.ts" />
         <option value="$PROJECT_DIR$/client/src/app/models/validated-stats.ts" />
         <option value="$PROJECT_DIR$/client/src/app/services/icd10-item.service.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/services/statistics.service.ts" />
         <option value="$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/pages/index/index-routing.module.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.css" />
         <option value="$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/services/statistics.service.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.ts" />
       </list>
     </option>
   </component>
@@ -385,18 +396,18 @@
       <workItem from="1619402961112" duration="9000" />
       <workItem from="1619403034143" duration="19000" />
       <workItem from="1619433091790" duration="110000" />
-      <workItem from="1619444730729" duration="8598000" />
+      <workItem from="1619444730729" duration="10289000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66088000" />
+    <option name="totallyTimeSpent" value="67779000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21480502" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21480502" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -410,7 +421,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32394367" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32394367" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -624,13 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/services/statistics.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/models/validated-stats.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -682,16 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!block;n#setPercentage#0;n#PredictionStatusComponent#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/pages/home/home.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -701,12 +695,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+        <state relative-caret-position="152">
+          <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" />
             <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/services/statistics.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/index/prediction-status/prediction-status.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="26" column="41" lean-forward="true" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+            <element signature="n#!!block;n#setPercentage#0;n#PredictionStatusComponent#0" />
           </folding>
         </state>
       </provider>

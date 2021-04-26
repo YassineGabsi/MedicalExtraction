@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {StatisticsService} from '../../../services/statistics.service';
+import {PredictedStats} from '../../../models/predicted-stats';
+import {ValidatedStats} from '../../../models/validated-stats';
 
 declare var $: any;
 
@@ -9,11 +12,38 @@ declare var $: any;
 })
 export class PredictionStatusComponent implements OnInit {
 
-  constructor() { }
+  constructor(private statsService: StatisticsService) { }
+
+  predictedStatus: PredictedStats;
+  validatedStatus: ValidatedStats;
+  projectId = localStorage.getItem('project_id');
 
   ngOnInit() {
-    this.setPercentagePredicted(15);
-    this.setPercentageValidated(40);
+    this.getPredictedStatus();
+    this.getValidatedStatus();
+    const interval = setInterval(() => {
+      this.getPredictedStatus();
+      this.getValidatedStatus();
+      if (parseInt(this.predictedStatus.percentage, 10) === 100 && parseInt(this.validatedStatus.percentage, 10) === 100 ) {
+        clearInterval(interval);
+      }
+    }, 4000);
+  }
+
+  getPredictedStatus() {
+    this.statsService.getPredicted(this.projectId).subscribe(data => {
+      this.predictedStatus = data;
+      this.setPercentagePredicted(parseInt(this.predictedStatus.percentage, 10));
+      console.log(data);
+    });
+  }
+
+  getValidatedStatus() {
+    this.statsService.getValidated(this.projectId).subscribe(data => {
+      this.validatedStatus = data;
+      this.setPercentageValidated(parseInt(this.validatedStatus.percentage, 10));
+      console.log(data);
+    });
   }
 
   setPercentagePredicted(val) {

@@ -20,11 +20,11 @@ export class StatisticsService extends GenericService {
   }
 
   public getPredicted(id: any): Observable<PredictedStats> {
-    return this.http.get(this.urlPredicted) as Observable<PredictedStats>;
+    return this.http.get(this.urlPredicted + id) as Observable<PredictedStats>;
   }
 
   public getValidated(id: any): Observable<ValidatedStats> {
-    return this.http.get(this.urlValidated) as Observable<ValidatedStats>;
+    return this.http.get(this.urlValidated + id) as Observable<ValidatedStats>;
   }
 
 }
