@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {GenericService} from './generic.service';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ResearchItem} from '../models/research-item';
 import {Icd10Item} from '../models/icd10-item';
 
 @Injectable({
@@ -32,10 +31,10 @@ export class Icd10ItemService extends GenericService {
   }
 
   public patchICD10Item(id: any, icd10: Icd10Item): Observable<Icd10Item> {
-    return this.http.patch(this.url + id, resItem) as Observable<Icd10Item>;
+    return this.http.patch(this.url + id, icd10) as Observable<Icd10Item>;
   }
 
   public putICD10Item(id: any, icd10: Icd10Item): Observable<Icd10Item> {
-    return this.http.put(this.url + id, resItem) as Observable<Icd10Item>;
+    return this.http.put(this.url + id, icd10) as Observable<Icd10Item>;
   }
 }
