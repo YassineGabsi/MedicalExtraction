@@ -23,6 +23,7 @@
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
     "ng-sidebar": "^9.4.2",
+    "ngx-spinner": "^11.0.1",
     "rxjs": "~6.6.7",
     "sweetalert2": "^10.16.3",
     "toastr": "^2.1.4",

@@ -66,6 +66,12 @@ button {
   background-position: initial;
 }
 
+@media screen and (max-width: 850px) {
+  .page-wrapper {
+    background: transparent;
+  }
+}
+
 .only-desktop {
   display: block;
 }

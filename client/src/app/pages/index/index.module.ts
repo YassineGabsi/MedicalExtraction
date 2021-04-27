@@ -13,6 +13,7 @@ import {RouterModule} from '@angular/router';
 import {IndexRoutingModule} from './index-routing.module';
 import { DndDirective } from '../../directives/dnd.directive';
 import { PredictionStatusComponent } from './prediction-status/prediction-status.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -37,6 +38,7 @@ import { PredictionStatusComponent } from './prediction-status/prediction-status
     CommonModule,
     RouterModule,
     IndexRoutingModule,
+    NgxSpinnerModule,
   ]
 })
 export class IndexModule { }

@@ -3,7 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Utils} from 'src/app/services/utils';
 import {UploadFileService} from 'src/app/services/upload-file.service';
 import Swal from 'sweetalert2';
-import {ProjectService} from '../../../services/project.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-upload-file',
@@ -12,12 +13,13 @@ import {ProjectService} from '../../../services/project.service';
 })
 export class UploadFileComponent implements OnInit {
 
-  loadedImg = true;
+  isLoading = false;
   fileToSend: any;
 
   constructor(
     private uploadFileService: UploadFileService,
-    private projectService: ProjectService
+    private spinner: NgxSpinnerService,
+    private route: Router,
   ) {
   }
 
@@ -43,9 +45,14 @@ export class UploadFileComponent implements OnInit {
 
   upload() {
     if (this.fileToSend) {
+      this.isLoading = true;
+      this.spinner.show();
       this.uploadFileService.sendFile(this.fileToSend).subscribe((res) => {
           console.log(res);
           localStorage.setItem('project_id', res.project_id);
+          this.isLoading = false;
+          this.spinner.hide();
+          this.route.navigateByUrl('/status');
         },
         (err) => {
           Swal.fire({
@@ -56,6 +63,8 @@ export class UploadFileComponent implements OnInit {
           const errorMessage = err.error.message;
           console.log(errorMessage);
           console.log(err);
+          this.isLoading = false;
+          this.spinner.hide();
         }
       );
     }
