@@ -8,14 +8,19 @@
     </div>
     <button class="button button-primary download-button mx-3">Download Output</button>
     <div class="white-line mx-auto mt-4"></div>
-    <div class="records-wrapper">
+    <div class="records-wrapper" *ngIf="!isLoading">
       <div class="record-item"
            *ngFor="let record of records;let i = index"
            (click)="selectRecord(i)"
            [ngClass]="{'record-item-active' : recordSelected === i}">
-        Record {{record}}
+        <div class="text-center" style="white-space: nowrap; text-overflow: ellipsis; max-width: 200px; overflow: hidden;">
+          {{record.title}}
+        </div>
       </div>
     </div>
+    <ngx-spinner *ngIf="isLoading" bdColor="rgba(255,255,255,0)" size="medium" color="#ffffff" type="square-jelly-box"
+                 [fullScreen]="false"><p class="mt-4 font-weight-bold" style="color: #ffffff"> Loading... </p></ngx-spinner>
+
   </ng-sidebar>
 
   <ng-sidebar class="text-center" style="width: 50px !important;" [(opened)]="minimized" [mode]="'push'">

@@ -5,6 +5,7 @@ import {SidebarModule} from 'ng-sidebar';
 import {DashboardRoutingModule} from './dashboard-routing.module';
 import {IndexModule} from '../index/index.module';
 import { NavbarDashboardComponent } from './navbar-dashboard/navbar-dashboard.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 
 
@@ -14,7 +15,8 @@ import { NavbarDashboardComponent } from './navbar-dashboard/navbar-dashboard.co
     CommonModule,
     SidebarModule,
     DashboardRoutingModule,
-    IndexModule
+    IndexModule,
+    NgxSpinnerModule
   ]
 })
 export class DashboardModule { }
