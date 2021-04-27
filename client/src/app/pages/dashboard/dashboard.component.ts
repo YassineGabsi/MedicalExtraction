@@ -31,13 +31,15 @@ export class DashboardComponent implements OnInit {
 
   getProject() {
     this.isLoading = true;
-    this.spinner.show();
+    this.spinner.show('spinner1');
+    this.spinner.show('spinner2');
     this.projectService.getProjectById(this.projectId).subscribe((data) => {
       console.log(data);
       this.records = data.items;
       this.recordSelected = this.records[0];
       this.isLoading = false;
-      this.spinner.hide();
+      this.spinner.hide('spinner1');
+      this.spinner.hide('spinner2');
     })
   }
   selectRecord(i): void {

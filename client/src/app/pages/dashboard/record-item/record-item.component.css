@@ -30,3 +30,8 @@
   font-size: var(--buttons-size);
   margin-left: 10px;
 }
+
+.card-accepted {
+  border: 12px solid var(--blue-color);
+  transition: 0.3s all ease-in-out;
+}

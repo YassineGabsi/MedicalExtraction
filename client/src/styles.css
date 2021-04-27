@@ -9,6 +9,7 @@
   --black-color: #3F4343;
   --second-blue-color: #48B4C6;
   --second-white-color: #F8F8F8;
+  --red-color: #DA3A3A;
 
   --text-size: 16px;
   --title-size: 23px;
@@ -145,6 +146,7 @@ button {
 .login-button {
   margin-left: 30px;
   margin-right: 0;
+  transition: 0.3s all ease-in-out;
 }
 
 .download-button {
@@ -171,6 +173,20 @@ button {
   background-color: var(--blue-color);
   border: 2px solid var(--blue-color);
   color: #ffffff;
+}
+
+.delete-button {
+  background-color: transparent;
+  border: 2px solid var(--red-color);
+  color: var(--red-color);
+  transition: 0.3s all ease-in-out;
+}
+
+.delete-button:hover {
+  background-color: var(--red-color);
+  border: 2px solid var(--red-color);
+  color: #ffffff;
+  transition: 0.3s all ease-in-out;
 }
 
 /* *************************************
@@ -214,6 +230,7 @@ button {
   border-radius: 19px;
   background-color: #ffffff;
   padding: 20px 30px;
+  transition: 0.3s all ease-in-out;
 }
 
 /* *************************************

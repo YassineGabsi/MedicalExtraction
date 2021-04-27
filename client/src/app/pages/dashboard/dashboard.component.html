@@ -13,14 +13,21 @@
            *ngFor="let record of records;let i = index"
            (click)="selectRecord(i)"
            [ngClass]="{'record-item-active' : recordSelected === record}">
-        <div class="text-center" style="white-space: nowrap; text-overflow: ellipsis; max-width: 200px; overflow: hidden;">
+        <div class="text-center"
+             style="white-space: nowrap; text-overflow: ellipsis; max-width: 200px; overflow: hidden;">
           {{i + 1}} - {{record.title}}
         </div>
       </div>
     </div>
-    <ngx-spinner *ngIf="isLoading" bdColor="rgba(255,255,255,0)" size="medium" color="#ffffff" type="square-jelly-box"
-                 [fullScreen]="false"><p class="mt-4 font-weight-bold" style="color: #ffffff"> Loading... </p></ngx-spinner>
-
+    <ngx-spinner *ngIf="isLoading"
+                 bdColor="rgba(255,255,255,0)"
+                 size="medium"
+                 color="#ffffff"
+                 type="square-jelly-box"
+                 [fullScreen]="false"
+                 [name]="'spinner1'">
+      <p class="mt-4 font-weight-bold" style="color: #ffffff"> Loading... </p>
+    </ngx-spinner>
   </ng-sidebar>
 
   <ng-sidebar class="text-center" style="width: 50px !important;" [(opened)]="minimized" [mode]="'push'">
@@ -34,6 +41,15 @@
   <div class="sidebar-content" ng-sidebar-content>
     <app-navbar-dashboard></app-navbar-dashboard>
     <app-record-item *ngIf="!isLoading" [recordItem]="recordSelected"></app-record-item>
+    <ngx-spinner *ngIf="isLoading"
+                 bdColor="rgba(255,255,255,0)"
+                 size="medium"
+                 color="#0895a4"
+                 type="square-jelly-box"
+                 [fullScreen]="false"
+                 [name]="'spinner2'">
+      <p class="mt-4 font-weight-bold" style="color: #0895a4"> Loading... </p>
+    </ngx-spinner>
   </div>
 
 </ng-sidebar-container>

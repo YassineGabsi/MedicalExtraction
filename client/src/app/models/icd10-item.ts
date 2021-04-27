@@ -1,4 +1,5 @@
 import {Icd10Prediction} from './icd10-prediction';
+import {ResearchItem} from './research-item';
 
 export class Icd10Item {
   id: number;
