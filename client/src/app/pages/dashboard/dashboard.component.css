@@ -70,9 +70,6 @@
   color: #fff;
 }
 
-.records-wrapper {
-
-}
 .record-item {
   border-bottom: 1px solid #ffffff;
   background-color: transparent;
@@ -99,36 +96,4 @@
 
 .record-item-active:hover {
   background-color: var(--second-white-color) !important;
-}
-
-.record-title {
-  font-size: var(--title-size);
-  font-weight: bold;
-  color: var(--blue-color);
-}
-
-.infos-wrapper {
-  padding: 10px 15px;
-  border-radius: 19px;
-  border: 2px solid var(--blue-color);
-}
-
-.tag-extracted-term {
-  background-color: var(--blue-color);
-  color: #ffffff;
-  border-radius: 19px;
-  padding: 8px 13px;
-  margin: 5px 5px;
-}
-
-.cards-wrapper {
-  padding-bottom: 30px;
-  margin-top: 20px;
-}
-
-.label-title {
-  color: var(--blue-color);
-  font-weight: bold;
-  font-size: var(--buttons-size);
-  margin-left: 10px;
 }

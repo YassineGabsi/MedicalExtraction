@@ -16,7 +16,6 @@ export class DashboardComponent implements OnInit {
 
   public records: ResearchItem[];
   public recordSelected;
-  public medicalTags = [];
 
   public isLoading = false;
 
@@ -28,10 +27,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getProject();
-    this.medicalTags.push('complications');
-    this.medicalTags.push('heart diseases');
-    this.medicalTags.push('coronary artery diseases');
-    this.medicalTags.push('lorem upsum lorem upsum lorem upsum');
   }
 
   getProject() {
@@ -46,7 +41,7 @@ export class DashboardComponent implements OnInit {
     })
   }
   selectRecord(i): void {
-    this.recordSelected = i;
+    this.recordSelected = this.records[i];
   }
 
   public _toggleSidebar(): void {
