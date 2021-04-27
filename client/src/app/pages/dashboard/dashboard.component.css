@@ -5,7 +5,8 @@
 }
 
 :host >>> .ng-sidebar {
-  width: 250px;
+  max-width: 250px;
+  min-width: 90px;
 }
 
 :host >>> .ng-sidebar__content {
@@ -122,6 +123,7 @@
 
 .cards-wrapper {
   padding-bottom: 30px;
+  margin-top: 20px;
 }
 
 .label-title {

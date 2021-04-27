@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  public opened = false;
+  public opened = true;
   public minimized = false;
   public mode = 'push';
 

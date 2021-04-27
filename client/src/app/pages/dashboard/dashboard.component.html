@@ -2,7 +2,11 @@
 
   <!-- A sidebar -->
   <ng-sidebar class="text-center" [(opened)]="opened" [mode]="mode">
-    <button class="button button-primary download-button">Download Output</button>
+    <div class="col-12">
+      <img src="../../../assets/images/toggle.png" style=" margin-top: -20px; max-height: 50px; cursor: pointer"
+           alt="a" (click)="_toggleSidebar()">
+    </div>
+    <button class="button button-primary download-button mx-3">Download Output</button>
     <div class="white-line mx-auto mt-4"></div>
     <div class="records-wrapper">
       <div class="record-item"
@@ -14,10 +18,16 @@
     </div>
   </ng-sidebar>
 
+  <ng-sidebar class="text-center" style="width: 50px !important;" [(opened)]="minimized" [mode]="'push'">
+    <div class="d-flex text-center align-items-center justify-content-center" style="height: 90vh; cursor: pointer">
+      <img src="../../../assets/images/toggle.png" style="max-height: 80px" alt="a" (click)="_toggleSidebar()">
+    </div>
+  </ng-sidebar>
+
+
   <!-- Page content -->
   <div class="sidebar-content" ng-sidebar-content>
     <app-navbar-dashboard></app-navbar-dashboard>
-    <button (click)="_toggleSidebar()">Toggle sidebar</button>
     <div class="cards-wrapper">
       <h4 class="record-title text-center">
         Record 1 Validations
