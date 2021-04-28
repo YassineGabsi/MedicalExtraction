@@ -33,7 +33,8 @@ export class RecordItemComponent implements OnInit {
   addSlice(): void {
     this.allAccepted = false;
     for (let i = 0 ; i< 3 ; i++) {
-      this.suggestionsNumber.push(this.suggestionsNumber[this.suggestionsNumber.length - 1 ] + 1)
+      this.suggestionsNumber.push(this.recordItem.icd10_item.icd10_prediction.indexOf(this.predictedICDs[0]));
+      this.removeCustomICDAfterAdd(this.predictedICDs[0]);
     }
   }
 
