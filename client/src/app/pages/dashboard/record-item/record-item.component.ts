@@ -93,9 +93,13 @@ export class RecordItemComponent implements OnInit {
 
   updateElements(record) {
     this.recordItem = record;
-    this.acceptedPredictions = new Set<number>();
+    this.deleteAll();
     this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
     this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
     this.configureCustomICDSelection();
+  }
+
+  scoreCalc(score) {
+    return (score * 100).toFixed(2);
   }
 }

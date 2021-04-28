@@ -37,7 +37,10 @@
   <div class="row mx-5">
     <div class="col-md-4 mt-4" *ngFor="let sugg of suggestionsNumber; let i = index">
       <div class="card-dashboard" [ngClass]="{'card-accepted' : isSuggAccepted(sugg)}">
-        <h6 class="label-title">Top {{sugg + 1}}</h6>
+        <div>
+          <h6 class="label-title">Top {{sugg + 1}}</h6>
+          <div class="score-wrapper">{{scoreCalc(recordItem.icd10_item.icd10_prediction[sugg].score)}}%</div>
+        </div>
         <label class="label ml-3 mt-1" style="font-size: 15px; opacity: 0.7;">Chapter
           Code: {{recordItem.icd10_item.icd10_prediction[sugg].predicted_chapter_code}}</label>
 
