@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d14353-9a06-40e2-b09e-b2a1cfc42447" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/client/node_modules/" />
     <ignored path="$PROJECT_DIR$/../../../../Work/elbaladya-citizen-hotfix/angular_elbaladiya.tn/node_modules/karma/config.tpl.js/" />
@@ -23,8 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="148" column="23" lean-forward="true" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
+            <state relative-caret-position="160">
+              <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
               </folding>
@@ -53,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="37" column="62" lean-forward="true" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
+            <state relative-caret-position="130">
+              <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
               <folding>
                 <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -66,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+            <state relative-caret-position="230">
+              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -79,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="160">
-              <caret line="57" column="34" lean-forward="true" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="34" />
+              <caret line="68" column="50" lean-forward="true" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
               <folding>
                 <element signature="n#style#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
@@ -128,8 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="81" column="25" lean-forward="true" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
+            <state relative-caret-position="-478">
+              <caret line="74" column="29" lean-forward="true" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -141,9 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ngx-toastr</find>
-      <find>sweetalert2</find>
-      <find>ngx-dropzone</find>
       <find>ngx-t</find>
       <find>cod</find>
       <find>spinn</find>
@@ -166,11 +163,14 @@
       <find>acceptAll</find>
       <find>sweetalert</find>
       <find>swal</find>
-      <find>validate</find>
       <find>butt</find>
       <find>ngFor</find>
       <find>show more</find>
       <find>toggle</find>
+      <find>validate</find>
+      <find>card-das</find>
+      <find>accept All</find>
+      <find>mx-5</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -222,14 +222,14 @@
         <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.module.ts" />
         <option value="$PROJECT_DIR$/client/angular.json" />
         <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.css" />
-        <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/services/icd10-item.service.ts" />
         <option value="$PROJECT_DIR$/client/src/app/pages/index/upload-file/upload-file.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts" />
         <option value="$PROJECT_DIR$/client/src/styles.css" />
         <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.css" />
+        <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.html" />
       </list>
     </option>
   </component>
@@ -427,12 +427,12 @@
       <workItem from="1619540455350" duration="25000" />
       <workItem from="1619544093216" duration="2041000" />
       <workItem from="1619563578796" duration="5757000" />
-      <workItem from="1619605137549" duration="20977000" />
+      <workItem from="1619605137549" duration="21336000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115286000" />
+    <option name="totallyTimeSpent" value="115645000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -811,16 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="148" column="23" lean-forward="true" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/test.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -831,23 +821,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="81" column="25" lean-forward="true" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
+        <state relative-caret-position="-478">
+          <caret line="74" column="29" lean-forward="true" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.html">
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="37" column="62" lean-forward="true" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
+        <state relative-caret-position="160">
+          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding>
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#0#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -855,7 +851,7 @@
     <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="57" column="34" lean-forward="true" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="34" />
+          <caret line="68" column="50" lean-forward="true" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
           <folding>
             <element signature="n#style#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
@@ -874,10 +870,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.css">
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        <state relative-caret-position="130">
+          <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

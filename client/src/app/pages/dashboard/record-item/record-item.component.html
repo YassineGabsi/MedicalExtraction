@@ -2,7 +2,7 @@
   <h4 class="record-title text-center">
     Record Validations
   </h4>
-  <div class="card-dashboard mt-4 mx-5">
+  <div class="card-dashboard mt-4" [ngClass]="{'mx-5': windowsWidth > 567, 'mx-1': windowsWidth <= 567}">
     <div class="row">
       <div class="col-md-6">
         <label class="label ml-3 mt-3">Title</label>
@@ -34,8 +34,8 @@
   <h4 class="mx-5 record-title mt-4">
     ICD10 Validations ( Click to select )
   </h4>
-  <div class="row mx-5">
-    <div class="col-md-4 mt-4" *ngFor="let sugg of suggestionsNumber; let i = index">
+  <div class="row" [ngClass]="{'mx-5': windowsWidth > 567, 'mx-1': windowsWidth <= 567}">
+    <div class="col-md-6 col-lg-4 mt-4" *ngFor="let sugg of suggestionsNumber; let i = index">
       <div class="card-dashboard" [ngClass]="{'card-accepted' : isSuggAccepted(sugg)}">
         <div>
           <h6 class="label-title">Top {{sugg + 1}}</h6>
@@ -69,8 +69,8 @@
   </div>
 
   <div class="text-center mt-3">
-    <button class="button transparent-button" (click)="addSlice()">Show More Suggestions</button>
-    <button class="button mx-1"
+    <button class="button transparent-button mt-2" (click)="addSlice()">Show More Suggestions</button>
+    <button class="button mx-1 mt-2"
             [ngClass]="{'button-primary login-button' : !allAccepted, 'delete-button' : allAccepted}"
             (click)="allAccepted ? deleteAll() : acceptAll()">{{allAccepted ? 'Delete All' : 'Accept All' }}
     </button>
@@ -96,8 +96,8 @@
     </div>
   </div>
   <div class="text-center mt-3">
-    <button class="button transparent-button" (click)="nextRecord()">next Record</button>
-    <button class="button mx-1 button-primary login-button"
+    <button class="button transparent-button mt-2" (click)="nextRecord()">next Record</button>
+    <button class="button mx-1 button-primary login-button mt-2"
             (click)="validatePrediction()">Validate and Next Record
     </button>
   </div>

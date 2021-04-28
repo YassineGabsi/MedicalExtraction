@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 export class RecordItemComponent implements OnInit {
 
   @Input() recordItem: ResearchItem;
+  @Input() windowsWidth: number;
   public medicalTags = [];
   public suggestionsNumber;
   public acceptedPredictions = new Set<number>();

@@ -8,21 +8,25 @@
     </div>
     <button class="button button-primary download-button mx-3">Download Output</button>
     <label>
-      <input type="text" class="search-input"  (ngModelChange)="filterRows($event)" [(ngModel)]="searchString" placeholder="Search...">
+      <input type="text" class="search-input" (ngModelChange)="filterRows($event)" [(ngModel)]="searchString"
+             placeholder="Search...">
     </label>
     <div class="d-flex align-items-center text-center justify-content-center mt-1">
       <button (click)="toggleSearch('validated')"
               class="button button-primary button-search-primary mx-1 my-1"
               [ngClass]="{'button-search': searchSelected === 'validated'}"
-              style="font-size: 11px; padding: 5px 10px">Validated</button>
+              style="font-size: 11px; padding: 5px 10px">Validated
+      </button>
       <button (click)="toggleSearch('non-validated')"
               class="button button-primary button-search-primary mx-1 my-1"
               [ngClass]="{'button-search': searchSelected === 'non-validated'}"
-              style="font-size: 11px; padding: 5px 10px">Non Validated</button>
+              style="font-size: 11px; padding: 5px 10px">Non Validated
+      </button>
       <button (click)="toggleSearch('all')"
               class="button button-primary button-search-primary mx-1 my-1"
               [ngClass]="{'button-search': searchSelected === 'all'}"
-              style="font-size: 11px; padding: 5px 10px">All</button>
+              style="font-size: 11px; padding: 5px 10px">All
+      </button>
     </div>
     <i *ngIf="searchString === ''" class="fas fa-search search-icon"></i>
     <div class="white-line mx-auto mt-4"></div>
@@ -33,7 +37,8 @@
            [ngClass]="{'record-item-active' : recordSelected === record}">
         <div class="text-center"
              style="white-space: nowrap; text-overflow: ellipsis; max-width: 250px; overflow: hidden;">
-          <img style="max-height: 26px; float: right;" *ngIf="record.icd10_item.validated" src="../../../assets/images/ok.png" alt="">
+          <img style="max-height: 26px; float: right;" *ngIf="record.icd10_item.validated"
+               src="../../../assets/images/ok.png" alt="">
           {{i + 1}} - {{record.title}}
         </div>
       </div>
@@ -63,7 +68,8 @@
   <!-- Page content -->
   <div class="sidebar-content" ng-sidebar-content>
     <app-navbar-dashboard></app-navbar-dashboard>
-    <app-record-item *ngIf="!isLoading" (nextRecordEvent)="nextRecord()"  [recordItem]="recordSelected"></app-record-item>
+    <app-record-item *ngIf="!isLoading" (nextRecordEvent)="nextRecord()" [windowsWidth]="windowsWidth"
+                     [recordItem]="recordSelected"></app-record-item>
     <ngx-spinner *ngIf="isLoading"
                  bdColor="rgba(255,255,255,0)"
                  size="medium"
