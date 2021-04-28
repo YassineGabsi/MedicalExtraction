@@ -209,6 +209,26 @@ button {
   transition: 0.3s all ease-in-out;
 }
 
+.button-search {
+  background-color: #ffffff;
+  border: 2px solid #ffffff !important;
+  color: var(--blue-color);
+  font-weight: bolder;
+}
+
+.button-search:hover {
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+.button-search-primary {
+  border: 2px solid var(--blue-color);
+}
+
+.button-search-primary:hover {
+  font-weight: bolder;
+}
+
 /* *************************************
    ************** INPUTS ***************
    ************************************* */

@@ -10,6 +10,20 @@
     <label>
       <input type="text" class="search-input"  (ngModelChange)="filterRows($event)" [(ngModel)]="searchString" placeholder="Search...">
     </label>
+    <div class="d-flex align-items-center text-center justify-content-center mt-1">
+      <button (click)="toggleSearch('validated')"
+              class="button button-primary button-search-primary mx-1 my-1"
+              [ngClass]="{'button-search': searchSelected === 'validated'}"
+              style="font-size: 11px; padding: 5px 10px">Validated</button>
+      <button (click)="toggleSearch('non-validated')"
+              class="button button-primary button-search-primary mx-1 my-1"
+              [ngClass]="{'button-search': searchSelected === 'non-validated'}"
+              style="font-size: 11px; padding: 5px 10px">Non Validated</button>
+      <button (click)="toggleSearch('all')"
+              class="button button-primary button-search-primary mx-1 my-1"
+              [ngClass]="{'button-search': searchSelected === 'all'}"
+              style="font-size: 11px; padding: 5px 10px">All</button>
+    </div>
     <i *ngIf="searchString === ''" class="fas fa-search search-icon"></i>
     <div class="white-line mx-auto mt-4"></div>
     <div class="records-wrapper" *ngIf="!isLoading">

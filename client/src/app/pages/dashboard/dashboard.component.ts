@@ -23,12 +23,14 @@ export class DashboardComponent implements OnInit {
 
   private projectId = localStorage.getItem('project_id');
   private searchString = '';
+  private searchSelected = 'all';
 
   @ViewChild(RecordItemComponent) recordItemChild;
 
   constructor(private projectService: ProjectService,
               private spinner: NgxSpinnerService,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.getProject();
@@ -46,8 +48,9 @@ export class DashboardComponent implements OnInit {
       this.isLoading = false;
       this.spinner.hide('spinner1');
       this.spinner.hide('spinner2');
-    })
+    });
   }
+
   selectRecord(i): void {
     this.recordSelected = this.filteredRecords[i];
     this.recordItemChild.updateElements(this.recordSelected);
@@ -59,11 +62,31 @@ export class DashboardComponent implements OnInit {
   }
 
   filterRows(e) {
-    this.filteredRecords = this.records.filter((item) => item.title.toLowerCase().includes(e.toLowerCase()));
+    if (this.searchSelected === 'all') {
+      this.filteredRecords = this.records.filter((item) => item.title.toLowerCase().includes(e.toLowerCase()));
+    } else if (this.searchSelected === 'validated') {
+      const validated = this.records.filter(item => item.icd10_item.validated);
+      this.filteredRecords = validated.filter((item) => item.title.toLowerCase().includes(e.toLowerCase()));
+    } else if (this.searchSelected === 'non-validated') {
+      const nonValidated = this.records.filter(item => !item.icd10_item.validated);
+      this.filteredRecords = nonValidated.filter((item) => item.title.toLowerCase().includes(e.toLowerCase()));
+    }
     console.log(e);
   }
 
   nextRecord() {
     this.selectRecord(this.filteredRecords.indexOf(this.recordSelected) + 1);
+  }
+
+  toggleSearch(search) {
+    this.searchString = '';
+    this.searchSelected = search;
+    if (search === 'validated') {
+      this.filteredRecords = this.records.filter(item => item.icd10_item.validated);
+    } else if (search === 'non-validated') {
+      this.filteredRecords = this.records.filter(item => !item.icd10_item.validated);
+    } else {
+      this.filteredRecords = this.records;
+    }
   }
 }
