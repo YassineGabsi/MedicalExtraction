@@ -25,6 +25,7 @@ export class RecordItemComponent implements OnInit {
   }
 
   addSlice(): void {
+    this.allAccepted = false;
     for (let i = 0 ; i< 3 ; i++) {
       this.suggestionsNumber.push(this.suggestionsNumber[this.suggestionsNumber.length - 1 ] + 1)
     }
@@ -32,12 +33,15 @@ export class RecordItemComponent implements OnInit {
 
   acceptOnePrediction(index) {
     this.acceptedPredictions.add(index);
+    this.suggestionsNumber.forEach((item) => {
+      this.allAccepted = this.acceptedPredictions.has(item - 1);
+    });
   }
 
   acceptAll() {
     this.suggestionsNumber.forEach(this.acceptedPredictions.add, this.acceptedPredictions);
     this.acceptedPredictions.add(0);
-    this.acceptedPredictions.delete(this.suggestionsNumber[this.suggestionsNumber.length - 1])
+    this.acceptedPredictions.delete(this.suggestionsNumber[this.suggestionsNumber.length - 1]);
     this.allAccepted = true;
   }
 
@@ -49,6 +53,7 @@ export class RecordItemComponent implements OnInit {
 
   deleteOnePrediction(index) {
     this.acceptedPredictions.delete(index);
+    this.allAccepted = false;
   }
 
   isSuggAccepted(index) {

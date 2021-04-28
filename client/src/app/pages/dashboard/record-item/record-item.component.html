@@ -38,12 +38,18 @@
     <div class="col-md-4 mt-4" *ngFor="let sugg of suggestionsNumber; let i = index">
       <div class="card-dashboard" [ngClass]="{'card-accepted' : isSuggAccepted(i)}">
         <h6 class="label-title">Top {{sugg}}</h6>
+        <label class="label ml-3 mt-1" style="font-size: 15px; opacity: 0.7;">Chapter
+          Code: {{recordItem.icd10_item.icd10_prediction[sugg].predicted_chapter_code}}</label>
+
         <label class="label ml-3 mt-1">Suggested ICD Chapter Name</label>
         <div class="infos-wrapper">
           {{recordItem.icd10_item.icd10_prediction[sugg].predicted_chapter_name}}
         </div>
 
-        <label class="label ml-3 mt-3">Suggested ICD Block Name</label>
+        <label class="label ml-3 mt-3" style="font-size: 15px; opacity: 0.7;">Block
+          Code: {{recordItem.icd10_item.icd10_prediction[sugg].predicted_block_code}}</label>
+
+        <label class="label ml-3 mt-1">Suggested ICD Block Name</label>
         <div class="infos-wrapper">
           {{recordItem.icd10_item.icd10_prediction[sugg].predicted_block_name}}
         </div>
@@ -58,7 +64,8 @@
     <button class="button transparent-button" (click)="addSlice()">Show More Suggestions</button>
   </div>
   <div class="text-center mt-3">
-    <button *ngIf="!allAccepted" class="button transparent-button" (click)="acceptAll()">Accept All</button>
-    <button *ngIf="allAccepted" class="button delete-button" (click)="deleteAll()">Delete All</button>
+    <button class="button"
+            [ngClass]="{'transparent-button' : !allAccepted, 'delete-button' : allAccepted}"
+            (click)="allAccepted ? deleteAll() : acceptAll()">{{allAccepted ? 'Delete All' : 'Accept All' }}</button>
   </div>
 </div>

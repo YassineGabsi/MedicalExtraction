@@ -167,6 +167,7 @@ button {
   border: 2px solid var(--blue-color);
   color: var(--blue-color);
   font-weight: bold;
+  transition: 0.3s all ease-in-out;
 }
 
 .transparent-button:hover {
@@ -229,8 +230,9 @@ button {
   box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
   border-radius: 19px;
   background-color: #ffffff;
-  padding: 20px 30px;
+  padding: 15px;
   transition: 0.3s all ease-in-out;
+  border: 12px solid #ffffff;
 }
 
 /* *************************************
