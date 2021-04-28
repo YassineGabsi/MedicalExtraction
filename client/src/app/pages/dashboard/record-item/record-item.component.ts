@@ -2,6 +2,7 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {ResearchItem} from '../../../models/research-item';
 import {Icd10Prediction} from '../../../models/icd10-prediction';
 import {Icd10ItemService} from '../../../services/icd10-item.service';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-record-item',
@@ -142,9 +143,23 @@ export class RecordItemComponent implements OnInit {
       first_prediction_accepted: this.acceptedPredictions.has(0),
     };
     this.icd10ItemService.patchICD10Item(this.recordItem.icd10_item.id, dataToSend).subscribe((data) => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Record Validated',
+        text: 'Congratulation, your record has been validated succefully!',
+      });
       this.recordItem.icd10_item = data;
-      this.nextRecord();
-      console.log(this.recordItem);
+      setTimeout(() => {
+        this.nextRecord();
+        Swal.close();
+      }, 2000);
+    }, (err) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: err.error.message,
+      });
+      console.log(err);
     });
   }
 
