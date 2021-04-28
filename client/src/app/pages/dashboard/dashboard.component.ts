@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ProjectService} from '../../services/project.service';
 import {ResearchItem} from '../../models/research-item';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {RecordItemComponent} from './record-item/record-item.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,6 +23,8 @@ export class DashboardComponent implements OnInit {
 
   private projectId = localStorage.getItem('project_id');
   private searchString = '';
+
+  @ViewChild(RecordItemComponent) recordItemChild;
 
   constructor(private projectService: ProjectService,
               private spinner: NgxSpinnerService,
@@ -47,6 +50,7 @@ export class DashboardComponent implements OnInit {
   }
   selectRecord(i): void {
     this.recordSelected = this.filteredRecords[i];
+    this.recordItemChild.updateElements(this.recordSelected);
   }
 
   public _toggleSidebar(): void {

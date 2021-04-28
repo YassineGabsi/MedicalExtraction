@@ -85,13 +85,17 @@ export class RecordItemComponent implements OnInit {
   }
 
   configureCustomICDSelection() {
-    console.log(this.suggestionsNumber);
     this.suggestionsNumber.forEach(item => {
-      console.log(this.predictedICDs[item]);
       this.predictedICDs.splice(this.predictedICDs.indexOf(this.recordItem.icd10_item.icd10_prediction[item]), 1);
-      console.log(this.predictedICDs);
-      console.log(this.recordItem.icd10_item.icd10_prediction);
     });
     this.customICD10 = this.predictedICDs[0].predicted_block_name;
+  }
+
+  updateElements(record) {
+    this.recordItem = record;
+    this.acceptedPredictions = new Set<number>();
+    this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
+    this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
+    this.configureCustomICDSelection();
   }
 }

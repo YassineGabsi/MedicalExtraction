@@ -78,11 +78,12 @@
     <div class="card-dashboard">
       <label class="label ml-3 mt-1" for="icd10Names">ICD10 Block Name</label>
 
-      <ng-select [(ngModel)]="customICD10" name="icd10Names" id="icd10Names" class="col-12">
-        <ng-option *ngFor="let prediction of predictedICDs"
-                   [value]="prediction.predicted_block_name">
-          {{prediction.predicted_block_name}}
-        </ng-option>
+      <ng-select [(ngModel)]="customICD10" [items]="predictedICDs" bindLabel="predicted_block_name"
+                 bindValue="predicted_block_name" name="icd10Names" id="icd10Names" class="col-12">
+<!--        <ng-option *ngFor="let prediction of predictedICDs"-->
+<!--                   [value]="prediction.predicted_block_name">-->
+<!--          {{prediction.predicted_block_name}}-->
+<!--        </ng-option>-->
       </ng-select>
       <div class="text-center mt-2">
         <button class="button button-primary login-button mx-auto"
