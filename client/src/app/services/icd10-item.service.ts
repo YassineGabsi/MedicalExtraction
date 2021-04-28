@@ -30,7 +30,7 @@ export class Icd10ItemService extends GenericService {
     return this.http.delete(this.url + id) as Observable<Icd10Item>;
   }
 
-  public patchICD10Item(id: any, icd10: Icd10Item): Observable<Icd10Item> {
+  public patchICD10Item(id: any, icd10: any): Observable<Icd10Item> {
     return this.http.patch(this.url + id, icd10) as Observable<Icd10Item>;
   }
 

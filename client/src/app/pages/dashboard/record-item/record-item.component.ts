@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {ResearchItem} from '../../../models/research-item';
 import {Icd10Prediction} from '../../../models/icd10-prediction';
+import {Icd10ItemService} from '../../../services/icd10-item.service';
 
 @Component({
   selector: 'app-record-item',
@@ -19,7 +20,7 @@ export class RecordItemComponent implements OnInit {
 
   @Output() nextRecordEvent = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private icd10ItemService: Icd10ItemService) { }
 
   ngOnInit(): void {
     console.log('aaa');
@@ -107,5 +108,23 @@ export class RecordItemComponent implements OnInit {
 
   nextRecord() {
     this.nextRecordEvent.emit();
+  }
+
+  validatePrediction() {
+    const validation = [];
+    this.acceptedPredictions.forEach(item => {
+      validation.push(this.recordItem.icd10_item.icd10_prediction[item]);
+    });
+    this.recordItem.icd10_item.icd10_validation = validation;
+    this.recordItem.icd10_item.validated = false;
+    const dataToSend = {
+      icd10_validation: validation,
+      validated: true,
+      first_prediction_accepted: this.acceptedPredictions.has(0),
+    };
+    this.icd10ItemService.patchICD10Item(this.recordItem.icd10_item.id, dataToSend).subscribe((data) => {
+      this.recordItem.icd10_item = data;
+      console.log(this.recordItem);
+    });
   }
 }
