@@ -20,13 +20,17 @@ export class RecordItemComponent implements OnInit {
 
   @Output() nextRecordEvent = new EventEmitter<any>();
 
-  constructor(private icd10ItemService: Icd10ItemService) { }
+  constructor(private icd10ItemService: Icd10ItemService) {
+  }
 
   ngOnInit(): void {
-    console.log('aaa');
+    if (this.recordItem.icd10_item.icd10_validation === null) {
+      this.recordItem.icd10_item.icd10_validation = [];
+    }
     this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
     this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
     this.configureCustomICDSelection();
+    this.getValidatedPredictions();
     console.log(this.suggestionsNumber);
     this.medicalTags.push('complications');
     this.medicalTags.push('heart diseases');
@@ -36,7 +40,7 @@ export class RecordItemComponent implements OnInit {
 
   addSlice(): void {
     this.allAccepted = false;
-    for (let i = 0 ; i< 3 ; i++) {
+    for (let i = 0; i < 3; i++) {
       this.suggestionsNumber.push(this.recordItem.icd10_item.icd10_prediction.indexOf(this.predictedICDs[0]));
       this.removeCustomICDAfterAdd(this.predictedICDs[0]);
     }
@@ -95,11 +99,15 @@ export class RecordItemComponent implements OnInit {
   }
 
   updateElements(record) {
+    if (this.recordItem.icd10_item.icd10_validation === null) {
+      this.recordItem.icd10_item.icd10_validation = [];
+    }
     this.recordItem = record;
     this.deleteAll();
     this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
     this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
     this.configureCustomICDSelection();
+    this.getValidatedPredictions();
   }
 
   scoreCalc(score) {
@@ -124,7 +132,17 @@ export class RecordItemComponent implements OnInit {
     };
     this.icd10ItemService.patchICD10Item(this.recordItem.icd10_item.id, dataToSend).subscribe((data) => {
       this.recordItem.icd10_item = data;
+      this.nextRecord();
       console.log(this.recordItem);
     });
+  }
+
+  getValidatedPredictions() {
+    this.recordItem.icd10_item.icd10_validation.forEach(item => {
+      const itemFiltered = this.recordItem.icd10_item.icd10_prediction.filter(filtered =>
+        filtered.predicted_block_code === item.predicted_block_code)[0];
+      this.acceptedPredictions.add(this.recordItem.icd10_item.icd10_prediction.indexOf(itemFiltered));
+    });
+    console.log(this.acceptedPredictions);
   }
 }
