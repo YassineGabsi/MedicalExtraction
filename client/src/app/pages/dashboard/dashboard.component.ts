@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {ProjectService} from '../../services/project.service';
 import {ResearchItem} from '../../models/research-item';
 import {NgxSpinnerService} from 'ngx-spinner';
@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit {
   private projectId = localStorage.getItem('project_id');
   private searchString = '';
   private searchSelected = 'all';
+  private windowsWidth = window.innerWidth;
+  private mobileOpen = false;
 
   @ViewChild(RecordItemComponent) recordItemChild;
 
@@ -33,6 +35,20 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (window.screen.width < 576) {
+      this.mode = 'over';
+      this.mobileOpen = true;
+      this.opened = false;
+      this.minimized = true;
+    } else {
+      this.mode = 'push';
+      this.mobileOpen = false;
+      this.opened = true;
+      this.minimized = false;
+    }
+    if (window.screen.width >= 576 && window.screen.width < 769) {
+      this.mode = 'over';
+    }
     this.getProject();
   }
 
@@ -49,6 +65,27 @@ export class DashboardComponent implements OnInit {
       this.spinner.hide('spinner1');
       this.spinner.hide('spinner2');
     });
+  }
+
+
+  @HostListener('window:resize') windwosResize() {
+    this.windowsWidth = window.innerWidth;
+    if (this.windowsWidth < 576) {
+      this.mode = 'over';
+      this.mobileOpen = true;
+      if (this.opened) {
+        this._toggleSidebar()
+      }
+
+    } else if (this.windowsWidth >= 576) {
+      this.mode = 'push';
+      this.opened = true;
+      this.minimized = false;
+      this.mobileOpen = false;
+    }
+    if (window.screen.width >= 576 && window.screen.width < 769) {
+      this.mode = 'over';
+    }
   }
 
   selectRecord(i): void {
