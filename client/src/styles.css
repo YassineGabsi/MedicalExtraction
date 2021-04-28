@@ -143,6 +143,7 @@ button {
   border: 1px solid var(--blue-color);
   color: #ffffff;
   transition: 0.3s all ease-in-out;
+  cursor: pointer;
 }
 
 .button-primary:hover {
