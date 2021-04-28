@@ -8,6 +8,7 @@ import { NavbarDashboardComponent } from './navbar-dashboard/navbar-dashboard.co
 import {NgxSpinnerModule} from 'ngx-spinner';
 import { RecordItemComponent } from './record-item/record-item.component';
 import {FormsModule} from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -19,7 +20,8 @@ import {FormsModule} from '@angular/forms';
     DashboardRoutingModule,
     IndexModule,
     NgxSpinnerModule,
-    FormsModule
+    FormsModule,
+    NgSelectModule
   ]
 })
 export class DashboardModule { }

@@ -77,12 +77,13 @@
     <div class="record-title text-center mb-1"> Add new ICD10 Category</div>
     <div class="card-dashboard">
       <label class="label ml-3 mt-1" for="icd10Names">ICD10 Block Name</label>
-      <select [(ngModel)]="customICD10" name="icd10Names" id="icd10Names" class="infos-wrapper col-12" style="display: block;">
-        <option *ngFor="let prediction of predictedICDs"
-                [value]="prediction.predicted_block_name">
+
+      <ng-select [(ngModel)]="customICD10" name="icd10Names" id="icd10Names" class="col-12">
+        <ng-option *ngFor="let prediction of predictedICDs"
+                   [value]="prediction.predicted_block_name">
           {{prediction.predicted_block_name}}
-        </option>
-      </select>
+        </ng-option>
+      </ng-select>
       <div class="text-center mt-2">
         <button class="button button-primary login-button mx-auto"
                 (click)="addCustomICD10()">Select

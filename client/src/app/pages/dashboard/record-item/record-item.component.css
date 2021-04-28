@@ -35,3 +35,26 @@
   border: 12px solid var(--blue-color);
   transition: 0.3s all ease-in-out;
 }
+
+.ng-select ::ng-deep .ng-select-container {
+  padding: 10px 15px;
+  border-radius: 19px;
+  border: 2px solid var(--blue-color);
+}
+
+.ng-select ::ng-deep .ng-select-container:after {
+  border-bottom: none;
+}
+
+.ng-select ::ng-deep .ng-value-container {
+  border-top: none;
+}
+
+.ng-select ::ng-deep .ng-value {
+  margin-top: -6px;
+}
+.ng-select ::ng-deep .ng-input {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  cursor: text !important;
+}

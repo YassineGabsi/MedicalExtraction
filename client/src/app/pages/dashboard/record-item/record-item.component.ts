@@ -20,6 +20,7 @@ export class RecordItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('aaa');
     this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
     this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
     this.configureCustomICDSelection();
