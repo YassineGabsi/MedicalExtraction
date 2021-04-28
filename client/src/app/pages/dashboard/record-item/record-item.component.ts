@@ -141,7 +141,9 @@ export class RecordItemComponent implements OnInit {
     this.recordItem.icd10_item.icd10_validation.forEach(item => {
       const itemFiltered = this.recordItem.icd10_item.icd10_prediction.filter(filtered =>
         filtered.predicted_block_code === item.predicted_block_code)[0];
-      this.acceptedPredictions.add(this.recordItem.icd10_item.icd10_prediction.indexOf(itemFiltered));
+      const indexOfItem = this.recordItem.icd10_item.icd10_prediction.indexOf(itemFiltered);
+      this.acceptedPredictions.add(indexOfItem);
+      !this.suggestionsNumber.includes(indexOfItem) ? this.suggestionsNumber.push(indexOfItem) : null;
     });
     console.log(this.acceptedPredictions);
   }
