@@ -7,6 +7,7 @@ import {IndexModule} from '../index/index.module';
 import { NavbarDashboardComponent } from './navbar-dashboard/navbar-dashboard.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import { RecordItemComponent } from './record-item/record-item.component';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { RecordItemComponent } from './record-item/record-item.component';
     SidebarModule,
     DashboardRoutingModule,
     IndexModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    FormsModule
   ]
 })
 export class DashboardModule { }

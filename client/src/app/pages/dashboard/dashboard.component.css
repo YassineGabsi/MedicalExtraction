@@ -97,3 +97,12 @@
 .record-item-active:hover {
   background-color: var(--second-white-color) !important;
 }
+
+.search-icon {
+  margin-left: -40px;
+  top: 121px;
+  position: absolute;
+  color: black;
+  opacity: 0.7;
+  transition: 0.5s all ease-in-out;
+}

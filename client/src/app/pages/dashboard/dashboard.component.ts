@@ -15,11 +15,13 @@ export class DashboardComponent implements OnInit {
   public mode = 'push';
 
   public records: ResearchItem[];
+  public filteredRecords: ResearchItem[];
   public recordSelected;
 
   public isLoading = false;
 
   private projectId = localStorage.getItem('project_id');
+  private searchString = '';
 
   constructor(private projectService: ProjectService,
               private spinner: NgxSpinnerService,
@@ -36,6 +38,7 @@ export class DashboardComponent implements OnInit {
     this.projectService.getProjectById(this.projectId).subscribe((data) => {
       console.log(data);
       this.records = data.items;
+      this.filteredRecords = this.records;
       this.recordSelected = this.records[0];
       this.isLoading = false;
       this.spinner.hide('spinner1');
@@ -43,11 +46,16 @@ export class DashboardComponent implements OnInit {
     })
   }
   selectRecord(i): void {
-    this.recordSelected = this.records[i];
+    this.recordSelected = this.filteredRecords[i];
   }
 
   public _toggleSidebar(): void {
     this.opened = !this.opened;
     this.minimized = !this.minimized;
+  }
+
+  filterRows(e) {
+    this.filteredRecords = this.records.filter((item) => item.title.toLowerCase().includes(e.toLowerCase()));
+    console.log(e);
   }
 }

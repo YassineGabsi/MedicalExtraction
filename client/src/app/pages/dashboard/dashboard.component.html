@@ -7,10 +7,14 @@
            alt="a" (click)="_toggleSidebar()">
     </div>
     <button class="button button-primary download-button mx-3">Download Output</button>
+    <label>
+      <input type="text" class="search-input"  (ngModelChange)="filterRows($event)" [(ngModel)]="searchString" placeholder="Search...">
+    </label>
+    <i *ngIf="searchString === ''" class="fas fa-search search-icon"></i>
     <div class="white-line mx-auto mt-4"></div>
     <div class="records-wrapper" *ngIf="!isLoading">
       <div class="record-item"
-           *ngFor="let record of records;let i = index"
+           *ngFor="let record of filteredRecords;let i = index"
            (click)="selectRecord(i)"
            [ngClass]="{'record-item-active' : recordSelected === record}">
         <div class="text-center"

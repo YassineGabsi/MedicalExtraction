@@ -212,9 +212,25 @@ button {
 .custom-input::placeholder {
   transition: 0.3s all ease-in-out;
 }
+
 .custom-input:focus::placeholder {
   color: #ffffff;
   transition: 0.3s all ease-in-out;
+}
+
+.search-input {
+  border-radius: 20px;
+  border: 2px solid var(--blue-color);
+  background-color: var(--second-white-color);
+  margin-top: 10px;
+  margin-bottom: -10px;
+  padding: 5px 15px ;
+  color: var(--blue-color);
+  font-weight: bold;
+  font-size: var(--text-size);
+}
+.search-input::placeholder {
+  font-size: 13px;
 }
 
 .label {
