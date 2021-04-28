@@ -77,6 +77,17 @@ export class RecordItemComponent implements OnInit {
     return this.acceptedPredictions.has(index);
   }
 
+  testIfAllAccepted() {
+    let test = true;
+    this.suggestionsNumber.forEach(item => {
+      if (!this.acceptedPredictions.has(item)) {
+        test = false
+      }
+    });
+    if (test)this.allAccepted = true;
+    return test;
+  }
+
   addCustomICD10() {
     this.allAccepted = false;
     const icd10PredArray = this.recordItem.icd10_item.icd10_prediction;
@@ -145,6 +156,7 @@ export class RecordItemComponent implements OnInit {
       this.acceptedPredictions.add(indexOfItem);
       !this.suggestionsNumber.includes(indexOfItem) ? this.suggestionsNumber.push(indexOfItem) : null;
     });
+    console.log(this.testIfAllAccepted());
     console.log(this.acceptedPredictions);
   }
 }
