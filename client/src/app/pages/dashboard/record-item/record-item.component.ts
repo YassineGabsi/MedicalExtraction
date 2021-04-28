@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ResearchItem} from '../../../models/research-item';
+import {Icd10Prediction} from '../../../models/icd10-prediction';
 
 @Component({
   selector: 'app-record-item',
@@ -13,11 +14,16 @@ export class RecordItemComponent implements OnInit {
   public suggestionsNumber;
   public acceptedPredictions = new Set<number>();
   public allAccepted = false;
+  public customICD10 = '';
+  public predictedICDs: Array<Icd10Prediction>;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.suggestionsNumber = Array(3).fill(5).map((x, i) => i + 1);
+    this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
+    this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
+    this.configureCustomICDSelection();
+    console.log(this.suggestionsNumber);
     this.medicalTags.push('complications');
     this.medicalTags.push('heart diseases');
     this.medicalTags.push('coronary artery diseases');
@@ -33,21 +39,23 @@ export class RecordItemComponent implements OnInit {
 
   acceptOnePrediction(index) {
     this.acceptedPredictions.add(index);
+    this.allAccepted = true;
     this.suggestionsNumber.forEach((item) => {
-      this.allAccepted = this.acceptedPredictions.has(item - 1);
+      if (!this.acceptedPredictions.has(item)) {
+        this.allAccepted = false;
+      }
     });
   }
 
   acceptAll() {
+    console.log(this.suggestionsNumber);
     this.suggestionsNumber.forEach(this.acceptedPredictions.add, this.acceptedPredictions);
-    this.acceptedPredictions.add(0);
-    this.acceptedPredictions.delete(this.suggestionsNumber[this.suggestionsNumber.length - 1]);
+    console.log(this.acceptedPredictions);
     this.allAccepted = true;
   }
 
   deleteAll() {
     this.suggestionsNumber.forEach(this.acceptedPredictions.delete, this.acceptedPredictions);
-    this.acceptedPredictions.delete(0);
     this.allAccepted = false;
   }
 
@@ -60,4 +68,28 @@ export class RecordItemComponent implements OnInit {
     return this.acceptedPredictions.has(index);
   }
 
+  addCustomICD10() {
+    this.allAccepted = false;
+    const icd10PredArray = this.recordItem.icd10_item.icd10_prediction;
+    const custICD10 = icd10PredArray.filter(item => item.predicted_block_name === this.customICD10)[0];
+    this.suggestionsNumber.push(icd10PredArray.indexOf(custICD10));
+    this.removeCustomICDAfterAdd(custICD10);
+  }
+
+  removeCustomICDAfterAdd(item) {
+    console.log(item);
+    this.predictedICDs.splice(this.predictedICDs.indexOf(item), 1);
+    this.customICD10 = this.predictedICDs[0].predicted_block_name;
+  }
+
+  configureCustomICDSelection() {
+    console.log(this.suggestionsNumber);
+    this.suggestionsNumber.forEach(item => {
+      console.log(this.predictedICDs[item]);
+      this.predictedICDs.splice(this.predictedICDs.indexOf(this.recordItem.icd10_item.icd10_prediction[item]), 1);
+      console.log(this.predictedICDs);
+      console.log(this.recordItem.icd10_item.icd10_prediction);
+    });
+    this.customICD10 = this.predictedICDs[0].predicted_block_name;
+  }
 }
