@@ -62,4 +62,8 @@ export class DashboardComponent implements OnInit {
     this.filteredRecords = this.records.filter((item) => item.title.toLowerCase().includes(e.toLowerCase()));
     console.log(e);
   }
+
+  nextRecord() {
+    this.selectRecord(this.filteredRecords.indexOf(this.recordSelected) + 1);
+  }
 }

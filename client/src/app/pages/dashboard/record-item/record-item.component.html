@@ -95,4 +95,10 @@
       </div>
     </div>
   </div>
+  <div class="text-center mt-3">
+    <button class="button transparent-button" (click)="nextRecord()">next Record</button>
+    <button class="button mx-1 button-primary login-button"
+            (click)="allAccepted ? deleteAll() : acceptAll()">Validate and Next Record
+    </button>
+  </div>
 </div>

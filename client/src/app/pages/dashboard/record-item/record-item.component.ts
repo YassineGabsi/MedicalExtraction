@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {ResearchItem} from '../../../models/research-item';
 import {Icd10Prediction} from '../../../models/icd10-prediction';
 
@@ -16,6 +16,8 @@ export class RecordItemComponent implements OnInit {
   public allAccepted = false;
   public customICD10 = '';
   public predictedICDs: Array<Icd10Prediction>;
+
+  @Output() nextRecordEvent = new EventEmitter<any>();
 
   constructor() { }
 
@@ -101,5 +103,9 @@ export class RecordItemComponent implements OnInit {
 
   scoreCalc(score) {
     return (score * 100).toFixed(2);
+  }
+
+  nextRecord() {
+    this.nextRecordEvent.emit();
   }
 }
