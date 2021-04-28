@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d14353-9a06-40e2-b09e-b2a1cfc42447" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/client/node_modules/" />
     <ignored path="$PROJECT_DIR$/../../../../Work/elbaladya-citizen-hotfix/angular_elbaladiya.tn/node_modules/karma/config.tpl.js/" />
@@ -19,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+            <state relative-caret-position="900">
+              <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
               </folding>
@@ -35,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="130">
-              <caret line="68" column="60" selection-start-line="68" selection-start-column="60" selection-end-line="68" selection-end-column="60" />
+              <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -54,14 +53,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+            <state relative-caret-position="281">
+              <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
               <folding>
                 <element signature="n#style#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#2;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#1;n#div#2;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#1;n#div#2;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#ngx-spinner#0;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ng-sidebar#1;n#ng-sidebar-container#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#ng-sidebar#1;n#ng-sidebar-container#0;n#!!top" expanded="true" />
@@ -200,10 +203,10 @@
         <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.css" />
         <option value="$PROJECT_DIR$/client/src/styles.css" />
         <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.css" />
-        <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html" />
       </list>
     </option>
   </component>
@@ -401,12 +404,12 @@
       <workItem from="1619540455350" duration="25000" />
       <workItem from="1619544093216" duration="2041000" />
       <workItem from="1619563578796" duration="5757000" />
-      <workItem from="1619605137549" duration="5584000" />
+      <workItem from="1619605137549" duration="6094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99893000" />
+    <option name="totallyTimeSpent" value="100403000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -798,22 +801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#ngx-spinner#0;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ng-sidebar#1;n#ng-sidebar-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ng-sidebar#1;n#ng-sidebar-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#ng-sidebar#1;n#ng-sidebar-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#ngx-spinner#0;n#div#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/models/icd10-prediction.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -821,10 +808,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
-          <caret line="68" column="60" selection-start-line="68" selection-start-column="60" selection-end-line="68" selection-end-column="60" />
+          <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -833,12 +830,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/record-item/record-item.component.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/pages/dashboard/dashboard.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+        <state relative-caret-position="281">
+          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
           <folding>
-            <element signature="e#0#55#0" expanded="true" />
+            <element signature="n#style#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#2;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#1;n#div#2;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#1;n#div#2;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#ngx-spinner#0;n#ng-sidebar#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ng-sidebar#1;n#ng-sidebar-container#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ng-sidebar#1;n#ng-sidebar-container#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#ng-sidebar#1;n#ng-sidebar-container#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#ngx-spinner#0;n#div#0;n#ng-sidebar-container#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

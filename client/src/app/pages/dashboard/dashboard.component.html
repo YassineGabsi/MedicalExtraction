@@ -22,6 +22,10 @@
           {{i + 1}} - {{record.title}}
         </div>
       </div>
+      <div *ngIf="!filteredRecords.length">
+        <i style="color: #ffffff;" class="fas fa-folder-open fa-3x mt-5"></i>
+        <h6 class="font-weight-bold mt-4 px-3" style="color: #ffffff;">Sorry, There is no records with this name.</h6>
+      </div>
     </div>
     <ngx-spinner *ngIf="isLoading"
                  bdColor="rgba(255,255,255,0)"
