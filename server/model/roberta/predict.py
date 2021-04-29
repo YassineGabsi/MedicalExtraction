@@ -8,13 +8,8 @@ from argparse import ArgumentParser
 import numpy as np
 import pandas as pd
 
-
-def predict(input_df: pd.DataFrame, top_k: int = TOP_K) -> pd.DataFrame:
-    """
-        1.Input a csv file and preprocess it
-        2.Computes embeddings and reduce dimentionality
-        3.Loads model and returns prediction 
-    """
+def prediction_pipeline_roberta(input_df : pd.DataFrame, top_k : int = TOP_K) -> pd.DataFrame :
+    
     title_content, abstract_content, inclusion_content = preprocess_input_test(input_df)
 
     low_dims = load_preprocess_vectors_test(
@@ -27,6 +22,17 @@ def predict(input_df: pd.DataFrame, top_k: int = TOP_K) -> pd.DataFrame:
     )
 
     predictions = SVC_MODEL.predict_proba(low_dims)
+    return predictions
+
+
+
+def predict(input_df: pd.DataFrame, top_k: int = TOP_K) -> pd.DataFrame:
+    """
+        1.Input a csv file and preprocess it
+        2.Computes embeddings and reduce dimentionality
+        3.Loads model and returns prediction 
+    """
+    predictions = prediction_pipeline_roberta(input_df,top_k)
     results = []
     for prediction in predictions:
         reordered = np.zeros(224)

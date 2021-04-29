@@ -9,9 +9,7 @@ import numpy as np
 import pickle
 import pandas as pd
 
-def predict(input_df : pd.DataFrame ,top_k : int) -> pd.DataFrame:
-
-
+def prediction_pipeline_tfidf(input_df : pd.DataFrame, top_k : int = TOP_K) -> pd.DataFrame : 
     title_content , abstract_content, inclusion_content  = preprocess_input_test(input_df)
 
     title_tfidf = tfidf_encode_content_test(TFIDF_PATH_TITLE,
@@ -35,6 +33,13 @@ def predict(input_df : pd.DataFrame ,top_k : int) -> pd.DataFrame:
 
     model = pickle.load(open(MODEL_PATH, 'rb'))
     predictions  = model.predict_proba(low_dims)
+
+    return predictions
+
+def predict(input_df : pd.DataFrame ,top_k : int) -> pd.DataFrame:
+
+    predictions = prediction_pipeline_tfidf(input_df,top_k)
+
     top_k_preds = []
     for prediction in predictions:
         reordered = np.zeros(224)
