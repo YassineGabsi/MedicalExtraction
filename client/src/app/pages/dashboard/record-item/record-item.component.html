@@ -1,0 +1,104 @@
+<div class="cards-wrapper">
+  <h4 class="record-title text-center vivify fadeIn">
+    Record Validations
+  </h4>
+  <div class="card-dashboard mt-4 vivify fadeIn" [ngClass]="{'mx-5': windowsWidth > 567, 'mx-1': windowsWidth <= 567}">
+    <div class="row">
+      <div class="col-md-6">
+        <label class="label ml-3 mt-3 vivify fadeIn delay-200">Title</label>
+        <div class="infos-wrapper vivify fadeIn delay-200">
+          {{recordItem.title}}
+        </div>
+
+        <label class="label ml-3 mt-3 vivify fadeIn delay-300">Inclusion Criteria</label>
+        <div class="infos-wrapper vivify fadeIn delay-300">
+          {{recordItem.inclusion_criteria}}
+        </div>
+
+        <label class="label ml-3 mt-3 vivify fadeIn delay-400">Extracted medical Terms</label>
+        <div class="row vivify fadeIn delay-400" style="padding-right: 15px; padding-left: 15px;">
+          <div class="tag-extracted-term" *ngFor="let tag of medicalTags">
+            #{{tag}}
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-6 vivify fadeIn delay-300">
+        <label class="label ml-3 mt-3">Research Summary</label>
+        <div class="infos-wrapper">
+          {{recordItem.research_summary}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <h4 class="mx-5 record-title mt-4 vivify fadeIn delay-200">
+    ICD10 Validations ( Click to select )
+  </h4>
+  <div class="row" [ngClass]="{'mx-5': windowsWidth > 567, 'mx-1': windowsWidth <= 567}">
+    <div class="col-md-6 col-lg-4 mt-4 vivify fadeIn delay-200" *ngFor="let sugg of suggestionsNumber; let i = index">
+      <div class="card-dashboard" [ngClass]="{'card-accepted' : isSuggAccepted(sugg)}">
+        <div>
+          <h6 class="label-title">Top {{sugg + 1}}</h6>
+          <div class="score-wrapper">{{scoreCalc(recordItem.icd10_item.icd10_prediction[sugg].score)}}%</div>
+        </div>
+        <label class="label ml-3 mt-1" style="font-size: 15px; opacity: 0.7;">Chapter
+          Code: {{recordItem.icd10_item.icd10_prediction[sugg].predicted_chapter_code}}</label>
+
+        <label class="label ml-3 mt-1">Suggested ICD Chapter Name</label>
+        <div class="infos-wrapper">
+          {{recordItem.icd10_item.icd10_prediction[sugg].predicted_chapter_name}}
+        </div>
+
+        <label class="label ml-3 mt-3" style="font-size: 15px; opacity: 0.7;">Block
+          Code: {{recordItem.icd10_item.icd10_prediction[sugg].predicted_block_code}}</label>
+
+        <label class="label ml-3 mt-1">Suggested ICD Block Name</label>
+        <div class="infos-wrapper">
+          {{recordItem.icd10_item.icd10_prediction[sugg].predicted_block_name}}
+        </div>
+        <div class="text-center mt-3">
+          <button *ngIf="!isSuggAccepted(sugg)" class="button button-primary login-button mx-auto"
+                  (click)="acceptOnePrediction(sugg);">Accept
+          </button>
+          <button *ngIf="isSuggAccepted(sugg)" class="button button-primary delete-button mx-auto"
+                  (click)="deleteOnePrediction(sugg);">Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-3 vivify fadeIn delay-400">
+    <button class="button transparent-button mt-2" (click)="addSlice()">Show More Suggestions</button>
+    <button class="button mx-1 mt-2"
+            [ngClass]="{'button-primary login-button' : !allAccepted, 'delete-button' : allAccepted}"
+            (click)="allAccepted ? deleteAll() : acceptAll()">{{allAccepted ? 'Delete All' : 'Accept All' }}
+    </button>
+  </div>
+
+  <div class="col-md-6 mx-auto mt-4 vivify fadeIn delay-400">
+    <div class="record-title text-center mb-1"> Add new ICD10 Category</div>
+    <div class="card-dashboard">
+      <label class="label ml-3 mt-1" for="icd10Names">ICD10 Block Name</label>
+
+      <ng-select [(ngModel)]="customICD10" [items]="predictedICDs" bindLabel="predicted_block_name"
+                 bindValue="predicted_block_name" name="icd10Names" id="icd10Names" class="col-12">
+<!--        <ng-option *ngFor="let prediction of predictedICDs"-->
+<!--                   [value]="prediction.predicted_block_name">-->
+<!--          {{prediction.predicted_block_name}}-->
+<!--        </ng-option>-->
+      </ng-select>
+      <div class="text-center mt-2">
+        <button class="button button-primary login-button mx-auto"
+                (click)="addCustomICD10()">Select
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-3 vivify fadeIn delay-300">
+    <button class="button transparent-button mt-2" (click)="nextRecord()">next Record</button>
+    <button class="button mx-1 button-primary login-button mt-2"
+            (click)="validatePrediction()">Validate and Next Record
+    </button>
+  </div>
+</div>

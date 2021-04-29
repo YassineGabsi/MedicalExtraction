@@ -5,16 +5,23 @@ import {SidebarModule} from 'ng-sidebar';
 import {DashboardRoutingModule} from './dashboard-routing.module';
 import {IndexModule} from '../index/index.module';
 import { NavbarDashboardComponent } from './navbar-dashboard/navbar-dashboard.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
+import { RecordItemComponent } from './record-item/record-item.component';
+import {FormsModule} from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, NavbarDashboardComponent],
+  declarations: [DashboardComponent, NavbarDashboardComponent, RecordItemComponent],
   imports: [
     CommonModule,
     SidebarModule,
     DashboardRoutingModule,
-    IndexModule
+    IndexModule,
+    NgxSpinnerModule,
+    FormsModule,
+    NgSelectModule
   ]
 })
 export class DashboardModule { }

@@ -5,7 +5,17 @@
 }
 
 :host >>> .ng-sidebar {
-  width: 250px;
+  max-width: 250px;
+  min-width: 90px;
+}
+
+@media screen and (max-width: 768px) {
+  :host >>> .ng-sidebar {
+    min-width: 40px;
+  }
+  .image-toggle-sidebar {
+    max-height: 30px !important;
+  }
 }
 
 :host >>> .ng-sidebar__content {
@@ -17,6 +27,11 @@
   height: 100vh;
   padding: 0 10px;
 }
+
+.image-toggle-sidebar {
+  max-height: 80px;
+}
+
 .demo-header {
   align-items: center;
   background: #0273d4;
@@ -37,6 +52,7 @@
   position: relative;
   width: 2rem;
 }
+
 .demo-header__toggle:after {
   background: #fff;
   content: '';
@@ -64,14 +80,12 @@
   padding: 0.5em 2em;
   transition: background-color 0.15s;
 }
+
 .demo-control:hover {
   background-color: #545555;
   color: #fff;
 }
 
-.records-wrapper {
-
-}
 .record-item {
   border-bottom: 1px solid #ffffff;
   background-color: transparent;
@@ -100,33 +114,11 @@
   background-color: var(--second-white-color) !important;
 }
 
-.record-title {
-  font-size: var(--title-size);
-  font-weight: bold;
-  color: var(--blue-color);
-}
-
-.infos-wrapper {
-  padding: 10px 15px;
-  border-radius: 19px;
-  border: 2px solid var(--blue-color);
-}
-
-.tag-extracted-term {
-  background-color: var(--blue-color);
-  color: #ffffff;
-  border-radius: 19px;
-  padding: 8px 13px;
-  margin: 5px 5px;
-}
-
-.cards-wrapper {
-  padding-bottom: 30px;
-}
-
-.label-title {
-  color: var(--blue-color);
-  font-weight: bold;
-  font-size: var(--buttons-size);
-  margin-left: 10px;
+.search-icon {
+  margin-left: 80px;
+  top: 121px;
+  position: absolute;
+  color: black;
+  opacity: 0.7;
+  transition: 0.5s all ease-in-out;
 }

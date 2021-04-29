@@ -9,6 +9,7 @@
   --black-color: #3F4343;
   --second-blue-color: #48B4C6;
   --second-white-color: #F8F8F8;
+  --red-color: #DA3A3A;
 
   --text-size: 16px;
   --title-size: 23px;
@@ -66,6 +67,12 @@ button {
   background-position: initial;
 }
 
+@media screen and (max-width: 850px) {
+  .page-wrapper {
+    background: transparent;
+  }
+}
+
 .only-desktop {
   display: block;
 }
@@ -73,6 +80,24 @@ button {
   .only-desktop {
     display: none;
   }
+}
+
+.score-wrapper {
+  background-color: var(--blue-color);
+  color: var(--second-white-color);
+  border: 2px solid var(--blue-color);
+  padding: 5px 10px;
+  font-weight: bolder;
+  border-radius: 20px;
+  float: right;
+  transition: 0.3s all ease-in-out;
+}
+
+.score-wrapper:hover {
+  background-color: var(--second-white-color);
+  color: var(--blue-color);
+  border: 2px solid var(--blue-color);
+  transition: 0.3s all ease-in-out;
 }
 
 /* *************************************
@@ -118,12 +143,13 @@ button {
   border: 1px solid var(--blue-color);
   color: #ffffff;
   transition: 0.3s all ease-in-out;
+  cursor: pointer;
 }
 
 .button-primary:hover {
   transition: 0.3s all ease-in-out;
   background: transparent;
-  border: 1px solid var(--blue-color);
+  border: 2px solid var(--blue-color);
   color: var(--blue-color);
 }
 
@@ -139,6 +165,8 @@ button {
 .login-button {
   margin-left: 30px;
   margin-right: 0;
+  transition: 0.3s all ease-in-out;
+  border: 2px solid var(--blue-color);
 }
 
 .download-button {
@@ -159,12 +187,47 @@ button {
   border: 2px solid var(--blue-color);
   color: var(--blue-color);
   font-weight: bold;
+  transition: 0.3s all ease-in-out;
 }
 
 .transparent-button:hover {
   background-color: var(--blue-color);
   border: 2px solid var(--blue-color);
   color: #ffffff;
+}
+
+.delete-button {
+  background-color: transparent;
+  border: 2px solid var(--red-color);
+  color: var(--red-color);
+  transition: 0.3s all ease-in-out;
+}
+
+.delete-button:hover {
+  background-color: var(--red-color);
+  border: 2px solid var(--red-color);
+  color: #ffffff;
+  transition: 0.3s all ease-in-out;
+}
+
+.button-search {
+  background-color: #ffffff;
+  border: 2px solid #ffffff !important;
+  color: var(--blue-color);
+  font-weight: bolder;
+}
+
+.button-search:hover {
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+.button-search-primary {
+  border: 2px solid var(--blue-color);
+}
+
+.button-search-primary:hover {
+  font-weight: bolder;
 }
 
 /* *************************************
@@ -189,9 +252,25 @@ button {
 .custom-input::placeholder {
   transition: 0.3s all ease-in-out;
 }
+
 .custom-input:focus::placeholder {
   color: #ffffff;
   transition: 0.3s all ease-in-out;
+}
+
+.search-input {
+  border-radius: 20px;
+  border: 2px solid var(--blue-color);
+  background-color: var(--second-white-color);
+  margin-top: 10px;
+  margin-bottom: -10px;
+  padding: 5px 15px ;
+  color: var(--blue-color);
+  font-weight: bold;
+  font-size: var(--text-size);
+}
+.search-input::placeholder {
+  font-size: 13px;
 }
 
 .label {
@@ -207,7 +286,9 @@ button {
   box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
   border-radius: 19px;
   background-color: #ffffff;
-  padding: 20px 30px;
+  padding: 15px;
+  transition: 0.3s all ease-in-out;
+  border: 12px solid #ffffff;
 }
 
 /* *************************************

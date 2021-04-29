@@ -12,6 +12,8 @@ import {FooterComponent} from '../../components/footer/footer.component';
 import {RouterModule} from '@angular/router';
 import {IndexRoutingModule} from './index-routing.module';
 import { DndDirective } from '../../directives/dnd.directive';
+import { PredictionStatusComponent } from './prediction-status/prediction-status.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -26,7 +28,8 @@ import { DndDirective } from '../../directives/dnd.directive';
     UploadFileComponent,
     RegisterComponent,
     IndexComponent,
-    DndDirective
+    DndDirective,
+    PredictionStatusComponent
   ],
   exports: [
     HeaderComponent
@@ -35,6 +38,7 @@ import { DndDirective } from '../../directives/dnd.directive';
     CommonModule,
     RouterModule,
     IndexRoutingModule,
+    NgxSpinnerModule,
   ]
 })
 export class IndexModule { }
