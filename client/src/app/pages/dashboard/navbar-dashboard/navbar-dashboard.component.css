@@ -1,0 +1,21 @@
+.header-section {
+  min-height: 60px;
+  background-color: var(--second-white-color);
+  padding: 10px 15px;
+  margin: 0 40px;
+  border-bottom: 1px solid #707070;
+  color: #0895A4;
+}
+
+.sign-up-button {
+  margin-top: 5px;
+  background-color: transparent;
+  color: var(--blue-color);
+  font-size: var(--buttons-size);
+  margin-left: auto;
+  margin-right: 0;
+}
+.login-button {
+  margin-left: 30px;
+  margin-right: 0;
+}
