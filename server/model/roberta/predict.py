@@ -1,8 +1,10 @@
-from argparse import ArgumentParser
 
-from .config import TOP_K, THRESHHOLD, DEVICE, LABELS, INPUT_PATH, SVC_MODEL, \
+from model.roberta.config import TOP_K, THRESHHOLD, DEVICE, LABELS, INPUT_PATH, SVC_MODEL, \
     BERT_MODEL, BERT_TOKENIZER, OUTPUT_PATH
-from .utils import preprocess_input_test, load_preprocess_vectors_test
+
+from model.roberta.utils import preprocess_input_test, load_preprocess_vectors_test
+
+from argparse import ArgumentParser
 import numpy as np
 import pandas as pd
 

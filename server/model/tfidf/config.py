@@ -1,6 +1,9 @@
-INPUT_PATH = "./partial_data.csv"
 THRESHHOLD = 0 
 TOP_K = 3
+
+BASE_PATH = os.path.join(os.path.dirname(__file__))
+INPUT_PATH = BASE_PATH + "/input.csv"
+OUTPUT_PATH = BASE_PATH + "/output.csv"
 
 PCA_PATH = "./pca_tfidf.sav" 
 MODEL_PATH = "./clf_tfidf.sav"
@@ -12,7 +15,7 @@ TFIDF_PATH_TITLE = "./tfidf_title.sav"
 TFIDF_PATH_ABSTRACT = "./tfidf_abstract.sav"
 TFIDF_PATH_INCLUSION = "./tfidf_inclusion.sav"
 
-labels_to_keep = ['Chronic lower respiratory diseases',
+LABELS = ['Chronic lower respiratory diseases',
  'Congenital malformations of the urinary system',
  'Malignant neoplasms of mesothelial and soft tissue',
  'Other congenital malformations of the digestive system',

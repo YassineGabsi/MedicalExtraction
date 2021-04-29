@@ -1,7 +1,7 @@
 import joblib
 
 from icd10.core.logging import logger
-from .config import VECTORS_PATH, PCA_COMPONENTS, PCA_PATH, BERT_TOKENIZER, BERT_MODEL, DEVICE
+from model.roberta.config import VECTORS_PATH, PCA_COMPONENTS, PCA_PATH, BERT_TOKENIZER, BERT_MODEL, DEVICE
 import gc
 from sklearn.decomposition import PCA
 from tqdm import tqdm

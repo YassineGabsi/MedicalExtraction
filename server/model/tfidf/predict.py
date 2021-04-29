@@ -1,15 +1,18 @@
-from utils import preprocess_input , tfidf_encode_content_test
-from config import TOP_K,INPUT_PATH, THRESHHOLD, labels_to_keep , PCA_PATH , PCA_PATH_ABSTRACT , PCA_PATH_INCLUSION , PCA_PATH_TITLE , TFIDF_PATH_ABSTRACT , TFIDF_PATH_INCLUSION , TFIDF_PATH_TITLE , MODEL_PATH
+from model.tfidf.utils import preprocess_input_test , tfidf_encode_content_test
+
+from model.tfidf.config import TOP_K,INPUT_PATH, THRESHHOLD, LABELS , PCA_PATH \
+    , PCA_PATH_ABSTRACT , PCA_PATH_INCLUSION, PCA_PATH_TITLE , TFIDF_PATH_ABSTRACT \
+    , TFIDF_PATH_INCLUSION , TFIDF_PATH_TITLE , MODEL_PATH , OUTPUT_PATH
+
+from argparse import ArgumentParser
 import numpy as np
 import pickle
 import pandas as pd
 
-def predict(INPUT_PATH,THRESHHOLD=0):
+def predict(input_df : pd.DataFrame ,top_k : int) -> pd.DataFrame:
 
 
-    title_content , abstract_content, inclusion_content , _ , df = preprocess_input(INPUT_PATH,THRESHHOLD)
-    useful_labels = [labels_to_keep.index(label) for label in df["ICD Block Names"]]
-
+    title_content , abstract_content, inclusion_content  = preprocess_input_test(input_df)
 
     title_tfidf = tfidf_encode_content_test(TFIDF_PATH_TITLE,
         PCA_PATH_TITLE,
@@ -31,26 +34,44 @@ def predict(INPUT_PATH,THRESHHOLD=0):
     low_dims  = pca.transform(final_rep)
 
     model = pickle.load(open(MODEL_PATH, 'rb'))
-    preds  = model.predict_proba(low_dims)
+    predictions  = model.predict_proba(low_dims)
     top_k_preds = []
-    for i,pred in enumerate(preds):
+    for prediction in predictions:
         reordered = np.zeros(224)
         reordered[model.classes_]  = pred
-        this_top_k = np.argsort(reordered)[::-1][:TOP_K] 
-        top_k_preds.append(this_top_k)
+        i_predictions_ids = np.argsort(reordered)[::-1][:top_k]
+        i_scores = np.sort(reordered)[::-1][:top_k]
+        i_predictions_labels = list(map(lambda id: LABELS[id], i_predictions_ids))
+        i_prediction = [
+            {
+                f"block_name_{i}": prediction_label,
+                f"score_{i}": score,
+            }
+            for i, prediction_label, score in zip(
+                range(len(reordered)),
+                i_predictions_labels,
+                i_scores
+            )
+        ] + [{
+            "top_k": top_k
+        }]
 
-    np_labels = np.array(useful_labels)
-    idxs = {c: np.argwhere(np_labels == c).ravel() for c in np.unique(np_labels)}
+        results.append({key: value for element in i_prediction for key, value in element.items()})
 
-
-    top_1, top_2, top_3 = [], [], []
-    for i in range(len(useful_labels)):
-        top_1.append( labels_to_keep[top_k_preds[i][0]] )
-        top_2.append( labels_to_keep[top_k_preds[i][1]] )
-        top_3.append( labels_to_keep[top_k_preds[i][2]] )
-    results = pd.DataFrame({"1st prediction":top_1,"2nd prediction":top_2,"3rd prediction":top_3})
-    results.to_csv('results.csv',index=False)
+    results = pd.DataFrame(results)
     return results
 
 if __name__ == "__main__": 
-    predict(INPUT_PATH=INPUT_PATH,THRESHHOLD=THRESHHOLD)
+    parser = ArgumentParser()
+    parser.add_argument('--input', default=INPUT_PATH,
+                        help='csv file to use as input')
+    parser.add_argument('--output', default=OUTPUT_PATH,
+                        help='csv file to use as output')
+    parser.add_argument('--top-k', default=TOP_K, type=int,
+                        help='number of predictions to return')
+
+    args = parser.parse_args()
+    df = pd.read_csv(args.input)
+    res = predict(df, top_k=args.top_k)
+    res.to_csv(OUTPUT_PATH, index=False)
+    print(res)
