@@ -76,7 +76,7 @@ def fetch_http(file_url: str) -> Tuple[bytes, str]:
     from urllib.request import urlopen
     response = urlopen(file_url)
     _buffer = response.read()
-    return _buffer, file_url
+    return io.BytesIO(_buffer), file_url
 
 
 def fetch(file_url: str) -> Tuple[str, str]:
@@ -92,6 +92,7 @@ def fetch(file_url: str) -> Tuple[str, str]:
 url_type_fetch_func_map = {
     "s3": fetch_s3,
     "http": fetch_http,
+    "https": fetch_http,
     "local": fetch
 }
 
