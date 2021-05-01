@@ -28,5 +28,6 @@ jobs:
       env:
       run: |
         pip install awsebcli
+        cd server/
         eb deploy medical-extraction-dev
 
