@@ -25,7 +25,6 @@ jobs:
 
     - name: Deploy backend to Elasticbeanstalk
       id: eb-deploy
-      env:
       run: |
         pip install awsebcli
         cd server/
