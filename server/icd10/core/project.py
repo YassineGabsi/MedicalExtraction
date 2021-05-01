@@ -40,7 +40,7 @@ class OnFailure:
             except Exception as e:
                 logger.exception(f'"{fn.__name__}" {self.message}, '
                                  f'marking project {research_project.id} as failed')
-                research_project.status = 'F'
+                research_project.status = 'E'
                 research_project.save()
                 logger.debug(f"Running handlers...")
                 for handler in self.handlers:
