@@ -29,7 +29,7 @@ jobs:
         cd client
         npm install @angular/cli
         npm run build
-        cp dist/PFA-Frontend ../server/dist/PFA-Frontend
+        cp -r dist/PFA-Frontend ../server/dist/PFA-Frontend
         cd ../server
         pip install awsebcli
         cd server/
