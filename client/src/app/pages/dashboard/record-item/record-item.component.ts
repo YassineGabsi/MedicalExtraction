@@ -34,10 +34,18 @@ export class RecordItemComponent implements OnInit {
     this.configureCustomICDSelection();
     this.getValidatedPredictions();
     console.log(this.suggestionsNumber);
-    this.medicalTags.push('complications');
-    this.medicalTags.push('heart diseases');
-    this.medicalTags.push('coronary artery diseases');
-    this.medicalTags.push('lorem upsum lorem upsum lorem upsum');
+    this.updateMedicalTags()
+  }
+
+  updateMedicalTags(){
+    this.medicalTags = []
+    this.recordItem.icd10_item.medical_terms.forEach(
+      term => this.medicalTags.push(term)
+    )
+  }
+
+  ngOnChanges(changes) {
+    this.updateMedicalTags()
   }
 
   addSlice(): void {
