@@ -132,7 +132,7 @@ def process_project_validated_data(df: pd.DataFrame) -> pd.DataFrame:
             validation_codes = map(itemgetter("predicted_block_code"), row["icd10_validation"])
             validation_items = [
                 {
-                    "block_name": CATEGORIES_DF_BLOCK_CODE.loc[block_code]["chapter_name"],
+                    "block_name": CATEGORIES_DF_BLOCK_CODE.loc[block_code]["block_name"],
                     "chapter_name": CATEGORIES_DF_BLOCK_CODE.loc[block_code]["chapter_name"],
                     "block_code": block_code,
                     "chapter_code": str(CATEGORIES_DF_BLOCK_CODE.loc[block_code]["chapter_code"])
