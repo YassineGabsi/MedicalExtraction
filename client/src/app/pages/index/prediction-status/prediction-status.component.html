@@ -1,11 +1,16 @@
 <div class="d-flex align-items-center page-wrapper">
   <div class="container">
     <div class="text-center vivify fadeIn delay-250">
+      <div *ngIf="predictedStatus.total_count!=predictedStatus.predicted_count">
       <div class="title-mini" style="margin-top: -100px">Your file is being processed </div>
-      <span>
-        We received your file and it's being processed. We are generating the predicted items.
+      <span >
+        We received your file and it's being processed. We are generating the prediction items.
         Thank you for waiting, from here you can follow the real time prediction status.
       </span>
+    </div>
+    <div *ngIf="predictedStatus.total_count==predictedStatus.predicted_count">
+      <div class="title-mini" style="margin-top: -100px">Processing completed</div>
+    </div>
       <div class="text-center">
         <button class="button button-primary mt-4" routerLink="/dashboard">
           Go To Validation

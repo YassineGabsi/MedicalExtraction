@@ -10,7 +10,7 @@ import pandas as pd
 from icd10.core.common import thread_pool
 from icd10.core.loaders import generic_read
 from icd10.core.logging import logger
-from icd10.core.utils import split_df, map2starmap_adapter
+from icd10.core.utils import split_df, map2starmap_adapter, get_medical_terms
 from icd10.models import ResearchProject, ResearchItem, ICD10Item
 from medical_extraction.settings import ENGINE
 from model.common import CATEGORIES_DF, CATEGORIES_DF_BLOCK_CODE
@@ -106,7 +106,8 @@ def populate_icd10_items(research_project: ResearchProject, df: pd.DataFrame):
                     (row[f"block_name_{i}"], row[f"score_{i}"])
                     for i in range(row["top_k"])
                 ]
-            ]
+            ],
+            medical_terms=get_medical_terms(row["Title"] + row["Research Summary"] + row["Inclusion Criteria"])
         )
         for index, row in df.iterrows()
     ]
