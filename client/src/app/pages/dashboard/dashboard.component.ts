@@ -22,11 +22,11 @@ export class DashboardComponent implements OnInit {
 
   public isLoading = false;
 
-  private projectId = localStorage.getItem('project_id');
-  private searchString = '';
-  private searchSelected = 'all';
-  private windowsWidth = window.innerWidth;
-  private mobileOpen = false;
+  public projectId = localStorage.getItem('project_id');
+  public searchString = '';
+  public searchSelected = 'all';
+  public windowsWidth = window.innerWidth;
+  public mobileOpen = false;
 
   @ViewChild(RecordItemComponent) recordItemChild;
 

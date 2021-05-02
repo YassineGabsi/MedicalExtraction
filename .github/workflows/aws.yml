@@ -23,9 +23,14 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-central-1
 
-    - name: Deploy backend to Elasticbeanstalk
+    - name: Deploy to Elasticbeanstalk
       id: eb-deploy
       run: |
+        cd client
+        npm install @angular/cli
+        npm run build
+        cp dist/PFA-Frontend ../server/dist/PFA-Frontend
+        cd ../server
         pip install awsebcli
         cd server/
         eb list
