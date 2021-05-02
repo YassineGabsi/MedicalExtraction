@@ -1,6 +1,8 @@
+import json
 import time
 from datetime import datetime
 from functools import wraps
+from operator import itemgetter
 from typing import Tuple, List, Any, Iterable, Callable
 
 import pandas as pd
@@ -10,7 +12,8 @@ from icd10.core.loaders import generic_read
 from icd10.core.logging import logger
 from icd10.core.utils import split_df, map2starmap_adapter
 from icd10.models import ResearchProject, ResearchItem, ICD10Item
-from model.common import CATEGORIES_DF
+from medical_extraction.settings import ENGINE
+from model.common import CATEGORIES_DF, CATEGORIES_DF_BLOCK_CODE
 from model.roberta.predict import predict
 
 
@@ -109,3 +112,39 @@ def populate_icd10_items(research_project: ResearchProject, df: pd.DataFrame):
     ]
     icd10_items = ICD10Item.objects.bulk_create(icd10_items)
     return icd10_items
+
+
+def get_project_validated_data(project_id: int) -> pd.DataFrame:
+    query = """
+        select ir.title, ir.research_summary, ir.inclusion_criteria,
+        iii.medical_terms, iii.icd10_validation
+        from icd10_icd10item iii, icd10_researchitem ir 
+        where ir.project_id =%(project_id)s and ir.id = iii.item_id and validated =true
+    """
+    df = pd.read_sql(query, ENGINE, params={"project_id": project_id})
+    return df
+
+
+def process_project_validated_data(df: pd.DataFrame) -> pd.DataFrame:
+    rows = []
+    for index, row in df.iterrows():
+        if row["icd10_validation"]:
+            validation_codes = map(itemgetter("predicted_block_code"), row["icd10_validation"])
+            validation_items = [
+                {
+                    "block_name": CATEGORIES_DF_BLOCK_CODE.loc[block_code]["chapter_name"],
+                    "chapter_name": CATEGORIES_DF_BLOCK_CODE.loc[block_code]["chapter_name"],
+                    "block_code": block_code,
+                    "chapter_code": str(CATEGORIES_DF_BLOCK_CODE.loc[block_code]["chapter_code"])
+                }
+                for block_code in validation_codes
+            ]
+        del row["icd10_validation"]
+        rows.extend([
+            {
+                **row,
+                **validation_item
+            }
+            for validation_item in validation_items
+        ])
+    return pd.DataFrame(rows)
