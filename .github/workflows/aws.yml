@@ -32,8 +32,6 @@ jobs:
         cp -r dist/PFA-Frontend ../server/PFA-Frontend
         cd ../server
         pip install awsebcli
-        cd server/
-        eb list
         eb labs cleanup-versions --older-than 10 --force
         eb deploy medical-extraction-env
 
