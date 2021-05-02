@@ -5,7 +5,7 @@
       <img style="  margin-top: -20px; max-height: 50px; cursor: pointer" src="../../../assets/images/toggle.png"
            alt="a" (click)="_toggleSidebar()">
     </div>
-    <button class="button button-primary download-button mx-3 vivify fadeIn delay-150">Download Output</button>
+    <button class="button button-primary download-button mx-3 vivify fadeIn delay-150" (click)="exportOutput()">Export Output</button>
     <label>
       <input type="text" class="search-input vivify fadeIn delay-250" (ngModelChange)="filterRows($event)" [(ngModel)]="searchString"
              placeholder="Search...">
