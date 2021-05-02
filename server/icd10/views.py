@@ -1,14 +1,20 @@
+import json
 from abc import ABC, abstractmethod
+from operator import itemgetter
 
 from rest_framework import generics
 from rest_framework.views import APIView
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+import pandas as pd
 
 from icd10.core.validation import validate
+from medical_extraction.settings import ENGINE
+from model.common import CATEGORIES_DF_BLOCK_CODE
 from .core.exceptions import AlreadyExistsError, ValidationError
-from .core.io import upload
-from .core.project import start_project
+from .core.io import upload, upload_df
+from .core.logging import logger
+from .core.project import start_project, get_project_validated_data, process_project_validated_data
 from .models import (
     ResearchProject,
     ResearchItem,
@@ -130,3 +136,34 @@ class PredictionAcceptedPercentView(PercentView):
     def get_in_progress_count(self, pk):
         return self.research_item_queryset.filter(project=pk) \
             .filter(icd10_item__prediction_accepted=True).count()
+
+
+class GenerateProjectFileView(APIView):
+    research_item_queryset = ResearchItem.objects
+
+    @csrf_exempt
+    def get(self, request, *args, **kwargs):
+        try:
+            project_id = kwargs['pk']
+        except KeyError:
+            return JsonResponse({"error": "Please provide a project id"}, status=400)
+
+
+        try:
+            df = get_project_validated_data(project_id)
+        except Exception as e:
+            logger.exception(e)
+            return JsonResponse({"error": "Failed to load project data"}, status=400)
+
+        try:
+            df = process_project_validated_data(df)
+        except Exception as e:
+            logger.exception(e)
+            return JsonResponse({"error": "Could not prepare project data, please check your validation"}, status=400)
+
+        try:
+            file_url = upload_df(df, f"output/project_{project_id}.csv")
+        except Exception as e:
+            logger.exception(e)
+            return JsonResponse({"error": "Could not upload result file"}, status=400)
+        return JsonResponse({"file_url": file_url})

@@ -1,3 +1,4 @@
+import io
 import os
 from datetime import datetime
 
@@ -43,3 +44,12 @@ def upload(file_obj: TemporaryUploadedFile):
 
 def read(file_url: str) -> pd.DataFrame:
     return generic_read(file_url)
+
+
+def upload_df(df: pd.DataFrame, key: str):
+    buffer = io.BytesIO()
+    df.to_csv(buffer, index=False)
+    buffer.seek(0)
+    media_storage = MediaStorage()
+    media_storage.save(key, buffer)
+    return f"https://{media_storage.bucket_name}.s3.amazonaws.com/{key}"
