@@ -3,6 +3,7 @@ import {ProjectService} from '../../services/project.service';
 import {ResearchItem} from '../../models/research-item';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {RecordItemComponent} from './record-item/record-item.component';
+import {ExportFileService} from '../../services/export-file.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,6 +32,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private projectService: ProjectService,
               private spinner: NgxSpinnerService,
+              private exportFileService: ExportFileService
   ) {
   }
 
@@ -126,4 +128,17 @@ export class DashboardComponent implements OnInit {
       this.filteredRecords = this.records;
     }
   }
+
+  exportOutput(){
+    this.exportFileService.exportFile(this.projectId).subscribe((data) => {
+      console.log(data);
+      const link = document.createElement('a');
+      link.setAttribute('target', '_blank');
+      link.setAttribute('href', data.file_url);
+      link.setAttribute('download', `result.csv`);
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    });
+}
 }
