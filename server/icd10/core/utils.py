@@ -5,6 +5,10 @@ from math import ceil
 from typing import List, Tuple, Any
 
 import pandas as pd
+import scispacy
+import spacy
+
+scibert = spacy.load("en_core_sci_scibert")
 
 
 def str2bool(value: str) -> bool:
@@ -111,7 +115,17 @@ def map2starmap_adapter(func):
     :param func: function
     :return: decorated function
     """
+
     @wraps(func)
     def func_wrapper(args: Tuple[Any], **kwargs):
         return func(*args, **kwargs)
+
     return func_wrapper
+
+
+def get_medical_terms(text: str) -> List[str]:
+    """
+    Extracts medical terms from document
+    """
+    doc = scibert(text)
+    return list(set([doc.ents[i].text for i in range(len(doc.ents))]))
