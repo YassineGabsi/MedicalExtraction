@@ -23,6 +23,7 @@ export class RecordItemComponent implements OnInit, OnChanges {
   public predictedICDs: Array<Icd10Prediction>;
 
   @Output() nextRecordEvent = new EventEmitter<any>();
+  @Output() validateNumber = new EventEmitter<any>();
 
   constructor(private icd10ItemService: Icd10ItemService) {
   }
@@ -154,6 +155,10 @@ export class RecordItemComponent implements OnInit, OnChanges {
     }
   }
 
+  validateNum() {
+    this.validateNumber.emit();
+  }
+
   validatePrediction() {
     const validation = [];
     this.acceptedPredictions.forEach(item => {
@@ -176,6 +181,7 @@ export class RecordItemComponent implements OnInit, OnChanges {
         $('.ng-sidebar__content').animate({
           scrollTop: 0
         });
+        this.validateNum();
         this.nextRecord(true);
         scrolled = true;
       });
@@ -183,6 +189,7 @@ export class RecordItemComponent implements OnInit, OnChanges {
       setTimeout(() => {
         Swal.close();
         if (!scrolled) {
+          this.validateNum();
           this.nextRecord(true);
           $('.ng-sidebar__content').animate({
             scrollTop: 0

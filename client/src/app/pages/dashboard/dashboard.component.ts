@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit {
   private windowsWidth = window.innerWidth;
   private mobileOpen = false;
   private lastRecord = false;
+  private validatedNum = 0;
 
   @ViewChild(RecordItemComponent) recordItemChild;
 
@@ -68,6 +69,13 @@ export class DashboardComponent implements OnInit {
       this.records = data.items;
       this.filteredRecords = this.records;
       this.recordSelected = this.records[0];
+      if (this.project.status  === 'C') {
+        this.getValidatedNumber();
+      }
+      if (this.validatedNum === this.records.length) {
+        this.lastRecord = true;
+        this.recordSelected = null;
+      }
       this.isLoading = false;
       this.spinner.hide('spinner1');
       this.spinner.hide('spinner2');
@@ -126,6 +134,9 @@ export class DashboardComponent implements OnInit {
     if (this.filteredRecords.length !== nextRec ) {
       this.lastRecord = false;
       this.selectRecord(nextRec);
+    } else if (this.filteredRecords.length === nextRec && this.validatedNum !== this.records.length) {
+      this.lastRecord = false;
+      this.selectRecord(0);
     } else {
       this.lastRecord = true;
     }
@@ -170,5 +181,15 @@ export class DashboardComponent implements OnInit {
     document.body.appendChild(link);
     link.click();
     link.remove();
+  }
+
+  getValidatedNumber() {
+    this.validatedNum = 0;
+    this.records.forEach((item) => {
+      if (item.icd10_item && item.icd10_item.validated) {
+        this.validatedNum ++;
+      }
+    });
+    console.log(this.validatedNum);
   }
 }

@@ -69,7 +69,8 @@
   <!-- Page content -->
   <div class="sidebar-content" ng-sidebar-content>
     <app-navbar-dashboard></app-navbar-dashboard>
-    <app-record-item *ngIf="!isLoading && !lastRecord" (nextRecordEvent)="nextRecord()" [windowsWidth]="windowsWidth"
+    <app-record-item *ngIf="!isLoading && !lastRecord" (nextRecordEvent)="nextRecord()"
+                     [windowsWidth]="windowsWidth" (validateNumber)="getValidatedNumber()"
                      [recordItem]="recordSelected"></app-record-item>
     <app-all-validated (downloadResults)="exportOutput()" *ngIf="!isLoading && lastRecord"></app-all-validated>
     <ngx-spinner *ngIf="isLoading"
