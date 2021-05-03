@@ -5,7 +5,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
 import {RecordItemComponent} from './record-item/record-item.component';
 import {ExportFileService} from '../../services/export-file.service';
 import Swal from 'sweetalert2';
-import {ResearchProject} from "../../models/research-project";
+import {ResearchProject} from '../../models/research-project';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
   private searchSelected = 'all';
   private windowsWidth = window.innerWidth;
   private mobileOpen = false;
+  private lastRecord = false;
 
   @ViewChild(RecordItemComponent) recordItemChild;
 
@@ -95,10 +96,11 @@ export class DashboardComponent implements OnInit {
   }
 
   selectRecord(i): void {
-    this.recordSelected = this.filteredRecords[i];
-    if (this.recordSelected.icd10_item) {
-      this.recordItemChild.updateElements(this.recordSelected);
-    }
+      this.lastRecord = false;
+      this.recordSelected = this.filteredRecords[i];
+      if (this.recordSelected.icd10_item) {
+        this.recordItemChild.updateElements(this.recordSelected);
+      }
   }
 
   public _toggleSidebar(): void {
@@ -122,9 +124,10 @@ export class DashboardComponent implements OnInit {
   nextRecord() {
     const nextRec = this.filteredRecords.indexOf(this.recordSelected) + 1;
     if (this.filteredRecords.length !== nextRec ) {
+      this.lastRecord = false;
       this.selectRecord(nextRec);
     } else {
-      this.selectRecord(0);
+      this.lastRecord = true;
     }
   }
 
