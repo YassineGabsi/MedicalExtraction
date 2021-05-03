@@ -5,6 +5,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
 import {RecordItemComponent} from './record-item/record-item.component';
 import {ExportFileService} from '../../services/export-file.service';
 import Swal from 'sweetalert2';
+import {ResearchProject} from "../../models/research-project";
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +21,7 @@ export class DashboardComponent implements OnInit {
   public records: ResearchItem[];
   public filteredRecords: ResearchItem[];
   public recordSelected: ResearchItem;
+  public project: ResearchProject;
 
   public isLoading = false;
 
@@ -61,6 +63,7 @@ export class DashboardComponent implements OnInit {
     this.spinner.show('spinner2');
     this.projectService.getProjectById(this.projectId).subscribe((data) => {
       console.log(data);
+      this.project = data;
       this.records = data.items;
       this.filteredRecords = this.records;
       this.recordSelected = this.records[0];
