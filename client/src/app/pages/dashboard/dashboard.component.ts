@@ -120,7 +120,12 @@ export class DashboardComponent implements OnInit {
   }
 
   nextRecord() {
-    this.selectRecord(this.filteredRecords.indexOf(this.recordSelected) + 1);
+    const nextRec = this.filteredRecords.indexOf(this.recordSelected) + 1;
+    if (this.filteredRecords.length !== nextRec ) {
+      this.selectRecord(nextRec);
+    } else {
+      this.selectRecord(0);
+    }
   }
 
   toggleSearch(search) {
