@@ -14,11 +14,13 @@
       <button (click)="toggleSearch('validated')"
               class="button button-primary button-search-primary mx-1 my-1"
               [ngClass]="{'button-search': searchSelected === 'validated'}"
+              [disabled]="!recordSelected.icd10_item"
               style="font-size: 11px; padding: 5px 10px">Validated
       </button>
       <button (click)="toggleSearch('non-validated')"
               class="button button-primary button-search-primary mx-1 my-1"
               [ngClass]="{'button-search': searchSelected === 'non-validated'}"
+              [disabled]="!recordSelected.icd10_item"
               style="font-size: 11px; padding: 5px 10px">Non Validated
       </button>
       <button (click)="toggleSearch('all')"

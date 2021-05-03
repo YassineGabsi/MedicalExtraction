@@ -4,6 +4,7 @@ import {ResearchItem} from '../../models/research-item';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {RecordItemComponent} from './record-item/record-item.component';
 import {ExportFileService} from '../../services/export-file.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard',
@@ -131,16 +132,32 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  exportOutput(){
+  exportOutput() {
     this.exportFileService.exportFile(this.projectId).subscribe((data) => {
       console.log(data);
-      const link = document.createElement('a');
-      link.setAttribute('target', '_blank');
-      link.setAttribute('href', data.file_url);
-      link.setAttribute('download', `result.csv`);
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
+      this.downloadData(data);
+      Swal.fire({
+        icon: 'success',
+        title: 'Congratulation!',
+        text: 'Your download should have been started. If not, you can click on \'Download again\' button.',
+        showCancelButton: true,
+        cancelButtonText: 'Close',
+        confirmButtonText: 'Download Again'
+      }).then((res) => {
+        if (res.value) {
+          this.downloadData(data);
+        }
+      });
     });
-}
+  }
+
+  downloadData(data) {
+    const link = document.createElement('a');
+    link.setAttribute('target', '_blank');
+    link.setAttribute('href', data.file_url);
+    link.setAttribute('download', `result.csv`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
 }
