@@ -224,10 +224,27 @@ button {
 
 .button-search-primary {
   border: 2px solid var(--blue-color);
+  transition: 0.3s all ease-in-out;
 }
 
 .button-search-primary:hover {
   font-weight: bolder;
+  transition: 0.3s all ease-in-out;
+}
+
+.button-search-primary:disabled {
+  opacity: 0.8;
+  background-color: #888888;
+  border: 2px solid #888888;
+  transition: 0.3s all ease-in-out;
+  cursor: not-allowed;
+}
+
+.button-search-primary:disabled:hover {
+  opacity: 0.8;
+  color: #ffffff;
+  transition: 0.3s all ease-in-out;
+  font-weight: normal;
 }
 
 /* *************************************
