@@ -137,8 +137,13 @@ export class RecordItemComponent implements OnInit {
     return (score * 100).toFixed(2);
   }
 
-  nextRecord() {
+  nextRecord(scrolled) {
     this.nextRecordEvent.emit();
+    if (!scrolled) {
+      $('.ng-sidebar__content').animate({
+        scrollTop: 0
+      });
+    }
   }
 
   validatePrediction() {
@@ -163,13 +168,14 @@ export class RecordItemComponent implements OnInit {
         $('.ng-sidebar__content').animate({
           scrollTop: 0
         });
+        this.nextRecord(true);
         scrolled = true;
       });
       this.recordItem.icd10_item = data;
       setTimeout(() => {
-        this.nextRecord();
         Swal.close();
         if (!scrolled) {
+          this.nextRecord(true);
           $('.ng-sidebar__content').animate({
             scrollTop: 0
           });
