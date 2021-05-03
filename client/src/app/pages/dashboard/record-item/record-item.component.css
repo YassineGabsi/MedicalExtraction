@@ -49,6 +49,7 @@
 
 .ng-select ::ng-deep .ng-value-container {
   border-top: none;
+  display: block !important;
 }
 
 .ng-select ::ng-deep .ng-value-label .row {
