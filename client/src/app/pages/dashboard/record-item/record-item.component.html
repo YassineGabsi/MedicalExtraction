@@ -76,17 +76,32 @@
     </button>
   </div>
 
-  <div class="col-md-6 mx-auto mt-4 vivify fadeIn delay-400">
+  <div class="col-md-8 mx-auto mt-4 vivify fadeIn delay-400">
     <div class="record-title text-center mb-1"> Add new ICD10 Category</div>
     <div class="card-dashboard">
       <label class="label ml-3 mt-1" for="icd10Names">ICD10 Block Name</label>
 
-      <ng-select [(ngModel)]="customICD10" [items]="predictedICDs" bindLabel="predicted_block_name"
-                 bindValue="predicted_block_name" name="icd10Names" id="icd10Names" class="col-12">
-<!--        <ng-option *ngFor="let prediction of predictedICDs"-->
-<!--                   [value]="prediction.predicted_block_name">-->
-<!--          {{prediction.predicted_block_name}}-->
-<!--        </ng-option>-->
+      <ng-select [(ngModel)]="customICD10" name="icd10Names" id="icd10Names" class="col-12">
+        <ng-option *ngFor="let prediction of predictedICDs"
+                   [value]="prediction.predicted_block_name">
+          <div class="row">
+            <div class="col-10">
+              <div class="uncompleted-phrase">
+                <b>Block Name: </b>{{prediction.predicted_block_name}}
+              </div>
+              <div class=" uncompleted-phrase chapter-name-select" style="font-size: 13px;">
+                <b>Chapter Name: </b>{{prediction.predicted_chapter_name}}
+              </div>
+            </div>
+            <div class="col-2 text-center justify-content-center align-items-center " style="font-size: 13px;">
+              <span class="score-wrapper" style="padding: 5px; float: none;">
+                {{scoreCalc(prediction.score)}}%
+              </span>
+            </div>
+          </div>
+
+
+        </ng-option>
       </ng-select>
       <div class="text-center mt-2">
         <button class="button button-primary login-button mx-auto"
