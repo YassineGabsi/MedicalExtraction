@@ -2,6 +2,24 @@
   <h4 class="record-title text-center vivify fadeIn">
     Record Validations
   </h4>
+  <div class="card-dashboard vivify fadeIn mt-4"
+       *ngIf="!recordItem.icd10_item"
+       [ngClass]="{'mx-5': windowsWidth > 567, 'mx-1': windowsWidth <= 567}">
+    <div class="row">
+      <div class="col-lg-4 text-center align-items-center justify-content-center">
+        <img class="img-fluid my-2" style="max-height: 350px" src="../../../../assets/images/under-construction.png" alt="">
+      </div>
+      <div class="col-lg-8 d-flex text-center align-items-center justify-content-center">
+        <div class="d-block">
+          <h2 class="font-weight-bold my-3" [ngStyle]="{'font-size': windowsWidth > 991 ? 'auto' : '20px'}">
+            This record is not predicted yet. The validation for this record will be available when the processing is
+            finished.
+          </h2>
+          <button routerLink="/status" class="button button-primary login-button my-2">Project Status</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="card-dashboard mt-4 vivify fadeIn" [ngClass]="{'mx-5': windowsWidth > 567, 'mx-1': windowsWidth <= 567}">
     <div class="row">
       <div class="col-md-6">
@@ -15,7 +33,8 @@
           {{recordItem.inclusion_criteria}}
         </div>
 
-        <label class="label ml-3 mt-3 vivify fadeIn delay-400" *ngIf="recordItem.icd10_item">Extracted medical Terms</label>
+        <label class="label ml-3 mt-3 vivify fadeIn delay-400" *ngIf="recordItem.icd10_item">Extracted medical
+          Terms</label>
         <div class="row vivify fadeIn delay-400" style="padding-right: 15px; padding-left: 15px;">
           <div class="tag-extracted-term" *ngFor="let tag of medicalTags">
             #{{tag}}
