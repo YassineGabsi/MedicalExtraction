@@ -160,50 +160,58 @@ export class RecordItemComponent implements OnInit, OnChanges {
   }
 
   validatePrediction() {
-    const validation = [];
-    this.acceptedPredictions.forEach(item => {
-      validation.push(this.recordItem.icd10_item.icd10_prediction[item]);
-    });
-    this.recordItem.icd10_item.icd10_validation = validation;
-    this.recordItem.icd10_item.validated = false;
-    const dataToSend = {
-      icd10_validation: validation,
-      validated: true,
-      first_prediction_accepted: this.acceptedPredictions.has(0),
-    };
-    this.icd10ItemService.patchICD10Item(this.recordItem.icd10_item.id, dataToSend).subscribe((data) => {
-      let scrolled = false;
-      Swal.fire({
-        icon: 'success',
-        title: 'Record Validated',
-        text: 'Congratulation, your record has been validated succefully!',
-      }).then(() => {
-        $('.ng-sidebar__content').animate({
-          scrollTop: 0
-        });
-        this.validateNum();
-        this.nextRecord(true);
-        scrolled = true;
+    if (this.acceptedPredictions.size) {
+      const validation = [];
+      this.acceptedPredictions.forEach(item => {
+        validation.push(this.recordItem.icd10_item.icd10_prediction[item]);
       });
-      this.recordItem.icd10_item = data;
-      setTimeout(() => {
-        Swal.close();
-        if (!scrolled) {
-          this.validateNum();
-          this.nextRecord(true);
+      this.recordItem.icd10_item.icd10_validation = validation;
+      this.recordItem.icd10_item.validated = false;
+      const dataToSend = {
+        icd10_validation: validation,
+        validated: true,
+        first_prediction_accepted: this.acceptedPredictions.has(0),
+      };
+      this.icd10ItemService.patchICD10Item(this.recordItem.icd10_item.id, dataToSend).subscribe((data) => {
+        let scrolled = false;
+        Swal.fire({
+          icon: 'success',
+          title: 'Record Validated',
+          text: 'Congratulation, your record has been validated succefully!',
+        }).then(() => {
           $('.ng-sidebar__content').animate({
             scrollTop: 0
           });
-        }
-      }, 2000);
-    }, (err) => {
+          this.validateNum();
+          this.nextRecord(true);
+          scrolled = true;
+        });
+        this.recordItem.icd10_item = data;
+        setTimeout(() => {
+          Swal.close();
+          if (!scrolled) {
+            this.validateNum();
+            this.nextRecord(true);
+            $('.ng-sidebar__content').animate({
+              scrollTop: 0
+            });
+          }
+        }, 2000);
+      }, (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.error.message,
+        });
+        console.log(err);
+      });
+    } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: err.error.message,
+        text: 'You didn\'t choose any suggestion to validate this record. Please choose an ICD10 block name.',
       });
-      console.log(err);
-    });
+    }
   }
 
   getValidatedPredictions() {
