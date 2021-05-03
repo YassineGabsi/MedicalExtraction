@@ -4,6 +4,8 @@ import {Icd10Prediction} from '../../../models/icd10-prediction';
 import {Icd10ItemService} from '../../../services/icd10-item.service';
 import Swal from "sweetalert2";
 
+declare var $: any;
+
 @Component({
   selector: 'app-record-item',
   templateUrl: './record-item.component.html',
@@ -37,7 +39,7 @@ export class RecordItemComponent implements OnInit {
     this.updateMedicalTags()
   }
 
-  updateMedicalTags(){
+  updateMedicalTags() {
     this.medicalTags = []
     this.recordItem.icd10_item.medical_terms.forEach(
       term => this.medicalTags.push(term)
@@ -94,7 +96,7 @@ export class RecordItemComponent implements OnInit {
         test = false
       }
     });
-    if (test)this.allAccepted = true;
+    if (test) this.allAccepted = true;
     return test;
   }
 
@@ -152,15 +154,26 @@ export class RecordItemComponent implements OnInit {
       first_prediction_accepted: this.acceptedPredictions.has(0),
     };
     this.icd10ItemService.patchICD10Item(this.recordItem.icd10_item.id, dataToSend).subscribe((data) => {
+      let scrolled = false;
       Swal.fire({
         icon: 'success',
         title: 'Record Validated',
         text: 'Congratulation, your record has been validated succefully!',
+      }).then(() => {
+        $('.ng-sidebar__content').animate({
+          scrollTop: 0
+        });
+        scrolled = true;
       });
       this.recordItem.icd10_item = data;
       setTimeout(() => {
         this.nextRecord();
         Swal.close();
+        if (!scrolled) {
+          $('.ng-sidebar__content').animate({
+            scrollTop: 0
+          });
+        }
       }, 2000);
     }, (err) => {
       Swal.fire({
