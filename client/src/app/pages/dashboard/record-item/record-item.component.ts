@@ -35,7 +35,9 @@ export class RecordItemComponent implements OnInit, OnChanges {
       this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
       this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
       this.configureCustomICDSelection();
-      this.getValidatedPredictions();
+      if (this.recordItem.icd10_item.icd10_validation === null) {
+        this.getValidatedPredictions();
+      }
       console.log(this.suggestionsNumber);
       this.updateMedicalTags()
     }
@@ -134,7 +136,9 @@ export class RecordItemComponent implements OnInit, OnChanges {
     this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
     this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
     this.configureCustomICDSelection();
-    this.getValidatedPredictions();
+    if (this.recordItem.icd10_item.icd10_validation !== null) {
+      this.getValidatedPredictions();
+    }
   }
 
   scoreCalc(score) {
