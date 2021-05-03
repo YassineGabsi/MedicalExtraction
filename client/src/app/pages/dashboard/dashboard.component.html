@@ -36,7 +36,7 @@
            [ngClass]="{'record-item-active' : recordSelected === record}">
         <div class="text-center"
              style="white-space: nowrap; text-overflow: ellipsis; max-width: 250px; overflow: hidden;">
-          <img style="max-height: 26px; float: right;" *ngIf="record.icd10_item.validated"
+          <img style="max-height: 26px; float: right;" *ngIf=" record.icd10_item && record.icd10_item.validated"
                src="../../../assets/images/ok.png" alt="">
           {{i + 1}} - {{record.title}}
         </div>

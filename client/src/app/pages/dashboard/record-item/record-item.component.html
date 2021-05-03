@@ -15,7 +15,7 @@
           {{recordItem.inclusion_criteria}}
         </div>
 
-        <label class="label ml-3 mt-3 vivify fadeIn delay-400">Extracted medical Terms</label>
+        <label class="label ml-3 mt-3 vivify fadeIn delay-400" *ngIf="recordItem.icd10_item">Extracted medical Terms</label>
         <div class="row vivify fadeIn delay-400" style="padding-right: 15px; padding-left: 15px;">
           <div class="tag-extracted-term" *ngFor="let tag of medicalTags">
             #{{tag}}
@@ -31,10 +31,10 @@
       </div>
     </div>
   </div>
-  <h4 class="mx-5 record-title mt-4 vivify fadeIn delay-200">
+  <h4 class="mx-5 record-title mt-4 vivify fadeIn delay-200" *ngIf="recordItem.icd10_item">
     ICD10 Validations ( Click to select )
   </h4>
-  <div class="row" [ngClass]="{'mx-5': windowsWidth > 567, 'mx-1': windowsWidth <= 567}">
+  <div class="row" [ngClass]="{'mx-5': windowsWidth > 567, 'mx-1': windowsWidth <= 567}" *ngIf="recordItem.icd10_item">
     <div class="col-md-6 col-lg-4 mt-4 vivify fadeIn delay-200" *ngFor="let sugg of suggestionsNumber; let i = index">
       <div class="card-dashboard" [ngClass]="{'card-accepted' : isSuggAccepted(sugg)}">
         <div>
@@ -68,7 +68,7 @@
     </div>
   </div>
 
-  <div class="text-center mt-3 vivify fadeIn delay-400">
+  <div class="text-center mt-3 vivify fadeIn delay-400" *ngIf="recordItem.icd10_item">
     <button class="button transparent-button mt-2" (click)="addSlice()">Show More Suggestions</button>
     <button class="button mx-1 mt-2"
             [ngClass]="{'button-primary login-button' : !allAccepted, 'delete-button' : allAccepted}"
@@ -76,7 +76,7 @@
     </button>
   </div>
 
-  <div class="col-md-8 mx-auto mt-4 vivify fadeIn delay-400">
+  <div class="col-md-8 mx-auto mt-4 vivify fadeIn delay-400" *ngIf="recordItem.icd10_item">
     <div class="record-title text-center mb-1"> Add new ICD10 Category</div>
     <div class="card-dashboard">
       <label class="label ml-3 mt-1" for="icd10Names">ICD10 Block Name</label>
@@ -112,7 +112,7 @@
   </div>
   <div class="text-center mt-3 vivify fadeIn delay-300">
     <button class="button transparent-button mt-2" (click)="nextRecord(false)">next Record</button>
-    <button class="button mx-1 button-primary login-button mt-2"
+    <button class="button mx-1 button-primary login-button mt-2" *ngIf="recordItem.icd10_item"
             (click)="validatePrediction()">Validate and Next Record
     </button>
   </div>

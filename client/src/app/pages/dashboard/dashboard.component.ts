@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
 
   public records: ResearchItem[];
   public filteredRecords: ResearchItem[];
-  public recordSelected;
+  public recordSelected: ResearchItem;
 
   public isLoading = false;
 
@@ -92,7 +92,9 @@ export class DashboardComponent implements OnInit {
 
   selectRecord(i): void {
     this.recordSelected = this.filteredRecords[i];
-    this.recordItemChild.updateElements(this.recordSelected);
+    if (this.recordSelected.icd10_item) {
+      this.recordItemChild.updateElements(this.recordSelected);
+    }
   }
 
   public _toggleSidebar(): void {

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter, OnChanges} from '@angular/core';
 import {ResearchItem} from '../../../models/research-item';
 import {Icd10Prediction} from '../../../models/icd10-prediction';
 import {Icd10ItemService} from '../../../services/icd10-item.service';
@@ -11,7 +11,7 @@ declare var $: any;
   templateUrl: './record-item.component.html',
   styleUrls: ['./record-item.component.css']
 })
-export class RecordItemComponent implements OnInit {
+export class RecordItemComponent implements OnInit, OnChanges {
 
   @Input() recordItem: ResearchItem;
   @Input() windowsWidth: number;
@@ -28,26 +28,30 @@ export class RecordItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.recordItem.icd10_item.icd10_validation === null) {
-      this.recordItem.icd10_item.icd10_validation = [];
+    if (this.recordItem.icd10_item) {
+      if (this.recordItem.icd10_item.icd10_validation === null) {
+        this.recordItem.icd10_item.icd10_validation = [];
+      }
+      this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
+      this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
+      this.configureCustomICDSelection();
+      this.getValidatedPredictions();
+      console.log(this.suggestionsNumber);
+      this.updateMedicalTags()
     }
-    this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
-    this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
-    this.configureCustomICDSelection();
-    this.getValidatedPredictions();
-    console.log(this.suggestionsNumber);
-    this.updateMedicalTags()
   }
 
   updateMedicalTags() {
-    this.medicalTags = []
+    this.medicalTags = [];
     this.recordItem.icd10_item.medical_terms.forEach(
       term => this.medicalTags.push(term)
     )
   }
 
   ngOnChanges(changes) {
-    this.updateMedicalTags()
+    if (this.recordItem.icd10_item) {
+      this.updateMedicalTags()
+    }
   }
 
   addSlice(): void {
