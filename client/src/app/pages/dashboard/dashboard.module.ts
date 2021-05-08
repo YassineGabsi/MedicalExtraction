@@ -9,11 +9,12 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import { RecordItemComponent } from './record-item/record-item.component';
 import {FormsModule} from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { AllValidatedComponent } from './all-validated/all-validated.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, NavbarDashboardComponent, RecordItemComponent],
+  declarations: [DashboardComponent, NavbarDashboardComponent, RecordItemComponent, AllValidatedComponent],
   imports: [
     CommonModule,
     SidebarModule,

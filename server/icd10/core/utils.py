@@ -3,12 +3,11 @@ import re
 from functools import wraps
 from math import ceil
 from typing import List, Tuple, Any
-
+from model.custom_ner.extract_terms import extract_medical_terms
 import pandas as pd
 import scispacy
 import spacy
 
-scibert = spacy.load("en_core_sci_scibert")
 
 
 def str2bool(value: str) -> bool:
@@ -127,5 +126,4 @@ def get_medical_terms(text: str) -> List[str]:
     """
     Extracts medical terms from document
     """
-    doc = scibert(text)
-    return list(set([doc.ents[i].text for i in range(len(doc.ents))]))
+    return extract_medical_terms(text)

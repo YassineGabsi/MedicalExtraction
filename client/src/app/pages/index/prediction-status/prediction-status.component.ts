@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StatisticsService} from '../../../services/statistics.service';
 import {PredictedStats} from '../../../models/predicted-stats';
 import {ValidatedStats} from '../../../models/validated-stats';
+import {NgxSpinnerService} from "ngx-spinner";
 
 declare var $: any;
 
@@ -10,22 +11,30 @@ declare var $: any;
   templateUrl: './prediction-status.component.html',
   styleUrls: ['./prediction-status.component.css']
 })
-export class PredictionStatusComponent implements OnInit {
+export class PredictionStatusComponent implements OnInit, OnDestroy {
 
-  constructor(private statsService: StatisticsService) { }
+  constructor(private statsService: StatisticsService,
+              private spinner: NgxSpinnerService,
+  ) { }
 
-  predictedStatus: PredictedStats;
-  validatedStatus: ValidatedStats;
+  predictedStatus: PredictedStats = new PredictedStats();
+  validatedStatus: ValidatedStats = new ValidatedStats();
   projectId = localStorage.getItem('project_id');
+  statusTracker;
+  isLoading = true;
 
   ngOnInit() {
+    this.predictedStatus.predicted_count = 0;
+    this.predictedStatus.total_count = 0;
+    this.validatedStatus.total_count = 0;
+    this.validatedStatus.validated_count = 0;
+    this.isLoading = true;
+    this.spinner.show();
     this.getPredictedStatus();
-    this.getValidatedStatus();
-    const interval = setInterval(() => {
+    this.statusTracker = setInterval(() => {
       this.getPredictedStatus();
-      this.getValidatedStatus();
       if (parseInt(this.predictedStatus.percentage, 10) === 100 && parseInt(this.validatedStatus.percentage, 10) === 100 ) {
-        clearInterval(interval);
+        clearInterval(this.statusTracker);
       }
     }, 4000);
   }
@@ -33,16 +42,18 @@ export class PredictionStatusComponent implements OnInit {
   getPredictedStatus() {
     this.statsService.getPredicted(this.projectId).subscribe(data => {
       this.predictedStatus = data;
-      this.setPercentagePredicted(parseInt(this.predictedStatus.percentage, 10));
+      this.getValidatedStatus();
       console.log(data);
     });
   }
 
   getValidatedStatus() {
     this.statsService.getValidated(this.projectId).subscribe(data => {
+      this.spinner.hide();
+      this.isLoading = false;
       this.validatedStatus = data;
       this.setPercentageValidated(parseInt(this.validatedStatus.percentage, 10));
-      console.log(data);
+      this.setPercentagePredicted(parseInt(this.predictedStatus.percentage, 10));
     });
   }
 
@@ -83,6 +94,10 @@ export class PredictionStatusComponent implements OnInit {
 
       $('#cont2').attr('data-pct', val);
     }
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.statusTracker);
   }
 
 }
