@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../../services/auth.service";
-import {User} from "../../../models/user";
-import {Utils} from "../../../services/utils";
-import {NgxSpinnerService} from "ngx-spinner";
-import Swal from "sweetalert2";
+import {AuthService} from '../../../services/auth.service';
+import {User} from '../../../models/user';
+import {Utils} from '../../../services/utils';
+import {NgxSpinnerService} from 'ngx-spinner';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       });
       this.isLoading = false;
       this.spinner.hide('spinner');
-    })
+    });
   }
 
 }

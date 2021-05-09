@@ -10,7 +10,15 @@
           invidunt ut labore
           et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
         </div>
-        <form class="form-login" (ngSubmit)="submitRegister()" #registerForm="ngForm">
+        <ngx-spinner *ngIf="isLoading"
+                     bdColor="rgba(255,255,255,0)"
+                     size="medium"
+                     color="#0995a4"
+                     type="square-jelly-box"
+                     [fullScreen]="false"
+                     [name]="'spinner'">
+        </ngx-spinner>
+        <form class="form-login" *ngIf="!isLoading" (ngSubmit)="submitRegister()" #registerForm="ngForm">
           <div [hidden]="firstname.valid || firstname.pristine"
                class="alert-input-notice label">
             - First name is required
@@ -321,7 +329,9 @@
             </select>
 
           </label>
-          <p class="go-to-sign-up mt-2">You have already an account ? Sign in</p>
+          <p class="go-to-sign-up mt-2">You have already an account ?
+            <span routerLink="/login" style="cursor: pointer">Sign in</span>
+          </p>
           <div class="text-center">
             <button class="button button-primary mt-1 mb-3" type="submit" [disabled]="!registerForm.form.valid">
               Register
