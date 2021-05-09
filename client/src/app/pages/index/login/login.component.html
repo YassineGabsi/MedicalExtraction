@@ -9,7 +9,16 @@
         <div class="text-center">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
           et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
         </div>
-        <form class="form-login" (ngSubmit)="submitLogin()" #loginForm="ngForm">
+
+        <ngx-spinner *ngIf="isLoading"
+                     bdColor="rgba(255,255,255,0)"
+                     size="medium"
+                     color="#0995a4"
+                     type="square-jelly-box"
+                     [fullScreen]="false"
+                     [name]="'spinner'">
+        </ngx-spinner>
+        <form *ngIf="!isLoading" class="form-login" (ngSubmit)="submitLogin()" #loginForm="ngForm">
 
           <label class="label ml-5 mt-4 col-12">
             <div [hidden]="validateEmail(emailToSend) || email.pristine"
