@@ -30,14 +30,20 @@ from icd10.views import (
     PredictionAcceptedPercentView,
     FileUploadView, ResearchProjectInfoView, GenerateProjectFileView,
 )
+from medical_extraction.views import HealthCheckView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('swagger-ui/', TemplateView.as_view(
+    path('api/admin/', admin.site.urls),
+    path('api/health-check', HealthCheckView.as_view()),
+    path('api/swagger-ui/', TemplateView.as_view(
         template_name='swagger-ui.html',
-        extra_context={'schema_url':'openapi-schema'}
+        extra_context={'schema_url': 'openapi-schema'}
     ), name='swagger-ui'),
-    path('openapi', get_schema_view(
+    path('', TemplateView.as_view(
+        template_name='swagger-ui.html',
+        extra_context={'schema_url': 'openapi-schema'}
+    ), name='swagger-ui'),
+    path('api/openapi', get_schema_view(
         title="Medical Extraction API",
         description="REST API",
         public=True
@@ -48,9 +54,9 @@ urlpatterns = [
     # path('api/project/<int:pk>', ResearchProjectView.as_view(), name='project'),
     path('api/project', ResearchProjectCreateListView.as_view(), name='project-create-list'),
     path('api/research-item/<int:pk>', ResearchItemView.as_view(), name='research-item'),
-    path('api/research-item',ResearchItemCreateListView.as_view(), name='research-item-create-list'),
+    path('api/research-item', ResearchItemCreateListView.as_view(), name='research-item-create-list'),
     path('api/icd10-item/<int:pk>', ICD10ItemView.as_view(), name='icd10-item'),
-    path('api/icd10-item',ICD10ItemCreateListView.as_view(), name='icd10-item-create-list'),
+    path('api/icd10-item', ICD10ItemCreateListView.as_view(), name='icd10-item-create-list'),
     path('api/predicted/<int:pk>', PredictedPercentView.as_view(), name='predicted'),
     path('api/validated/<int:pk>', ValidatedPercentView.as_view(), name='validated'),
     path('api/prediction-accepted/<int:pk>', PredictionAcceptedPercentView.as_view(), name='prediction-accepted'),

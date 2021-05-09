@@ -24,14 +24,13 @@ export class DashboardComponent implements OnInit {
   public project: ResearchProject;
 
   public isLoading = false;
-
-  private projectId = localStorage.getItem('project_id');
-  private searchString = '';
-  private searchSelected = 'all';
-  private windowsWidth = window.innerWidth;
-  private mobileOpen = false;
-  private lastRecord = false;
-  private validatedNum = 0;
+  public projectId = localStorage.getItem('project_id');
+  public searchString = '';
+  public searchSelected = 'all';
+  public windowsWidth = window.innerWidth;
+  public mobileOpen = false;
+  public lastRecord = false;
+  public validatedNum = 0;
 
   @ViewChild(RecordItemComponent) recordItemChild;
 
