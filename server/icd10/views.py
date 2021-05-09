@@ -1,18 +1,14 @@
-import json
 from abc import ABC, abstractmethod
-from operator import itemgetter
 
 from rest_framework import generics, permissions
 from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import get_user_model
-import pandas as pd
 
 from icd10.core.validation import validate
-from medical_extraction.settings import ENGINE
-from model.common import CATEGORIES_DF_BLOCK_CODE
 from .core.exceptions import AlreadyExistsError, ValidationError
 from .core.io import upload, upload_df
 from .core.logging import logger

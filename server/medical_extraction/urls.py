@@ -39,7 +39,7 @@ from icd10.views import (
 from medical_extraction.views import HealthCheckView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('api/admin/', admin.site.urls),
     path('api/signup/', SignUpView.as_view(), name='signup'),
     path('api/login/', LogInView.as_view(), name='login'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
