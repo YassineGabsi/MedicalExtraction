@@ -303,6 +303,7 @@ button {
 }
 
 .alert-input-notice {
+  transition: 0.3s all ease-in-out;
   color: firebrick;
   margin: 0 0 0 25px;
 }

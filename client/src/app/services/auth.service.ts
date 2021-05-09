@@ -14,7 +14,7 @@ export class AuthService extends GenericService {
     super();
   }
 
-  public login(user: string): Observable<any> {
+  public login(user: any): Observable<any> {
     return this.http.post(this.url + 'login/', user) as Observable<Profile>;
   }
 
