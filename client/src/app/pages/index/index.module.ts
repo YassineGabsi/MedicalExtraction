@@ -14,6 +14,7 @@ import {IndexRoutingModule} from './index-routing.module';
 import { DndDirective } from '../../directives/dnd.directive';
 import { PredictionStatusComponent } from './prediction-status/prediction-status.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -39,6 +40,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     RouterModule,
     IndexRoutingModule,
     NgxSpinnerModule,
+    FormsModule,
   ]
 })
 export class IndexModule { }

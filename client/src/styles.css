@@ -295,6 +295,11 @@ button {
   font-size: var(--buttons-size);
 }
 
+.alert-input-notice {
+  color: firebrick;
+  margin: 0 0 0 25px;
+}
+
 /* *************************************
    ************** CARDS ****************
    ************************************* */
