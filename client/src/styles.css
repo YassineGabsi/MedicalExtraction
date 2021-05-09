@@ -140,7 +140,7 @@ button {
 .button-primary  {
   font-weight: 500;
   background-color: var(--blue-color);
-  border: 1px solid var(--blue-color);
+  border: 2px solid var(--blue-color);
   color: #ffffff;
   transition: 0.3s all ease-in-out;
   cursor: pointer;
@@ -151,6 +151,13 @@ button {
   background: transparent;
   border: 2px solid var(--blue-color);
   color: var(--blue-color);
+}
+
+.button-primary:disabled {
+  transition: 0.3s all ease-in-out !important;
+  background-color: #ced3d4 !important;
+  color: #000000 !important;
+  border: 2px solid #ced3d4;
 }
 
 
