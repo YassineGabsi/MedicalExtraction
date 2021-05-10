@@ -65,6 +65,7 @@ button {
   min-height: 91vh;
   background: url("./assets/images/back-right.png") no-repeat;
   background-position: initial;
+  background-size: contain;
 }
 
 @media screen and (max-width: 850px) {
