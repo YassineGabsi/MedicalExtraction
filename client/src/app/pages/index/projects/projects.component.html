@@ -30,17 +30,17 @@
             <p>
               <span><i class="fas fa-info-circle mx-1 mt-3"></i> Project Status : </span>
               <br>
-              <span class="ml-4 mt-1" *ngIf="project.status === 'C'">Completed</span>
-              <span class="ml-4 mt-1" *ngIf="project.status === 'S'">Started</span>
-              <span class="ml-4 mt-1" *ngIf="project.status === 'E'">Failed</span>
+              <span class="ml-4 mt-1 font-weight-bold" *ngIf="project.status === 'C'">Completed</span>
+              <span class="ml-4 mt-1 font-weight-bold" *ngIf="project.status === 'S'">Started</span>
+              <span class="ml-4 mt-1 font-weight-bold" *ngIf="project.status === 'E'">Failed</span>
             </p>
             <p>
               <span><i class="fas fa-check-circle mx-1"></i> Validated : </span>
-              <span>{{project.validated}}%</span>
+              <span class="font-weight-bold">{{project.validated}}</span>
             </p>
             <p>
               <span><i class="fab fa-product-hunt mx-1 mb-3"></i> Predicted : </span>
-              <span>{{project.predicted}}%</span>
+              <span class="font-weight-bold">{{project.predicted}}</span>
             </p>
             <button class="button button-primary login-button" style="padding: 5px 10px !important;
             margin-left: auto !important; margin-right: auto !important;" (click)="visitProject(project.id)">Visit
