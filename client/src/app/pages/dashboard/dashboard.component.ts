@@ -6,6 +6,7 @@ import {RecordItemComponent} from './record-item/record-item.component';
 import {ExportFileService} from '../../services/export-file.service';
 import Swal from 'sweetalert2';
 import {ResearchProject} from '../../models/research-project';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -34,10 +35,14 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild(RecordItemComponent) recordItemChild;
 
-  constructor(private projectService: ProjectService,
-              private spinner: NgxSpinnerService,
-              private exportFileService: ExportFileService
+  constructor(public projectService: ProjectService,
+              public spinner: NgxSpinnerService,
+              public exportFileService: ExportFileService,
+              public router: Router,
   ) {
+    if (!this.projectId) {
+      this.router.navigateByUrl('/projects')
+    }
   }
 
   ngOnInit() {

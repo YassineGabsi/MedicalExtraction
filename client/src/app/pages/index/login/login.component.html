@@ -9,18 +9,43 @@
         <div class="text-center">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
           et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
         </div>
-        <div class="form-login">
-          <label class="label ml-5 mt-4">Email</label>
-          <input name="email" type="text" class="custom-input col-12" placeholder="Email">
-          <label class="label ml-5 mt-4">Password</label>
-          <input name="password" type="password" class="custom-input col-12" placeholder="Password">
-          <p class="go-to-sign-up mt-2">You don't have an account yet ? Sign Up</p>
+
+        <ngx-spinner *ngIf="isLoading"
+                     bdColor="rgba(255,255,255,0)"
+                     size="medium"
+                     color="#0995a4"
+                     type="square-jelly-box"
+                     [fullScreen]="false"
+                     [name]="'spinner'">
+        </ngx-spinner>
+        <form *ngIf="!isLoading" class="form-login" (ngSubmit)="submitLogin()" #loginForm="ngForm">
+
+          <label class="label mt-4 col-12">
+            <div [hidden]="username.valid || username.pristine"
+                 class="alert-input-notice label">
+              - Username is not valid
+            </div>
+            Username
+            <input [(ngModel)]="emailToSend" required #username="ngModel" name="username" type="text" class="custom-input col-12" placeholder="Email">
+          </label>
+
+          <label class="label mt-4 col-12">
+            <div [hidden]="password.valid || password.pristine"
+                 class="alert-input-notice label">
+              - Password is not valid
+            </div>
+            Password
+            <input [(ngModel)]="passwordToSend" required #password="ngModel" name="password" type="password" class="custom-input col-12" placeholder="Password">
+          </label>
+          <p class="go-to-sign-up mt-2">You don't have an account yet ?
+            <span routerLink="/login" style="cursor: pointer">Sign Up</span>
+          </p>
           <div class="text-center">
-            <button class="button button-primary login-button mt-5">
+            <button type="submit" [disabled]="!loginForm.form.valid" class="button button-primary login-button mt-5">
               Login
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>

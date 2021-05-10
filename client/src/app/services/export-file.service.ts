@@ -14,6 +14,6 @@ export class ExportFileService extends GenericService {
     this.url = this.url + 'generate-results/';
   }
   public exportFile(projectID: string): Observable<any>{
-    return this.http.get(this.url + projectID) as Observable<any>;
+    return this.http.get(this.url + projectID, {headers: this.getHeaders()}) as Observable<any>;
   }
 }

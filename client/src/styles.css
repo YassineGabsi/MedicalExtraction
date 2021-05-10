@@ -65,6 +65,7 @@ button {
   min-height: 91vh;
   background: url("./assets/images/back-right.png") no-repeat;
   background-position: initial;
+  background-size: contain;
 }
 
 @media screen and (max-width: 850px) {
@@ -100,6 +101,14 @@ button {
   transition: 0.3s all ease-in-out;
 }
 
+.project-cards-wrapper {
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+  background-color: #ffffff;
+  min-width: 100%;
+  min-height: 75vh;
+  border-radius: 20px;
+  padding: 30px;
+}
 /* *************************************
    ************* SCROLLBAR *************
    ************************************* */
@@ -140,17 +149,24 @@ button {
 .button-primary  {
   font-weight: 500;
   background-color: var(--blue-color);
-  border: 1px solid var(--blue-color);
+  border: 2px solid var(--blue-color);
   color: #ffffff;
   transition: 0.3s all ease-in-out;
   cursor: pointer;
 }
 
 .button-primary:hover {
-  transition: 0.3s all ease-in-out;
-  background: transparent;
-  border: 2px solid var(--blue-color);
-  color: var(--blue-color);
+  transition: 0.3s all ease-in-out !important;
+  background: transparent !important;
+  border: 2px solid var(--blue-color) !important;
+  color: var(--blue-color) !important;
+}
+
+.button-primary:disabled {
+  transition: 0.3s all ease-in-out !important;
+  background-color: #ced3d4 !important;
+  color: #000000 !important;
+  border: 2px solid #ced3d4;
 }
 
 
@@ -163,10 +179,10 @@ button {
   margin-right: 0;
 }
 .login-button {
-  margin-left: 30px;
-  margin-right: 0;
-  transition: 0.3s all ease-in-out;
-  border: 2px solid var(--blue-color);
+  margin-left: 30px !important;
+  margin-right: 0 !important;
+  transition: 0.3s all ease-in-out !important;
+  border: 2px solid var(--blue-color) !important;
 }
 
 .download-button {
@@ -293,6 +309,12 @@ button {
 .label {
   font-weight: bold;
   font-size: var(--buttons-size);
+}
+
+.alert-input-notice {
+  transition: 0.3s all ease-in-out;
+  color: firebrick;
+  margin: 0 0 0 25px;
 }
 
 /* *************************************

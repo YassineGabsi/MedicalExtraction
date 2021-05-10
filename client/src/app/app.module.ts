@@ -5,7 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarModule } from 'ng-sidebar';
-import { HttpClientModule } from '@angular/common/http';
+import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {TokenInterceptor} from './services/token.intercetpor';
 
 
 
@@ -20,7 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

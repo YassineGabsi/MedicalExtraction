@@ -1,0 +1,54 @@
+<div class="d-flex align-items-center page-wrapper mt-4">
+  <div class="container">
+    <h3 class="text-center font-weight-bold">Personal Projects</h3>
+    <div class="project-cards-wrapper mt-4">
+      <ngx-spinner *ngIf="isLoading"
+                   bdColor="rgba(255,255,255,0)"
+                   size="medium"
+                   color="#0895a4"
+                   type="square-jelly-box"
+                   [fullScreen]="false"
+                   [name]="'spinner'">
+        <p class="mt-4 font-weight-bold" style="color: #ffffff"> Loading... </p>
+      </ngx-spinner>
+      <div class="d-flex text-center align-items-center justify-content-center col-12 mt-2"
+           *ngIf="!isLoading && !projectsInfos.length"
+           style="min-height: 60vh; flex-direction: column">
+        <h2 class=" font-weight-bold"
+           >
+          You have no projects, You can start a new one from here.
+        </h2>
+        <button class="button button-primary login-button mx-auto mt-3" routerLink="/upload-file">
+          New Project
+        </button>
+      </div>
+      <div class="col-12 mt-2 row" *ngIf="!isLoading && projectsInfos.length">
+        <div class="col-lg-4 col-md-6 mt-3" *ngFor="let project of projectsInfos, let i = index;">
+          <div class="card mx-auto mt-3">
+            <h2>Project {{i + 1}}</h2>
+            <hr/>
+            <p>
+              <span><i class="fas fa-info-circle mx-1 mt-3"></i> Project Status : </span>
+              <br>
+              <span class="ml-4 mt-1 font-weight-bold" *ngIf="project.status === 'C'">Completed</span>
+              <span class="ml-4 mt-1 font-weight-bold" *ngIf="project.status === 'S'">Started</span>
+              <span class="ml-4 mt-1 font-weight-bold" *ngIf="project.status === 'E'">Failed</span>
+            </p>
+            <p>
+              <span><i class="fas fa-check-circle mx-1"></i> Validated : </span>
+              <span class="font-weight-bold">{{project.validated}}</span>
+            </p>
+            <p>
+              <span><i class="fab fa-product-hunt mx-1 mb-3"></i> Predicted : </span>
+              <span class="font-weight-bold">{{project.predicted}}</span>
+            </p>
+            <button class="button button-primary login-button" style="padding: 5px 10px !important;
+            margin-left: auto !important; margin-right: auto !important;" (click)="visitProject(project.id)">Visit
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

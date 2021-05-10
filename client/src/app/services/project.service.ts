@@ -19,10 +19,10 @@ export class ProjectService extends GenericService {
   }
 
   public getProjectById(id): Observable<ResearchProject> {
-    return this.http.get(this.urlInfo + id) as Observable<ResearchProject>;
+    return this.http.get(this.urlInfo + id, {headers: this.getHeaders()}) as Observable<ResearchProject>;
   }
 
   public getProjects(): Observable<Array<ResearchProject>> {
-    return this.http.get(this.urlProject) as Observable<Array<ResearchProject>>;
+    return this.http.get(this.url + 'project', {headers: this.getHeaders()}) as Observable<Array<ResearchProject>>;
   }
 }
