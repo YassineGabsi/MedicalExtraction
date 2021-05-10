@@ -10,6 +10,7 @@ import {ProjectsComponent} from './projects/projects.component';
 import {
   AuthGuardService as AuthGuard
 } from './../../services/auth-guard.service';
+import {ProfileComponent} from "./profile/profile.component";
 
 const routes: Routes = [{
   path: '',
@@ -40,6 +41,11 @@ const routes: Routes = [{
     {
       path: 'projects',
       component: ProjectsComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: 'profile',
+      component: ProfileComponent,
       canActivate: [AuthGuard]
     },
   ]

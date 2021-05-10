@@ -1,0 +1,60 @@
+<div class="d-flex align-items-center page-wrapper mt-4">
+  <div class="container">
+    <h3 class="text-center font-weight-bold">Update Profile</h3>
+    <div class="project-cards-wrapper mt-4 row">
+      <ngx-spinner *ngIf="isLoading"
+                   bdColor="rgba(255,255,255,0)"
+                   size="medium"
+                   color="#0895a4"
+                   type="square-jelly-box"
+                   [fullScreen]="false"
+                   [name]="'spinner'">
+        <p class="mt-4 font-weight-bold" style="color: #ffffff"> Loading... </p>
+      </ngx-spinner>
+      <div class="d-flex text-left align-items-center justify-content-center col-md-6 mt-2">
+        <img src="../../../../assets/images/profile.png" class="img-fluid" alt="">
+      </div>
+      <div class="d-flex text-left align-items-center justify-content-center col-md-6 mt-2"
+           *ngIf="!isLoading"
+           style=" flex-direction: column">
+        <form *ngIf="!isLoading" class="form-login" (ngSubmit)="updateProfile()" #loginForm="ngForm">
+
+          <label class="label mt-4 col-12">
+            <div [hidden]="firstname.valid || firstname.pristine"
+                 class="alert-input-notice label">
+              - First Name is not valid
+            </div>
+            First Name
+            <input [(ngModel)]="profile.first_name" required #firstname="ngModel" name="firstname" type="text" class="custom-input col-12" placeholder="First Name">
+          </label>
+
+          <label class="label mt-4 col-12">
+            <div [hidden]="lastname.valid || lastname.pristine"
+                 class="alert-input-notice label">
+              - Last Name is not valid
+            </div>
+            Last Name
+            <input [(ngModel)]="profile.last_name" required #lastname="ngModel" name="lastname" type="text" class="custom-input col-12" placeholder="Last Name">
+          </label>
+
+          <label class="label mt-4 col-12">
+            <div [hidden]="username.valid || username.pristine"
+                 class="alert-input-notice label">
+              - Username is not valid
+            </div>
+            Username
+            <input [(ngModel)]="profile.username" required #username="ngModel" name="username" type="text" class="custom-input col-12" placeholder="Email">
+          </label>
+
+          <div class="text-center">
+            <button type="submit" [disabled]="!loginForm.form.valid" class="button button-primary login-button mt-5">
+              Update Profile
+            </button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
