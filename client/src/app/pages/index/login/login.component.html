@@ -21,12 +21,12 @@
         <form *ngIf="!isLoading" class="form-login" (ngSubmit)="submitLogin()" #loginForm="ngForm">
 
           <label class="label mt-4 col-12">
-            <div [hidden]="validateEmail(emailToSend) || email.pristine"
+            <div [hidden]="username.valid || username.pristine"
                  class="alert-input-notice label">
-              - Email is not valid
+              - Username is not valid
             </div>
-            Email
-            <input [(ngModel)]="emailToSend" required #email="ngModel" name="email" type="text" class="custom-input col-12" placeholder="Email">
+            Username
+            <input [(ngModel)]="emailToSend" required #username="ngModel" name="username" type="text" class="custom-input col-12" placeholder="Email">
           </label>
 
           <label class="label mt-4 col-12">
