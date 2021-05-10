@@ -5,6 +5,7 @@ import {AuthService} from "../../../services/auth.service";
 import {Utils} from "../../../services/utils";
 import {NgxSpinnerService} from "ngx-spinner";
 import Swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ import Swal from "sweetalert2";
 export class RegisterComponent implements OnInit {
   constructor(public authService: AuthService,
               private spinner: NgxSpinnerService,
+              public router: Router,
   ) { }
 
   profile: User = new User();
@@ -27,7 +29,8 @@ export class RegisterComponent implements OnInit {
     this.isLoading = true;
     this.spinner.show('spinner');
     this.authService.register(this.profile).subscribe((data) => {
-      console.log(data);
+      localStorage.setItem('user_id', data.id.toString());
+      this.router.navigateByUrl('/login');
       this.isLoading = false;
       this.spinner.hide('spinner');
     }, (err) => {

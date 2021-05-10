@@ -35,11 +35,11 @@ export class AuthService extends GenericService {
     return localStorage.getItem('token') !== null;
   }
 
-  public getProfile(id: string): Observable<Profile> {
-    return this.http.get(this.url + 'profile/') as Observable<Profile>;
+  public getProfile(): Observable<Profile> {
+    return this.http.get(this.url + 'profile/', {headers: this.getHeaders()}) as Observable<Profile>;
   }
 
   public updateProfile(profile: Profile): Observable<Profile> {
-    return this.http.put(this.url + 'profile/', profile) as Observable<Profile>;
+    return this.http.put(this.url + 'profile/', profile, {headers: this.getHeaders()}) as Observable<Profile>;
   }
 }
