@@ -15,6 +15,7 @@ import { DndDirective } from '../../directives/dnd.directive';
 import { PredictionStatusComponent } from './prediction-status/prediction-status.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {FormsModule} from "@angular/forms";
+import { ProjectsComponent } from './projects/projects.component';
 
 
 
@@ -30,7 +31,8 @@ import {FormsModule} from "@angular/forms";
     RegisterComponent,
     IndexComponent,
     DndDirective,
-    PredictionStatusComponent
+    PredictionStatusComponent,
+    ProjectsComponent
   ],
   exports: [
     HeaderComponent

@@ -6,6 +6,7 @@ import {RegisterComponent} from './register/register.component';
 import {UploadFileComponent} from './upload-file/upload-file.component';
 import {IndexComponent} from './index.component';
 import {PredictionStatusComponent} from './prediction-status/prediction-status.component';
+import {ProjectsComponent} from "./projects/projects.component";
 
 const routes: Routes = [{
   path: '',
@@ -30,6 +31,10 @@ const routes: Routes = [{
     {
       path: 'status',
       component: PredictionStatusComponent,
+    },
+    {
+      path: 'projects',
+      component: ProjectsComponent,
     },
   ]
 }];

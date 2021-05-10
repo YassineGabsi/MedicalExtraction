@@ -19,7 +19,7 @@ export class UploadFileService extends GenericService {
     const formData = new FormData();
     formData.append('file', file);
 
-    return this.http.post(this.url, formData) as Observable<ResearchProject>;
+    return this.http.post(this.url, formData, {headers: this.getHeaders()}) as Observable<ResearchProject>;
   }
 
 }

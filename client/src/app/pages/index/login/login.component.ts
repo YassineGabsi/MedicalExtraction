@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   emailToSend = '';
   passwordToSend = '';
   isLoading = false;
-  validateEmail = Utils.validateEmail;
 
   ngOnInit() {
   }
@@ -33,26 +32,10 @@ export class LoginComponent implements OnInit {
     this.authService.login({username: this.emailToSend, password: this.passwordToSend}).subscribe((data) => {
       localStorage.setItem('token', data.access);
       localStorage.setItem('refresh_token', data.refresh);
-      this.getProfile();
-    }, (err) => {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: err.error.message,
-      });
+      this.router.navigateByUrl('/dashboard');
       this.isLoading = false;
       this.spinner.hide('spinner');
-    });
-  }
-
-  getProfile(): void {
-    this.authService.getProfile().subscribe((data) => {
-      console.log(data);
-      // localStorage.setItem('user_id', data.id.toString());
-      // this.router.navigateByUrl('/dashboard');
-      this.isLoading = false;
-      this.spinner.hide('spinner');
-    }, (err) => {
+      }, (err) => {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
