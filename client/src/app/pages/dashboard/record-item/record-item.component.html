@@ -25,14 +25,14 @@
       <div class="col-md-6">
         <label class="label ml-3 mt-3 vivify fadeIn delay-200">Title</label>
         <div class="infos-wrapper vivify fadeIn delay-200">
-           <span *ngFor="let word of splittedTitle" [ngClass]="{'colord-tag-record' : isMedicalTag(word)}">
+           <span class="ml-1" *ngFor="let word of splittedTitle" [ngClass]="{'colord-tag-record' : isMedicalTag(word)}">
             {{word + ' '}}
           </span>
         </div>
 
         <label class="label ml-3 mt-3 vivify fadeIn delay-300">Inclusion Criteria</label>
         <div class="infos-wrapper vivify fadeIn delay-300">
-          <span *ngFor="let word of splittedInclusionCriteria" [ngClass]="{'colord-tag-record' : isMedicalTag(word)}">
+          <span  class="ml-1" *ngFor="let word of splittedInclusionCriteria" [ngClass]="{'colord-tag-record' : isMedicalTag(word)}">
             {{word + ' '}}
           </span>
 <!--          {{recordItem.inclusion_criteria}}-->
@@ -50,7 +50,7 @@
       <div class="col-md-6 vivify fadeIn delay-300">
         <label class="label ml-3 mt-3">Research Summary</label>
         <div class="infos-wrapper">
-          <span *ngFor="let word of splittedSummary" [ngClass]="{'colord-tag-record' : isMedicalTag(word)}">
+          <span class="ml-1" *ngFor="let word of splittedSummary" [ngClass]="{'colord-tag-record' : isMedicalTag(word)}">
             {{word + ' '}}
           </span>
         </div>

@@ -78,5 +78,8 @@
 
 .colord-tag-record {
   font-weight: bold;
-  color: var(--blue-color);
+  color: #ffffff;
+  background-color: #d86666;
+  border-radius: 6px;
+  padding: 1px 5px;
 }
