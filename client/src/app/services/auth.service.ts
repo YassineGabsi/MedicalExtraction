@@ -29,6 +29,8 @@ export class AuthService extends GenericService {
 
   public logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('refresh_token');
+    localStorage.removeItem('project_id');
   }
 
   public isLoggedIn() {
