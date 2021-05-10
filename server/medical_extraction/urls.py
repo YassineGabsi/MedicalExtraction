@@ -14,7 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework_simplejwt.views import TokenRefreshView
 from django.views.generic import TemplateView
 from rest_framework.schemas import get_schema_view
 
@@ -28,12 +29,21 @@ from icd10.views import (
     PredictedPercentView,
     ValidatedPercentView,
     PredictionAcceptedPercentView,
-    FileUploadView, ResearchProjectInfoView, GenerateProjectFileView,
+    FileUploadView,
+    ResearchProjectInfoView,
+    GenerateProjectFileView,
+    SignUpView,
+    LogInView,
+    ProfileView
 )
 from medical_extraction.views import HealthCheckView
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
+    path('api/signup/', SignUpView.as_view(), name='signup'),
+    path('api/login/', LogInView.as_view(), name='login'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/profile/', ProfileView.as_view(), name='profile'),
     path('api/health-check', HealthCheckView.as_view()),
     path('api/swagger-ui/', TemplateView.as_view(
         template_name='swagger-ui.html',
@@ -43,6 +53,10 @@ urlpatterns = [
         template_name='swagger-ui.html',
         extra_context={'schema_url': 'openapi-schema'}
     ), name='swagger-ui'),
+    path('api/redoc/', TemplateView.as_view(
+        template_name='redoc.html',
+        extra_context={'schema_url': 'openapi-schema'}
+    ), name='redoc'),
     path('api/openapi', get_schema_view(
         title="Medical Extraction API",
         description="REST API",

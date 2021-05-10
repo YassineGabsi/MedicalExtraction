@@ -1,16 +1,14 @@
-import json
 from abc import ABC, abstractmethod
-from operator import itemgetter
 
-from rest_framework import generics
+from rest_framework import generics, permissions
 from rest_framework.views import APIView
+from rest_framework_simplejwt.views import TokenObtainPairView
 from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
-import pandas as pd
+from django.contrib.auth import get_user_model
 
 from icd10.core.validation import validate
-from medical_extraction.settings import ENGINE
-from model.common import CATEGORIES_DF_BLOCK_CODE
 from .core.exceptions import AlreadyExistsError, ValidationError
 from .core.io import upload, upload_df
 from .core.logging import logger
@@ -25,8 +23,34 @@ from .serializers import (
     ResearchProjectSerializer,
     ResearchItemSerializer,
     ICD10ItemSerializer,
-    ThematicCodeItemSerializer, ResearchProjectNestedSerializer
+    ThematicCodeItemSerializer,
+    ResearchProjectNestedSerializer,
+    LogInSerializer,
+    UserSerializer,
+    ProfileSerializer
 )
+
+
+class SignUpView(generics.CreateAPIView):
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
+
+
+class LogInView(TokenObtainPairView):
+    serializer_class = LogInSerializer
+
+
+class ProfileView(generics.RetrieveUpdateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    serializer_class = ProfileSerializer
+
+    def get_queryset(self):
+        return get_user_model().objects.filter(username=self.request.user.username)
+
+    def get_object(self):
+        queryset = self.get_queryset()
+        obj = get_object_or_404(queryset)
+        return obj
 
 
 class FileUploadView(APIView):
@@ -147,7 +171,6 @@ class GenerateProjectFileView(APIView):
             project_id = kwargs['pk']
         except KeyError:
             return JsonResponse({"error": "Please provide a project id"}, status=400)
-
 
         try:
             df = get_project_validated_data(project_id)

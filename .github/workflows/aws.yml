@@ -4,6 +4,7 @@ on:
       - devops
       - develop
       - master
+      - user_auth
 
 name: Project Deployment
 
