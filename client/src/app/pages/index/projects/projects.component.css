@@ -15,6 +15,7 @@
   margin: 5px;
   box-shadow: -20px -20px 0 0 var(--blue-color);
   border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.3);
   -webkit-animation-name: shadow-show;
   /* Safari 4.0 - 8.0 */
   -webkit-animation-duration: 1.5s;

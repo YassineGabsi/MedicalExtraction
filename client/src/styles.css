@@ -147,10 +147,10 @@ button {
 }
 
 .button-primary:hover {
-  transition: 0.3s all ease-in-out;
-  background: transparent;
-  border: 2px solid var(--blue-color);
-  color: var(--blue-color);
+  transition: 0.3s all ease-in-out !important;
+  background: transparent !important;
+  border: 2px solid var(--blue-color) !important;
+  color: var(--blue-color) !important;
 }
 
 .button-primary:disabled {
@@ -170,10 +170,10 @@ button {
   margin-right: 0;
 }
 .login-button {
-  margin-left: 30px;
-  margin-right: 0;
-  transition: 0.3s all ease-in-out;
-  border: 2px solid var(--blue-color);
+  margin-left: 30px !important;
+  margin-right: 0 !important;
+  transition: 0.3s all ease-in-out !important;
+  border: 2px solid var(--blue-color) !important;
 }
 
 .download-button {
