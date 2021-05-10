@@ -23,6 +23,6 @@ export class ProjectService extends GenericService {
   }
 
   public getProjects(): Observable<Array<ResearchProject>> {
-    return this.http.get(this.urlProject, {headers: this.getHeaders()}) as Observable<Array<ResearchProject>>;
+    return this.http.get(this.url + 'project', {headers: this.getHeaders()}) as Observable<Array<ResearchProject>>;
   }
 }

@@ -36,10 +36,10 @@ export class LoginComponent implements OnInit {
       this.isLoading = false;
       this.spinner.hide('spinner');
       }, (err) => {
+      console.log(err);
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: err.error.message,
       });
       this.isLoading = false;
       this.spinner.hide('spinner');
