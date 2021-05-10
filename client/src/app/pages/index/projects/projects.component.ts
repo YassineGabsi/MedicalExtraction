@@ -26,12 +26,15 @@ export class ProjectsComponent implements OnInit {
 
   getProjects() {
     this.isLoading = true;
-    // this.spinner.show('spinner1');
-    // this.spinner.show('spinner2');
+    this.spinner.show('spinner');
     this.projectService.getProjects().subscribe((data) => {
-      console.log(data);
       this.projects = data;
-      this.getProjectsStatus();
+      if (data.length) {
+        this.getProjectsStatus();
+      } else {
+        this.spinner.hide('spinner');
+        this.isLoading = false;
+      }
     });
   }
 
@@ -45,6 +48,10 @@ export class ProjectsComponent implements OnInit {
             validated: validated.percentage,
             predicted: predicted.percentage
           });
+          if (this.projectsInfos.length === this.projects.length) {
+            this.spinner.hide('spinner');
+            this.isLoading = false;
+          }
           console.log(this.projectsInfos);
         });
       })

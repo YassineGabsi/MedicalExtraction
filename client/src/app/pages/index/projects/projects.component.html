@@ -2,7 +2,16 @@
   <div class="container">
     <h3 class="text-center font-weight-bold">Personal Projects</h3>
     <div class="project-cards-wrapper mt-4">
-      <div class="col-12 mt-2">
+      <ngx-spinner *ngIf="isLoading"
+                   bdColor="rgba(255,255,255,0)"
+                   size="medium"
+                   color="#0895a4"
+                   type="square-jelly-box"
+                   [fullScreen]="false"
+                   [name]="'spinner'">
+        <p class="mt-4 font-weight-bold" style="color: #ffffff"> Loading... </p>
+      </ngx-spinner>
+      <div class="col-12 mt-2" *ngIf="!isLoading">
         <div class="col-md-4">
           <div class="card">
             <h2>Project 1</h2>
