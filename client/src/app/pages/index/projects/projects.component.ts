@@ -3,6 +3,7 @@ import {ProjectService} from '../../../services/project.service';
 import {NgxSpinnerService} from "ngx-spinner";
 import {ResearchProject} from "../../../models/research-project";
 import {StatisticsService} from "../../../services/statistics.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-projects',
@@ -15,9 +16,10 @@ export class ProjectsComponent implements OnInit {
   projects = new Array<ResearchProject>();
   projectsInfos = [];
 
-  constructor(private projectService: ProjectService,
-              private spinner: NgxSpinnerService,
-              private statsService: StatisticsService,
+  constructor(public projectService: ProjectService,
+              public spinner: NgxSpinnerService,
+              public statsService: StatisticsService,
+              public router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -56,6 +58,11 @@ export class ProjectsComponent implements OnInit {
         });
       })
     })
+  }
+
+  visitProject(id) {
+    localStorage.setItem('project_id', id);
+    this.router.navigateByUrl('/dashboard')
   }
 
 }
