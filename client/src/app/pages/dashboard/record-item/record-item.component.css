@@ -75,3 +75,8 @@
   max-width: 630px;
   overflow: hidden;
 }
+
+.colord-tag-record {
+  font-weight: bold;
+  color: var(--blue-color);
+}
