@@ -82,9 +82,10 @@ class LogInSerializer(TokenObtainPairSerializer):
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    # projects = serializers.PrimaryKeyRelatedField(many=True, queryset=ResearchProject.objects.all())
     class Meta:
         model = get_user_model()
         fields = (
-            'username', 'first_name', 'last_name', 'email', 'credits', 'image_url'
+            'id', 'username', 'first_name', 'last_name', 'email', 'credits', 'image_url'
         )
         read_only_fields = ('id', 'created', 'updated',)
