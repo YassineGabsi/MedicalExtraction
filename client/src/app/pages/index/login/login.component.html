@@ -38,7 +38,7 @@
             <input [(ngModel)]="passwordToSend" required #password="ngModel" name="password" type="password" class="custom-input col-12" placeholder="Password">
           </label>
           <p class="go-to-sign-up mt-2">You don't have an account yet ?
-            <span routerLink="/login" style="cursor: pointer">Sign Up</span>
+            <span routerLink="/register" style="cursor: pointer">Sign Up</span>
           </p>
           <div class="text-center">
             <button type="submit" [disabled]="!loginForm.form.valid" class="button button-primary login-button mt-5">

@@ -2,7 +2,7 @@ import {Component, Input, OnInit, Output, EventEmitter, OnChanges} from '@angula
 import {ResearchItem} from '../../../models/research-item';
 import {Icd10Prediction} from '../../../models/icd10-prediction';
 import {Icd10ItemService} from '../../../services/icd10-item.service';
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 declare var $: any;
 
@@ -22,6 +22,10 @@ export class RecordItemComponent implements OnInit, OnChanges {
   public customICD10 = '';
   public predictedICDs: Array<Icd10Prediction>;
 
+  public splittedInclusionCriteria = null;
+  public splittedTitle = null;
+  public splittedSummary = null;
+
   @Output() nextRecordEvent = new EventEmitter<any>();
   @Output() validateNumber = new EventEmitter<any>();
 
@@ -30,6 +34,7 @@ export class RecordItemComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     if (this.recordItem.icd10_item) {
+      this.splitToColorMedicalTerms();
       if (this.recordItem.icd10_item.icd10_validation === null) {
         this.recordItem.icd10_item.icd10_validation = [];
       }
@@ -47,13 +52,14 @@ export class RecordItemComponent implements OnInit, OnChanges {
   updateMedicalTags() {
     this.medicalTags = [];
     this.recordItem.icd10_item.medical_terms.forEach(
-      term => this.medicalTags.push(term)
+      term => this.medicalTags.push(term.toLowerCase())
     )
   }
 
   ngOnChanges(changes) {
     if (this.recordItem.icd10_item) {
-      this.updateMedicalTags()
+      this.updateMedicalTags();
+      this.splitToColorMedicalTerms();
     }
   }
 
@@ -224,5 +230,17 @@ export class RecordItemComponent implements OnInit, OnChanges {
     });
     console.log(this.testIfAllAccepted());
     console.log(this.acceptedPredictions);
+  }
+
+  splitToColorMedicalTerms() {
+    this.splittedInclusionCriteria = this.recordItem.inclusion_criteria.split(' ');
+    this.splittedTitle = this.recordItem.title.split(' ');
+    console.log(this.recordItem);
+    this.splittedSummary = this.recordItem.research_summary.split(' ');
+  }
+
+  isMedicalTag(word: string): boolean {
+    const lowerCase = word.split('.')[0].split(',')[0].split('-')[0].toLowerCase();
+    return this.medicalTags.includes(lowerCase);
   }
 }

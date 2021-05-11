@@ -75,3 +75,11 @@
   max-width: 630px;
   overflow: hidden;
 }
+
+.colord-tag-record {
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #d86666;
+  border-radius: 6px;
+  padding: 1px 5px;
+}

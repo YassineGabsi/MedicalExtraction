@@ -37,7 +37,6 @@ export class RegisterComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: err.error.message,
       });
       this.isLoading = false;
       this.spinner.hide('spinner');

@@ -1,17 +1,19 @@
 import {Injectable} from '@angular/core';
 import {GenericService} from './generic.service';
 import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpBackend, HttpClient} from '@angular/common/http';
 import {Profile} from '../models/profile';
 import {User} from '../models/user';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService extends GenericService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router, handler: HttpBackend) {
     super();
+    this.http = new HttpClient(handler);
   }
 
   public login(user: any): Observable<any> {
@@ -31,6 +33,10 @@ export class AuthService extends GenericService {
     localStorage.removeItem('token');
     localStorage.removeItem('refresh_token');
     localStorage.removeItem('project_id');
+    const currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 
   public isLoggedIn() {

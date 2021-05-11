@@ -11,7 +11,7 @@
                    [name]="'spinner'">
         <p class="mt-4 font-weight-bold" style="color: #ffffff"> Loading... </p>
       </ngx-spinner>
-      <div class="d-flex text-left align-items-center justify-content-center col-md-6 mt-2">
+      <div class="d-flex text-left align-items-center justify-content-center col-md-6 mt-2" *ngIf="!isLoading">
         <img src="../../../../assets/images/profile.png" class="img-fluid" alt="">
       </div>
       <div class="d-flex text-left align-items-center justify-content-center col-md-6 mt-2"
