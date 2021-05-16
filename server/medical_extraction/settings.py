@@ -184,3 +184,5 @@ CSRF_COOKIE_HTTPONLY = False
 
 # Application specific configurations
 ALLOW_DUPLICATE_FILES = str2bool(os.getenv("ALLOW_DUPLICATE_FILES", "true"))
+
+BATCH_PREDICTION_COST = float(os.getenv("BATCH_PREDICTION_COST", "0.25"))
