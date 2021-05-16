@@ -11,14 +11,12 @@ from icd10.core.common import thread_pool
 from icd10.core.loaders import generic_read
 from icd10.core.logging import logger
 from icd10.core.utils import split_df, map2starmap_adapter, get_medical_terms
-from icd10.models import ResearchProject, ResearchItem, ICD10Item
+from icd10.models import ResearchProject, ResearchItem, ICD10Item, User
 from medical_extraction.settings import ENGINE
-from model.common import CATEGORIES_DF, CATEGORIES_DF_BLOCK_CODE
-from model.roberta.predict import predict
 
 
-def start_project(file_url: str) -> ResearchProject:
-    research_project = ResearchProject(project_file_url=file_url)
+def start_project(file_url: str, user: User) -> ResearchProject:
+    research_project = ResearchProject(project_file_url=file_url, user=user)
     research_project.save()
     logger.info(f"Starting research project {research_project.id} (file: {file_url})")
     thread_pool.submit(run_project, research_project)
@@ -60,12 +58,23 @@ def run_project(research_project: ResearchProject):
     _, df = populate_research_items(research_project, df)
     splits = split_df(df)
     batches = [(research_project, split) for split in splits]
-    thread_pool.map(map2starmap_adapter(populate_icd10_items), batches)
-    logger.info(f"Project {research_project.id} (file: {research_project.project_file_url}) "
-                f"completed successfully")
+    results = thread_pool.map(map2starmap_adapter(populate_icd10_items), batches)
+    if any(map(lambda result: not isinstance(result, list), results)):
+        research_project.status = 'E'
+        research_project.end_date = datetime.now()
+        research_project.save()
+        logger.error(f"Project {research_project.id} (file: {research_project.project_file_url}) failed:\n"
+                     "One of the mapped icd10 items failed, list of errors:")
+        for result in results:
+            if not isinstance(result, list):
+                logger.error(result)
+        return
+
     research_project.status = 'C'
     research_project.end_date = datetime.now()
     research_project.save()
+    logger.info(f"Project {research_project.id} (file: {research_project.project_file_url}) "
+                f"completed successfully")
 
 
 @OnFailure()
@@ -85,7 +94,9 @@ def populate_research_items(research_project: ResearchProject, df: pd.DataFrame)
 
 
 @OnFailure()
-def populate_icd10_items(research_project: ResearchProject, df: pd.DataFrame):
+def populate_icd10_items(research_project: ResearchProject, df: pd.DataFrame) -> List[ICD10Item]:
+    from model.common import CATEGORIES_DF
+    from model.roberta.predict import predict
     prediction = predict(df)
     df = df.join(prediction)
     icd10_items = [
@@ -127,6 +138,7 @@ def get_project_validated_data(project_id: int) -> pd.DataFrame:
 
 
 def process_project_validated_data(df: pd.DataFrame) -> pd.DataFrame:
+    from model.common import CATEGORIES_DF_BLOCK_CODE
     rows = []
     for index, row in df.iterrows():
         if row["icd10_validation"]:

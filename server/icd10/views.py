@@ -54,9 +54,12 @@ class ProfileView(generics.RetrieveUpdateAPIView):
 
 
 class FileUploadView(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
     @csrf_exempt
     def post(self, requests, **kwargs):
         file_obj = requests.FILES.get('file', '')
+        user = requests.user
         try:
             validate(file_obj)
         except ValidationError as e:
@@ -71,7 +74,7 @@ class FileUploadView(APIView):
                 'message': str(e),
             }, status=400)
 
-        research_project = start_project(file_url)
+        research_project = start_project(file_url, user)
 
         return JsonResponse({
             'message': 'Started',
@@ -81,7 +84,13 @@ class FileUploadView(APIView):
         })
 
 
-class ResearchProjectCreateListView(generics.ListCreateAPIView):
+class AuthenticatedView(ABC):
+    permission_classes = (permissions.IsAuthenticated,)
+    def get_queryset(self):
+        return self.queryset.objects.filter(username=self.request.user.username)
+
+
+class ResearchProjectCreateListView(AuthenticatedView, generics.ListCreateAPIView):
     serializer_class = ResearchProjectSerializer
     queryset = ResearchProject.objects.all()
 
