@@ -4,7 +4,6 @@ on:
       - devops
       - develop
       - master
-      - update-ner
 
 name: Project Deployment
 
