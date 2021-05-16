@@ -89,4 +89,4 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'username', 'first_name', 'last_name', 'email', 'credits', 'image_url', 'projects'
         )
-        read_only_fields = ('id', 'created', 'updated',)
+        read_only_fields = ('id', 'created', 'updated', 'credits')
