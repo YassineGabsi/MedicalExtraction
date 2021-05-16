@@ -12,7 +12,7 @@ from icd10.core.loaders import generic_read
 from icd10.core.logging import logger
 from icd10.core.utils import split_df, map2starmap_adapter, get_medical_terms
 from icd10.models import ResearchProject, ResearchItem, ICD10Item, User
-from medical_extraction.settings import ENGINE
+from medical_extraction.settings import ENGINE, BATCH_PREDICTION_COST
 
 
 def start_project(file_url: str, user: User) -> ResearchProject:
@@ -97,6 +97,9 @@ def populate_research_items(research_project: ResearchProject, df: pd.DataFrame)
 def populate_icd10_items(research_project: ResearchProject, df: pd.DataFrame) -> List[ICD10Item]:
     from model.common import CATEGORIES_DF
     from model.roberta.predict import predict
+    user = research_project.user
+    user.credits += BATCH_PREDICTION_COST
+    user.save()
     prediction = predict(df)
     df = df.join(prediction)
     icd10_items = [
