@@ -86,8 +86,9 @@ class FileUploadView(APIView):
 
 class AuthenticatedView(ABC):
     permission_classes = (permissions.IsAuthenticated,)
+
     def get_queryset(self):
-        return self.queryset.objects.filter(username=self.request.user.username)
+        return self.queryset.filter(user=self.request.user)
 
 
 class ResearchProjectCreateListView(AuthenticatedView, generics.ListCreateAPIView):
@@ -95,37 +96,42 @@ class ResearchProjectCreateListView(AuthenticatedView, generics.ListCreateAPIVie
     queryset = ResearchProject.objects.all()
 
 
-class ResearchProjectView(generics.RetrieveUpdateDestroyAPIView):
+class ResearchProjectView(AuthenticatedView, generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ResearchProjectSerializer
     queryset = ResearchProject.objects.all()
 
 
-class ResearchProjectInfoView(generics.RetrieveAPIView):
+class ResearchProjectInfoView(AuthenticatedView, generics.RetrieveAPIView):
     serializer_class = ResearchProjectNestedSerializer
     queryset = ResearchProject.objects.all()
 
 
 class ResearchItemCreateListView(generics.ListCreateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
     serializer_class = ResearchItemSerializer
     queryset = ResearchItem.objects.all()
 
 
 class ResearchItemView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
     serializer_class = ResearchItemSerializer
     queryset = ResearchItem.objects.all()
 
 
 class ICD10ItemCreateListView(generics.ListCreateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
     serializer_class = ICD10ItemSerializer
     queryset = ICD10Item.objects.all()
 
 
 class ICD10ItemView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
     serializer_class = ICD10ItemSerializer
     queryset = ICD10Item.objects.all()
 
 
 class PercentView(ABC, APIView):
+    permission_classes = (permissions.IsAuthenticated,)
     research_item_queryset = ResearchItem.objects
     TARGET: str
 
@@ -172,6 +178,7 @@ class PredictionAcceptedPercentView(PercentView):
 
 
 class GenerateProjectFileView(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
     research_item_queryset = ResearchItem.objects
 
     @csrf_exempt
@@ -180,6 +187,11 @@ class GenerateProjectFileView(APIView):
             project_id = kwargs['pk']
         except KeyError:
             return JsonResponse({"error": "Please provide a project id"}, status=400)
+
+        user = request.user
+        project = ResearchProject.objects.filter(user=user)
+        if not project:
+            return JsonResponse({"error": "Please provide a correct project id", "detail": "Not found."}, status=404)
 
         try:
             df = get_project_validated_data(project_id)
