@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center page-wrapper">
   <div class="container">
-    <div class="text-center vivify fadeIn delay-250">
+    <div class="text-center vivify fadeIn delay-250"  [hidden]="isLoading">
       <div *ngIf="predictedStatus.total_count !== predictedStatus.predicted_count && predictedStatus.total_count !== 0">
         <div class="title-mini" style="margin-top: -100px">Your file is being processed</div>
         <span>
