@@ -13,6 +13,7 @@ django-storages==1.11.1
 django-s3direct==1.1.8
 en-core-sci-scibert @ https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.4.0/en_core_sci_scibert-0.4.0.tar.gz
 en-core-sci-sm @ https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.3.0/en_core_sci_sm-0.3.0.tar.gz
+en-core-web-sm==3.0.0
 ipykernel==5.3.4
 ipython==7.18.1
 ipython-genutils==0.2.0
