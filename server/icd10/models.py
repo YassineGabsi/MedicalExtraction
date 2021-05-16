@@ -2,12 +2,18 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
+class User(AbstractUser):
+    credits = models.IntegerField(default=1000)
+    image_url = models.CharField(max_length=255, null=True)
+
+
 class ResearchProject(models.Model):
     STATUSES = (
         ('S', 'Started'),
         ('C', 'Completed'),
         ('E', 'Error'),
     )
+    user = models.ForeignKey(User, related_name='projects', on_delete=models.CASCADE)
     start_date = models.DateTimeField(auto_now_add=True, blank=True)
     end_date = models.DateTimeField(auto_now_add=True, blank=True)
     status = models.CharField(max_length=30, choices=STATUSES, default='S')
@@ -40,8 +46,3 @@ class ThematicCodeItem(models.Model):
     )
     item = models.OneToOneField(ResearchItem, on_delete=models.CASCADE)
     thematic_code = models.CharField(max_length=30, choices=THEMATIC_CODES)
-
-
-class User(AbstractUser):
-    credits = models.IntegerField(default=1000)
-    image_url = models.CharField(max_length=255, null=True)
