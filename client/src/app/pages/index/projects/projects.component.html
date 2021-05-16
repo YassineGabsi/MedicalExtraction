@@ -15,7 +15,7 @@
            *ngIf="!isLoading && !projectsInfos.length"
            style="min-height: 60vh; flex-direction: column">
         <h2 class=" font-weight-bold"
-           >
+        >
           You have no projects, You can start a new one from here.
         </h2>
         <button class="button button-primary login-button mx-auto mt-3" routerLink="/upload-file">
@@ -39,15 +39,28 @@
               <span class="font-weight-bold">{{project.validated}}</span>
             </p>
             <p>
-              <span><i class="fab fa-product-hunt mx-1 mb-3"></i> Predicted : </span>
+              <span><i class="fab fa-product-hunt mx-1 "></i> Predicted : </span>
               <span class="font-weight-bold">{{project.predicted}}</span>
             </p>
+            <p>
+              <span><i class="fab fa-product-hunt mx-1 mb-3"></i> Input file : </span>
+              <span class="font-weight-bold view-file-button" (click)="openFileInput(project.file)">
+                View
+                <i class="fas fa-external-link-alt mx-1"></i>
+              </span>
+            </p>
             <button class="button button-primary login-button" style="padding: 5px 10px !important;
-            margin-left: auto !important; margin-right: auto !important;" (click)="visitProject(project.id)">Visit
+            margin-left: auto !important; margin-right: auto !important;"
+                    (click)="visitProject(project.id)">
+              Visit
             </button>
           </div>
-
         </div>
+      </div>
+      <div class="col-12 text-center mt-4" *ngIf="!isLoading && projectsInfos.length" routerLink="/upload-file">
+        <button class="button button-primary login-button">
+          Add New Project
+        </button>
       </div>
     </div>
   </div>

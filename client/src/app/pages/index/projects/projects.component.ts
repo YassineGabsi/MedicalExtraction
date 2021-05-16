@@ -48,7 +48,8 @@ export class ProjectsComponent implements OnInit {
             id: project.id,
             status: project.status,
             validated: validated.percentage,
-            predicted: predicted.percentage
+            predicted: predicted.percentage,
+            file: project.project_file_url,
           });
           if (this.projectsInfos.length === this.projects.length) {
             this.spinner.hide('spinner');
@@ -63,6 +64,10 @@ export class ProjectsComponent implements OnInit {
   visitProject(id) {
     localStorage.setItem('project_id', id);
     this.router.navigateByUrl('/dashboard')
+  }
+
+  openFileInput(file) {
+    window.open(file, '_blank');
   }
 
 }
