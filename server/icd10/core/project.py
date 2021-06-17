@@ -97,7 +97,9 @@ def populate_research_items(research_project: ResearchProject, df: pd.DataFrame)
 def populate_icd10_items(research_project: ResearchProject, df: pd.DataFrame) -> List[ICD10Item]:
     from model.common import CATEGORIES_DF
     from model.roberta.predict import predict
+    logger.info(f"predicting chunk for project {research_project.id}...")
     prediction = predict(df)
+    logger.info(f"chunk predicted for project {research_project.id}")
     df = df.join(prediction)
     icd10_items = [
         ICD10Item(
@@ -123,6 +125,7 @@ def populate_icd10_items(research_project: ResearchProject, df: pd.DataFrame) ->
         for index, row in df.iterrows()
     ]
     icd10_items = ICD10Item.objects.bulk_create(icd10_items)
+    logger.info(f"icd10 items of chunk populated for project {research_project.id}")
     return icd10_items
 
 
