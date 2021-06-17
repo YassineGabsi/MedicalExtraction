@@ -123,7 +123,7 @@ def populate_icd10_items(research_project: ResearchProject, df: pd.DataFrame) ->
                     for i in range(row["top_k"])
                 ]
             ],
-            medical_terms=get_medical_terms(row["Title"] + row["Research Summary"] + row["Inclusion Criteria"])
+            medical_terms=get_medical_terms(str(row["Title"]) + str(row["Research Summary"]) + str(row["Inclusion Criteria"]))
         )
         for index, row in df.iterrows()
     ]
