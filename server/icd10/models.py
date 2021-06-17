@@ -1,5 +1,11 @@
 from django.db import models
-import uuid
+from django.contrib.auth.models import AbstractUser
+
+
+class User(AbstractUser):
+    credits = models.FloatField(default=0)
+    image_url = models.CharField(max_length=255, null=True)
+
 
 class ResearchProject(models.Model):
     STATUSES = (
@@ -7,10 +13,12 @@ class ResearchProject(models.Model):
         ('C', 'Completed'),
         ('E', 'Error'),
     )
+    user = models.ForeignKey(User, related_name='projects', on_delete=models.CASCADE)
     start_date = models.DateTimeField(auto_now_add=True, blank=True)
     end_date = models.DateTimeField(auto_now_add=True, blank=True)
     status = models.CharField(max_length=30, choices=STATUSES, default='S')
     project_file_url = models.TextField(default=None, null=True)
+
 
 class ResearchItem(models.Model):
     project = models.ForeignKey(ResearchProject, related_name='items', on_delete=models.CASCADE)

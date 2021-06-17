@@ -5,6 +5,8 @@
   margin: 0 40px;
   border-bottom: 1px solid #707070;
   color: #0895A4;
+  position: relative;
+  z-index: 50;
 }
 
 .sign-up-button {

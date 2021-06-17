@@ -1,15 +1,17 @@
-import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter, OnChanges} from '@angular/core';
 import {ResearchItem} from '../../../models/research-item';
 import {Icd10Prediction} from '../../../models/icd10-prediction';
 import {Icd10ItemService} from '../../../services/icd10-item.service';
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
+
+declare var $: any;
 
 @Component({
   selector: 'app-record-item',
   templateUrl: './record-item.component.html',
   styleUrls: ['./record-item.component.css']
 })
-export class RecordItemComponent implements OnInit {
+export class RecordItemComponent implements OnInit, OnChanges {
 
   @Input() recordItem: ResearchItem;
   @Input() windowsWidth: number;
@@ -20,24 +22,45 @@ export class RecordItemComponent implements OnInit {
   public customICD10 = '';
   public predictedICDs: Array<Icd10Prediction>;
 
+  public splittedInclusionCriteria = null;
+  public splittedTitle = null;
+  public splittedSummary = null;
+
   @Output() nextRecordEvent = new EventEmitter<any>();
+  @Output() validateNumber = new EventEmitter<any>();
 
   constructor(private icd10ItemService: Icd10ItemService) {
   }
 
   ngOnInit(): void {
-    if (this.recordItem.icd10_item.icd10_validation === null) {
-      this.recordItem.icd10_item.icd10_validation = [];
+    if (this.recordItem.icd10_item) {
+      this.splitToColorMedicalTerms();
+      if (this.recordItem.icd10_item.icd10_validation === null) {
+        this.recordItem.icd10_item.icd10_validation = [];
+      }
+      this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
+      this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
+      this.configureCustomICDSelection();
+      if (this.recordItem.icd10_item.icd10_validation === null) {
+        this.getValidatedPredictions();
+      }
+      console.log(this.suggestionsNumber);
+      this.updateMedicalTags()
     }
-    this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
-    this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
-    this.configureCustomICDSelection();
-    this.getValidatedPredictions();
-    console.log(this.suggestionsNumber);
-    this.medicalTags.push('complications');
-    this.medicalTags.push('heart diseases');
-    this.medicalTags.push('coronary artery diseases');
-    this.medicalTags.push('lorem upsum lorem upsum lorem upsum');
+  }
+
+  updateMedicalTags() {
+    this.medicalTags = [];
+    this.recordItem.icd10_item.medical_terms.forEach(
+      term => this.medicalTags.push(term.toLowerCase())
+    )
+  }
+
+  ngOnChanges(changes) {
+    if (this.recordItem.icd10_item) {
+      this.updateMedicalTags();
+      this.splitToColorMedicalTerms();
+    }
   }
 
   addSlice(): void {
@@ -86,7 +109,7 @@ export class RecordItemComponent implements OnInit {
         test = false
       }
     });
-    if (test)this.allAccepted = true;
+    if (test) this.allAccepted = true;
     return test;
   }
 
@@ -120,48 +143,81 @@ export class RecordItemComponent implements OnInit {
     this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
     this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
     this.configureCustomICDSelection();
-    this.getValidatedPredictions();
+    if (this.recordItem.icd10_item.icd10_validation !== null) {
+      this.getValidatedPredictions();
+    }
   }
 
   scoreCalc(score) {
     return (score * 100).toFixed(2);
   }
 
-  nextRecord() {
+  nextRecord(scrolled) {
     this.nextRecordEvent.emit();
+    if (!scrolled) {
+      $('.ng-sidebar__content').animate({
+        scrollTop: 0
+      });
+    }
+  }
+
+  validateNum() {
+    this.validateNumber.emit();
   }
 
   validatePrediction() {
-    const validation = [];
-    this.acceptedPredictions.forEach(item => {
-      validation.push(this.recordItem.icd10_item.icd10_prediction[item]);
-    });
-    this.recordItem.icd10_item.icd10_validation = validation;
-    this.recordItem.icd10_item.validated = false;
-    const dataToSend = {
-      icd10_validation: validation,
-      validated: true,
-      first_prediction_accepted: this.acceptedPredictions.has(0),
-    };
-    this.icd10ItemService.patchICD10Item(this.recordItem.icd10_item.id, dataToSend).subscribe((data) => {
-      Swal.fire({
-        icon: 'success',
-        title: 'Record Validated',
-        text: 'Congratulation, your record has been validated succefully!',
+    if (this.acceptedPredictions.size) {
+      const validation = [];
+      this.acceptedPredictions.forEach(item => {
+        validation.push(this.recordItem.icd10_item.icd10_prediction[item]);
       });
-      this.recordItem.icd10_item = data;
-      setTimeout(() => {
-        this.nextRecord();
-        Swal.close();
-      }, 2000);
-    }, (err) => {
+      this.recordItem.icd10_item.icd10_validation = validation;
+      this.recordItem.icd10_item.validated = false;
+      const dataToSend = {
+        icd10_validation: validation,
+        validated: true,
+        first_prediction_accepted: this.acceptedPredictions.has(0),
+      };
+      this.icd10ItemService.patchICD10Item(this.recordItem.icd10_item.id, dataToSend).subscribe((data) => {
+        let scrolled = false;
+        Swal.fire({
+          icon: 'success',
+          title: 'Record Validated',
+          text: 'Congratulation, your record has been validated succefully!',
+        }).then(() => {
+          $('.ng-sidebar__content').animate({
+            scrollTop: 0
+          });
+          this.validateNum();
+          this.nextRecord(true);
+          scrolled = true;
+        });
+        this.recordItem.icd10_item = data;
+        setTimeout(() => {
+          Swal.close();
+          if (!scrolled) {
+            this.validateNum();
+            this.nextRecord(true);
+            $('.ng-sidebar__content').animate({
+              scrollTop: 0
+            });
+          }
+        }, 2000);
+      }, (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.error.message,
+        });
+        console.log(err);
+      });
+    } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: err.error.message,
+        text: 'You didn\'t choose any suggestion to validate this record. Please choose an ICD10 block name.',
       });
-      console.log(err);
-    });
+    }
   }
 
   getValidatedPredictions() {
@@ -174,5 +230,17 @@ export class RecordItemComponent implements OnInit {
     });
     console.log(this.testIfAllAccepted());
     console.log(this.acceptedPredictions);
+  }
+
+  splitToColorMedicalTerms() {
+    this.splittedInclusionCriteria = this.recordItem.inclusion_criteria.split(' ');
+    this.splittedTitle = this.recordItem.title.split(' ');
+    console.log(this.recordItem);
+    this.splittedSummary = this.recordItem.research_summary.split(' ');
+  }
+
+  isMedicalTag(word: string): boolean {
+    const lowerCase = word.split('.')[0].split(',')[0].split('-')[0].toLowerCase();
+    return this.medicalTags.includes(lowerCase);
   }
 }

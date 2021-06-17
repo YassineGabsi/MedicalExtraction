@@ -14,6 +14,9 @@ import {IndexRoutingModule} from './index-routing.module';
 import { DndDirective } from '../../directives/dnd.directive';
 import { PredictionStatusComponent } from './prediction-status/prediction-status.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import {FormsModule} from "@angular/forms";
+import { ProjectsComponent } from './projects/projects.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -29,7 +32,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     RegisterComponent,
     IndexComponent,
     DndDirective,
-    PredictionStatusComponent
+    PredictionStatusComponent,
+    ProjectsComponent,
+    ProfileComponent
   ],
   exports: [
     HeaderComponent
@@ -39,6 +44,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     RouterModule,
     IndexRoutingModule,
     NgxSpinnerModule,
+    FormsModule,
   ]
 })
 export class IndexModule { }

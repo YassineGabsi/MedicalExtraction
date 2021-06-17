@@ -1,0 +1,9 @@
+.all-validated-wrapper {
+  padding: 30px;
+}
+
+@media screen and (max-width: 991px){
+  .all-validated-wrapper {
+    padding: 0;
+  }
+}

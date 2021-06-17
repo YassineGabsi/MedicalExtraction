@@ -3,8 +3,11 @@ import re
 from functools import wraps
 from math import ceil
 from typing import List, Tuple, Any
-
+from model.custom_ner.extract_terms import extract_medical_terms
 import pandas as pd
+import scispacy
+import spacy
+
 
 
 def str2bool(value: str) -> bool:
@@ -111,7 +114,16 @@ def map2starmap_adapter(func):
     :param func: function
     :return: decorated function
     """
+
     @wraps(func)
     def func_wrapper(args: Tuple[Any], **kwargs):
         return func(*args, **kwargs)
+
     return func_wrapper
+
+
+def get_medical_terms(text: str) -> List[str]:
+    """
+    Extracts medical terms from document
+    """
+    return extract_medical_terms(text)

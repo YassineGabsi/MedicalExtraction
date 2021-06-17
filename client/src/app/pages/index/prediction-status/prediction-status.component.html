@@ -1,11 +1,16 @@
 <div class="d-flex align-items-center page-wrapper">
   <div class="container">
-    <div class="text-center vivify fadeIn delay-250">
-      <div class="title-mini" style="margin-top: -100px">Your file is being processed </div>
-      <span>
-        We received your file and it's being processed. We are generating the predicted items.
-        Thank you for waiting, from here you can follow the real time prediction status.
-      </span>
+    <div class="text-center vivify fadeIn delay-250"  [hidden]="isLoading">
+      <div *ngIf="predictedStatus.total_count !== predictedStatus.predicted_count && predictedStatus.total_count !== 0">
+        <div class="title-mini" style="margin-top: -100px">Your file is being processed</div>
+        <span>
+          We received your file and it's being processed. We are generating the prediction items.
+          Thank you for waiting, from here you can follow the real time prediction status.
+        </span>
+      </div>
+      <div *ngIf="predictedStatus.total_count === predictedStatus.predicted_count && validatedStatus.total_count !== 0">
+        <div class="title-mini" style="margin-top: -100px">Processing completed</div>
+      </div>
       <div class="text-center">
         <button class="button button-primary mt-4" routerLink="/dashboard">
           Go To Validation
@@ -14,22 +19,30 @@
     </div>
 
     <div class="col-12">
-      <div class="row">
+      <ngx-spinner bdColor="rgba(255,255,255,0)" size="medium" color="#ffffff" type="square-jelly-box"
+                   [fullScreen]="false"><div class="font-weight-bold" style="color: #ffffff; margin-top: 100px"> Your file is being uploaded... </div></ngx-spinner>
+      <div class="row" [hidden]="isLoading">
         <div class="col-md-6 col-12 mt-4">
-          <div id="cont" data-pct="50">
-            <svg class="vivify fadeIn" id="svg" width="200" height="200" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
-              <circle id="bar" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+          <div id="cont" data-pct="0">
+            <svg class="vivify fadeIn" id="svg" width="200" height="200" viewPort="0 0 100 100" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <circle r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48"
+                      stroke-dashoffset="0"></circle>
+              <circle id="bar" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48"
+                      stroke-dashoffset="0"></circle>
             </svg>
             <h4 class="text-center mt-4 under-percentage-text mb-2 vivify fadeInBottom delay-200">Predicted</h4>
           </div>
         </div>
 
         <div class="col-md-6 col-12 mt-4">
-          <div id="cont2" data-pct="50">
-            <svg class="vivify fadeIn" id="svg2" width="200" height="200" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
-              <circle id="bar2" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+          <div id="cont2" data-pct="0">
+            <svg class="vivify fadeIn" id="svg2" width="200" height="200" viewPort="0 0 100 100" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <circle r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48"
+                      stroke-dashoffset="0"></circle>
+              <circle id="bar2" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48"
+                      stroke-dashoffset="0"></circle>
             </svg>
             <h4 class="text-center mt-4 under-percentage-text mb-2 vivify fadeInBottom delay-200">Validated</h4>
           </div>

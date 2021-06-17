@@ -1,0 +1,18 @@
+branch-defaults:
+  default:
+    environment: medical-extraction-dev
+    group_suffix: null
+global:
+  application_name: medical-extraction
+  branch: null
+  default_ec2_keyname: MedicalExtraction
+  default_platform: Python 3.8
+  default_region: eu-central-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  repository: null
+  sc: null
+  workspace_type: Application

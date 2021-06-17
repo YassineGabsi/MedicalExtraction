@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import datetime
 from pathlib import Path
 import os
 from dotenv import load_dotenv
@@ -22,7 +22,6 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -34,16 +33,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'rest_framework.authtoken', # otherwise the Token model will be abstract and won't have objects member
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
+    'django.contrib.sites',
     'icd10',
     'corsheaders',
     'rest_framework'
@@ -61,6 +62,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
+LOGIN_REDIRECT_URL = '/'
 
 ROOT_URLCONF = 'medical_extraction.urls'
 
@@ -82,7 +84,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'medical_extraction.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -97,11 +98,12 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'icd10.User'
+
 ENGINE = create_engine(
     f"postgresql://{os.getenv('PGUSER')}:{os.getenv('PGPASSWORD')}"
     f"@{os.getenv('PGHOST', 'localhost')}:{os.getenv('PGPORT', '5432')}/{os.getenv('PGDATABASE')}"
 )
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -121,7 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -135,18 +136,42 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    # 'DEFAULT_RENDERER_CLASSES': [
+    #     'rest_framework.renderers.JSONRenderer',
+    #     'rest_framework.renderers.BrowsableAPIRenderer',
+    # ]
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=30),
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=60),
+    'USER_ID_CLAIM': 'id',
+}
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
 AWS_S3_REGION_NAME = 'eu-central-1'
 AWS_S3_ENDPOINT_URL = 'https://s3.amazonaws.com'
+AWS_DEFAULT_ACL = 'public-read'
 
 S3DIRECT_DESTINATIONS = {
     'primary_destination': {
@@ -157,6 +182,7 @@ S3DIRECT_DESTINATIONS = {
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = False
 
-
 # Application specific configurations
 ALLOW_DUPLICATE_FILES = str2bool(os.getenv("ALLOW_DUPLICATE_FILES", "true"))
+
+BATCH_PREDICTION_COST = float(os.getenv("BATCH_PREDICTION_COST", "0.25"))

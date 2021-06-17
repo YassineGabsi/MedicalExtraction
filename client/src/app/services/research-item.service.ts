@@ -15,26 +15,26 @@ export class ResearchItemService extends GenericService {
   }
 
   public getAllResearchItems(): Observable<Array<ResearchItem>> {
-    return this.http.get(this.url) as Observable<Array<ResearchItem>>;
+    return this.http.get(this.url, {headers: this.getHeaders()}) as Observable<Array<ResearchItem>>;
   }
 
   public addResearchItem(resItem: ResearchItem): Observable<any> {
-    return this.http.post(this.url, resItem) as Observable<any>;
+    return this.http.post(this.url, resItem, {headers: this.getHeaders()}) as Observable<any>;
   }
 
   public getById(id: any): Observable<ResearchItem> {
-    return this.http.get(this.url + id) as Observable<ResearchItem>;
+    return this.http.get(this.url + id, {headers: this.getHeaders()}) as Observable<ResearchItem>;
   }
 
   public deleteResearchItem(id: any): Observable<ResearchItem> {
-    return this.http.delete(this.url + id) as Observable<ResearchItem>;
+    return this.http.delete(this.url + id, {headers: this.getHeaders()}) as Observable<ResearchItem>;
   }
 
   public patchResearchItem(id: any, resItem: ResearchItem): Observable<ResearchItem> {
-    return this.http.patch(this.url + id, resItem) as Observable<ResearchItem>;
+    return this.http.patch(this.url + id, resItem, {headers: this.getHeaders()}) as Observable<ResearchItem>;
   }
 
   public putResearchItem(id: any, resItem: ResearchItem): Observable<ResearchItem> {
-    return this.http.put(this.url + id, resItem) as Observable<ResearchItem>;
+    return this.http.put(this.url + id, resItem, {headers: this.getHeaders()}) as Observable<ResearchItem>;
   }
 }

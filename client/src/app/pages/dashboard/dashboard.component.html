@@ -5,7 +5,7 @@
       <img style="  margin-top: -20px; max-height: 50px; cursor: pointer" src="../../../assets/images/toggle.png"
            alt="a" (click)="_toggleSidebar()">
     </div>
-    <button class="button button-primary download-button mx-3 vivify fadeIn delay-150">Download Output</button>
+    <button class="button button-primary download-button mx-3 vivify fadeIn delay-150" (click)="exportOutput()">Export Output</button>
     <label>
       <input type="text" class="search-input vivify fadeIn delay-250" (ngModelChange)="filterRows($event)" [(ngModel)]="searchString"
              placeholder="Search...">
@@ -14,11 +14,13 @@
       <button (click)="toggleSearch('validated')"
               class="button button-primary button-search-primary mx-1 my-1"
               [ngClass]="{'button-search': searchSelected === 'validated'}"
+              [disabled]="!isLoading && project.status !== 'C'"
               style="font-size: 11px; padding: 5px 10px">Validated
       </button>
       <button (click)="toggleSearch('non-validated')"
               class="button button-primary button-search-primary mx-1 my-1"
               [ngClass]="{'button-search': searchSelected === 'non-validated'}"
+              [disabled]="!isLoading && project.status !== 'C'"
               style="font-size: 11px; padding: 5px 10px">Non Validated
       </button>
       <button (click)="toggleSearch('all')"
@@ -36,14 +38,14 @@
            [ngClass]="{'record-item-active' : recordSelected === record}">
         <div class="text-center"
              style="white-space: nowrap; text-overflow: ellipsis; max-width: 250px; overflow: hidden;">
-          <img style="max-height: 26px; float: right;" *ngIf="record.icd10_item.validated"
+          <img style="max-height: 26px; float: right;" *ngIf=" record.icd10_item && record.icd10_item.validated"
                src="../../../assets/images/ok.png" alt="">
           {{i + 1}} - {{record.title}}
         </div>
       </div>
       <div *ngIf="!filteredRecords.length">
-        <i style="color: #ffffff;" class="fas fa-folder-open fa-3x mt-5"></i>
-        <h6 class="font-weight-bold mt-4 px-3" style="color: #ffffff;">Sorry, There is no records with this name.</h6>
+        <i style="color: #ffffff;" class="fas fa-folder-open fa-3x mt-5 vivify fadeIn"></i>
+        <h6 class="font-weight-bold mt-4 px-3 vivify fadeIn" style="color: #ffffff;">Sorry, There is no records with this name.</h6>
       </div>
     </div>
     <ngx-spinner *ngIf="isLoading"
@@ -67,8 +69,10 @@
   <!-- Page content -->
   <div class="sidebar-content" ng-sidebar-content>
     <app-navbar-dashboard></app-navbar-dashboard>
-    <app-record-item *ngIf="!isLoading" (nextRecordEvent)="nextRecord()" [windowsWidth]="windowsWidth"
+    <app-record-item *ngIf="!isLoading && !lastRecord" (nextRecordEvent)="nextRecord()"
+                     [windowsWidth]="windowsWidth" (validateNumber)="getValidatedNumber()"
                      [recordItem]="recordSelected"></app-record-item>
+    <app-all-validated (downloadResults)="exportOutput()" *ngIf="!isLoading && lastRecord"></app-all-validated>
     <ngx-spinner *ngIf="isLoading"
                  bdColor="rgba(255,255,255,0)"
                  size="medium"

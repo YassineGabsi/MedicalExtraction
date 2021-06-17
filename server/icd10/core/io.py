@@ -1,3 +1,4 @@
+import io
 import os
 from datetime import datetime
 
@@ -28,7 +29,7 @@ def upload(file_obj: TemporaryUploadedFile):
 
     if not media_storage.exists(file_path_within_bucket):
         media_storage.save(file_path_within_bucket, file_obj)
-        file_url = f"s3://{media_storage.bucket_name}/{file_path_within_bucket}"
+        file_url = f"https://{media_storage.bucket_name}.s3.amazonaws.com/{file_path_within_bucket}"
         #file_url = media_storage.url(file_path_within_bucket)
     else:
         raise AlreadyExistsError(
@@ -43,3 +44,12 @@ def upload(file_obj: TemporaryUploadedFile):
 
 def read(file_url: str) -> pd.DataFrame:
     return generic_read(file_url)
+
+
+def upload_df(df: pd.DataFrame, key: str):
+    buffer = io.BytesIO()
+    df.to_csv(buffer, index=False)
+    buffer.seek(0)
+    media_storage = MediaStorage()
+    media_storage.save(key, buffer)
+    return f"https://{media_storage.bucket_name}.s3.amazonaws.com/{key}"
