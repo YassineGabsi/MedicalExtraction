@@ -110,7 +110,9 @@ export class DashboardComponent implements OnInit {
   selectRecord(i): void {
       this.lastRecord = false;
       this.recordSelected = this.filteredRecords[i];
+      console.log(this.recordSelected.icd10_item)
       if (this.recordSelected.icd10_item) {
+        console.log('preee');
         this.recordItemChild.updateElements(this.recordSelected);
       }
   }
@@ -150,9 +152,9 @@ export class DashboardComponent implements OnInit {
     this.searchString = '';
     this.searchSelected = search;
     if (search === 'validated') {
-      this.filteredRecords = this.records.filter(item => item.icd10_item.validated);
+      this.filteredRecords = this.records.filter(item => item.icd10_item && item.icd10_item.validated);
     } else if (search === 'non-validated') {
-      this.filteredRecords = this.records.filter(item => !item.icd10_item.validated);
+      this.filteredRecords = this.records.filter(item => item.icd10_item && !item.icd10_item.validated);
     } else {
       this.filteredRecords = this.records;
     }

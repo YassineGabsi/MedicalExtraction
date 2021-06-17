@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <div class="card-dashboard mt-4 vivify fadeIn" [ngClass]="{'mx-5': windowsWidth > 567, 'mx-1': windowsWidth <= 567}">
+  <div class="card-dashboard mt-4 vivify fadeIn"  *ngIf="recordItem.icd10_item" [ngClass]="{'mx-5': windowsWidth > 567, 'mx-1': windowsWidth <= 567}">
     <div class="row">
       <div class="col-md-6">
         <label class="label ml-3 mt-3 vivify fadeIn delay-200">Title</label>
