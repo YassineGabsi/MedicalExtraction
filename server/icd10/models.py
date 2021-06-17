@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    credits = models.IntegerField(default=1000)
+    credits = models.FloatField(default=0)
     image_url = models.CharField(max_length=255, null=True)
 
 

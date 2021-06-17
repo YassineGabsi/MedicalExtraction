@@ -125,3 +125,12 @@
     box-shadow: -20px -20px 0px 0px var(--blue-color);
   }
 }
+
+.view-file-button {
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.view-file-button:hover {
+  color: var(--blue-color);
+}

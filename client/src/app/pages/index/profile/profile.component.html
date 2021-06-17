@@ -43,7 +43,12 @@
               - Username is not valid
             </div>
             Username
-            <input [(ngModel)]="profile.username" required #username="ngModel" name="username" type="text" class="custom-input col-12" placeholder="Email">
+            <input [(ngModel)]="profile.username" required #username="ngModel" name="username" type="text" class="custom-input col-12" placeholder="Username">
+          </label>
+
+          <label class="label mt-4 col-12">
+            <span>Consumption: </span>
+            <span style="color: var(--blue-color)"> {{profile.credits}}</span>
           </label>
 
           <div class="text-center">
