@@ -25,4 +25,4 @@ The classification job looks like so:
 ## Demo
 This video demonstrates how to use the web application:
 
-![](./assets/MediCAT-demo.mp4)
+https://github.com/YassineGabsi/MedicalExtraction/raw/develop/assets/MediCAT-demo.mp4
