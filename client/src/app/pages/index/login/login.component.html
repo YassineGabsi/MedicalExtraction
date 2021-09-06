@@ -1,0 +1,52 @@
+<div class="d-flex align-items-center page-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 vivify fadeInLeft delay-150">
+        <img class="img-fluid" src="../../../assets/images/login-img.png" alt="">
+      </div>
+      <div class="col-md-6 vivify fadeInRight delay-150">
+        <h4 class="title-mini text-center my-2">Login</h4>
+        <div class="text-center">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+          et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+        </div>
+
+        <ngx-spinner *ngIf="isLoading"
+                     bdColor="rgba(255,255,255,0)"
+                     size="medium"
+                     color="#0995a4"
+                     type="square-jelly-box"
+                     [fullScreen]="false"
+                     [name]="'spinner'">
+        </ngx-spinner>
+        <form *ngIf="!isLoading" class="form-login" (ngSubmit)="submitLogin()" #loginForm="ngForm">
+
+          <label class="label mt-4 col-12">
+            <div [hidden]="username.valid || username.pristine"
+                 class="alert-input-notice label">
+              - Username is not valid
+            </div>
+            Username
+            <input [(ngModel)]="emailToSend" required #username="ngModel" name="username" type="text" class="custom-input col-12" placeholder="Username">
+          </label>
+
+          <label class="label mt-4 col-12">
+            <div [hidden]="password.valid || password.pristine"
+                 class="alert-input-notice label">
+              - Password is not valid
+            </div>
+            Password
+            <input [(ngModel)]="passwordToSend" required #password="ngModel" name="password" type="password" class="custom-input col-12" placeholder="Password">
+          </label>
+          <p class="go-to-sign-up mt-2">You don't have an account yet ?
+            <span routerLink="/register" style="cursor: pointer">Sign Up</span>
+          </p>
+          <div class="text-center">
+            <button type="submit" [disabled]="!loginForm.form.valid" class="button button-primary login-button mt-5">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

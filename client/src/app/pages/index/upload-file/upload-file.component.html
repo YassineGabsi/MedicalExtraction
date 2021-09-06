@@ -1,0 +1,50 @@
+<div class="d-flex align-items-center page-wrapper">
+  <div class="container">
+    <div class="text-center">
+      <div class="title-mini">Welcome XXXXX XXXXX</div>
+      <span>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet,
+      </span>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <img class="img-fluid mt-4" style="max-height: 90%" src="../../../assets/images/upload.png" alt="">
+      </div>
+      <div class="col-md-6 d-flex align-items-center" style="flex-wrap: wrap;" *ngIf="!isLoading">
+        <div class="upload-wrapper" appDnd (fileDropped)="onDropFile($event)" *ngIf="!fileToSend"
+             (click)="uploadFile()">
+          <div>
+            <i class="fas fa-cloud-upload-alt fa-3x mb-2"
+               style="display: flex; text-align: center; align-items: center; justify-content: center;"></i>
+            <div class="mx-2 text-center" style="font-weight: bold">Click to upload your file</div>
+            <div class="mx-2 text-center" style="font-weight: bold">Or Just drag and drop your file here</div>
+          </div>
+        </div>
+        <div class="upload-wrapper-uploaded" appDnd (fileDropped)="onDropFile($event)" *ngIf="fileToSend"
+             (click)="uploadFile()">
+          <div>
+            <i class="far fa-file-excel fa-3x mb-2"
+               style="display: flex; text-align: center; align-items: center; justify-content: center;"></i>
+            <div class="mx-2 text-center" style="font-weight: bold">{{fileToSend.name}}</div>
+          </div>
+        </div>
+        <br>
+        <div class="text-center" style="width: 100%">
+          <button (click)="upload()" class="button button-primary my-3" [disabled]="!fileToSend">
+            Upload File
+          </button>
+          <input id="upload-file" type="file" value="importer" style="display:none;"
+                 (change)="onChangeFile($event)">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <ngx-spinner bdColor="rgba(255,255,255,0)" size="medium" color="#0895a4" type="square-jelly-box"
+                     [fullScreen]="false"><p class="mt-4 font-weight-bold" style="color: #0895a4"> Your file is being uploaded... </p></ngx-spinner>
+      </div>
+    </div>
+  </div>
+</div>

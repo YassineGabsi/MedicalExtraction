@@ -1,0 +1,12 @@
+.bottom-section {
+  height: auto;
+  background-color: rgba(8,149,164,0.42);
+  padding: 20px 0;
+  margin-top: 50px;
+}
+.img-services {
+  max-width: 100px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

@@ -1,0 +1,33 @@
+<header>
+  <div class="header-section vivify fadeIn delay-150">
+    <div class="row-custom align-items-center">
+      <div class="col-lg-4 col-md-6  only-desktop font-weight-bold" routerLink="/" style="cursor: pointer">
+        MediCAT
+      </div>
+      <div *ngIf="isLoggedIn" class="col-lg-8 col-md-6">
+        <div class="d-flex dropdown"
+             id="dropdownMenuButton"
+             data-toggle="dropdown"
+             aria-haspopup="true"
+             aria-expanded="false"
+             style="float: right; cursor: pointer;">
+          <span *ngIf="profile.first_name" class="profile-dropdown dropdown-toggle">
+            {{profile.first_name + ' ' + profile.last_name}}
+          </span>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" routerLink="/profile">Profile</a>
+            <a class="dropdown-item" routerLink="/projects">Projects</a>
+            <a *ngIf="projectId" class="dropdown-item" routerLink="/dashboard">Dashboard</a>
+            <a class="dropdown-item" routerLink="/upload-file">New Project</a>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+          </div>
+          <img class="img-fluid img-avatar" src="../../../assets/images/avatar.png" alt="">
+        </div>
+      </div>
+
+      <button *ngIf="!isLoggedIn" routerLink="/register" class="sign-up-button">Sign Up</button>
+      <button *ngIf="!isLoggedIn" routerLink="/login" class="button button-primary login-button float-right">Login</button>
+
+    </div>
+  </div>
+</header>
