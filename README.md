@@ -30,9 +30,9 @@ The classification job looks like so:
 ![](./assets/medicat-workflow-overview.png)
 
 ## Demo
-This video demonstrates how to use the web application:
+This [video demonstrates](https://www.youtube.com/watch?v=4p9IN31vTeA) how to use the web application:
 
-![](./assets/MediCAT-demo.mp4)
+![](./assets/mediCAT-demo.gif)
 
 
 ## ICD10 Classification
