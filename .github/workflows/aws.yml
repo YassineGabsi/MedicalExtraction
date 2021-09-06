@@ -1,9 +1,7 @@
 on:
   push:
     branches:
-      - devops
       - develop
-      - master
 
 name: Project Deployment
 

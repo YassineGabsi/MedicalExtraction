@@ -89,6 +89,7 @@ export class RecordItemComponent implements OnInit, OnChanges {
   }
 
   deleteAll() {
+    console.log(this.suggestionsNumber);
     this.suggestionsNumber.forEach(this.acceptedPredictions.delete, this.acceptedPredictions);
     this.allAccepted = false;
   }
@@ -135,11 +136,12 @@ export class RecordItemComponent implements OnInit, OnChanges {
   }
 
   updateElements(record) {
-    if (this.recordItem.icd10_item.icd10_validation === null) {
+    console.log(this.recordItem)
+    if (this.recordItem.icd10_item && this.recordItem.icd10_item.icd10_validation === null) {
       this.recordItem.icd10_item.icd10_validation = [];
     }
     this.recordItem = record;
-    this.deleteAll();
+    if (this.suggestionsNumber) this.deleteAll();
     this.predictedICDs = Array.from(this.recordItem.icd10_item.icd10_prediction);
     this.suggestionsNumber = Array(3).fill(5).map((x, i) => i);
     this.configureCustomICDSelection();
